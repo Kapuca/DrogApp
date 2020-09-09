@@ -4,8 +4,8 @@ import { Component, OnInit } from '@angular/core';
   selector: 'app-main',
   template: `
     <div id='main'>
-      <div class='tile' *ngFor='let tile of tiles' [routerLink]='tile' >
-        <img [src]="['/assets/img/home-' + tile + '-txt.png']"/>
+      <div class='tile' *ngFor='let tile of tiles' [routerLink]="['/', tile]">
+        <img [src]="['assets/img/home-' + tile + '-txt.png']"/>
       </div>
     </div>
   `,
