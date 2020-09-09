@@ -4,12 +4,15 @@ import { Component, OnInit } from '@angular/core';
   selector: 'app-header',
   template: `
   <div>
-    <a routerLink="/" ><p>
+    <p routerLink="/">
       DROG<strong>APP</strong>
-    </p></a>
+    </p>
   </div>
   `,
-  styles: ['div {background-color: black; padding: 5px;} p {margin: 0; text-align: center;}']
+  styles: [
+    'div {background-color: black; padding: 5px;}',
+    'p {margin: 0; text-align: center; color: white;}'
+  ]
 })
 export class HeaderComponent implements OnInit {
 
