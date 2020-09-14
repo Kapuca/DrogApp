@@ -1,11 +1,12 @@
 import { Component, OnInit } from '@angular/core';
+import { GeneralService } from '../general/general.service';
 
 @Component({
   selector: 'app-main',
   template: `
     <div id='main'>
-      <div class='tile' *ngFor='let tile of tiles' [routerLink]="['/', tile]">
-        <img [src]="['assets/img/home-' + tile + '-txt.png']"/>
+      <div class='tile' *ngFor='let title of titles()' [routerLink]="['/', title]" [style.background-color]='color(title)'>
+        <img [src]="['assets/img/home-' + title + '-txt.png']"/>
       </div>
     </div>
   `,
@@ -17,11 +18,13 @@ import { Component, OnInit } from '@angular/core';
 })
 export class MainComponent implements OnInit {
 
-  tiles = ['droge', 'nasveti', 'zapleti', 'emergency', 'info', 'opozorila'];
 
-  constructor() { }
+  constructor(private gs: GeneralService) { }
 
   ngOnInit(): void {
   }
+
+  titles(){ return this.gs.getTitles(); }
+  color(title){ return this.gs.getColor(title); }
 
 }
