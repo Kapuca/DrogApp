@@ -13,6 +13,8 @@ import { ListComponent } from './list/list.component';
 import { DrogeComponent } from './droge/droge.component';
 import { ZapletiComponent } from './zapleti/zapleti.component';
 import { NasvetiComponent } from './nasveti/nasveti.component';
+import { NavHeaderComponent } from './nav-header/nav-header.component';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -26,11 +28,13 @@ import { NasvetiComponent } from './nasveti/nasveti.component';
     ListComponent,
     DrogeComponent,
     ZapletiComponent,
-    NasvetiComponent
+    NasvetiComponent,
+    NavHeaderComponent
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]
