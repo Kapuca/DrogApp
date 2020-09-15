@@ -16,18 +16,12 @@ const routes: Routes = [
   { path: 'info', component: InfoComponent },
   { path: 'emergency', component: EmergencyComponent },
   { path: 'opozorila', component: OpozorilaComponent },
-  {
-    path: 'droge', component: ListComponent,
-    children: [{ path: ':name', component: DrogeComponent }]
-  },
-  {
-    path: 'nasveti', component: ListComponent,
-    children: [{ path: ':name', component: NasvetiComponent }]
-  },
-  {
-    path: 'zapleti', component: ListComponent,
-    children: [{ path: ':name', component: ZapletiComponent }]
-  },
+  { path: 'droge', component: ListComponent },
+  { path: 'droge/:id', component: DrogeComponent },
+  { path: 'nasveti', component: ListComponent },
+  { path: 'nasveti/:id', component: NasvetiComponent },
+  { path: 'zapleti', component: ListComponent },
+  { path: 'zapleti/:id', component: ZapletiComponent },
 ];
 
 @NgModule({
