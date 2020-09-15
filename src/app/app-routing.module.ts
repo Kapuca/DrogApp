@@ -21,7 +21,7 @@ const routes: Routes = [
     children: [{ path: ':name', component: DrogeComponent }]
   },
   {
-    path: 'naveti', component: ListComponent,
+    path: 'nasveti', component: ListComponent,
     children: [{ path: ':name', component: NasvetiComponent }]
   },
   {
