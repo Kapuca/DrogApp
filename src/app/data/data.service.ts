@@ -13,16 +13,15 @@ export class DataService {
 
   constructor(private http: HttpClient) { }
 
-  getData(type: string): Observable<object[]>{
-    const tmp = this.http.get<object[]>( this.url + type + this.endParam).pipe(map(arr => {
+  getData(type: string, id?: number): Observable<any[]>{
+    const tmp = this.http.get<any[]>( this.url + type + this.endParam).pipe(map(arr => {
       return arr.map(obj => {
         const newObj = {};
         Object.keys(obj).forEach(key => newObj[key.substring(1).toLowerCase()] = obj[key]);
-        console.log('newObj:', newObj);
         return newObj;
       });
     }));
-    console.log(typeof tmp, tmp);
+    if (id) { return tmp.pipe(map(arr => arr.filter(obj => +obj['id'] === id))); }
     return tmp;
   }
 
