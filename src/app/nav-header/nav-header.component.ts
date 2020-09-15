@@ -3,13 +3,14 @@ import { ActivatedRoute } from '@angular/router';
 import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
 import { GeneralService } from '../general/general.service';
+import { DataService } from '../data/data.service';
 
 @Component({
   selector: 'app-nav-header',
   template: `
     <div [routerLink]="['../']" [style.background-color]='color()'>
-      <img [src]="['assets/img/home-' + baseUrl + '.png']"/>
-      <span>{{ url | async | uppercase}}</span>
+      <img [src]="['assets/img/home-' + baseSeg + '.png']"/>
+      <span>{{ fullSeg | uppercase }}</span>
     </div>
   `,
   styles: [
@@ -19,20 +20,27 @@ import { GeneralService } from '../general/general.service';
 })
 export class NavHeaderComponent implements OnInit {
 
-  url: Observable<string>;
-  baseUrl: string;
+  url: Observable<string[]>;
+  baseUrl: Observable<string>;
+  baseSeg: string;
+  fullSeg: any;
 
-  constructor(private route: ActivatedRoute, private gs: GeneralService) { }
+  constructor(private route: ActivatedRoute, private gs: GeneralService, private ds: DataService) { }
 
   ngOnInit(): void {
-    this.url = this.route.url.pipe(map(segments => segments.join(' / ')));
-    this.url.subscribe(u => {
-      this.baseUrl = u;
-      return u;
+    this.fullSeg = 'wtf';
+    this.route.url.subscribe(segs => {
+      this.baseSeg = segs[0].toString();
+      if (segs[1] !== undefined){
+        this.ds.getData(this.baseSeg, +segs[1].toString()).subscribe(s =>
+          this.fullSeg = [this.baseSeg, s[0].title].join(' / '));
+      }else{
+        this.route.url.subscribe(s =>
+          this.fullSeg = s[0].toString());
+      }
     });
-//    console.log('url:', this.url, this.baseUrl);
   }
 
-  color(){ return this.gs.getColor(this.baseUrl); }
+  color(){ return this.gs.getColor(this.baseSeg); }
 
 }
