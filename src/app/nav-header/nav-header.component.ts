@@ -15,13 +15,12 @@ import { DataService } from '../data/data.service';
   `,
   styles: [
     'img { width:28px; height:28px; float:left; background-size: 28px 28px; background-repeat: no-repeat; margin:8px 15px; }',
-    'div { height: 45px }',
+    'div { height: 45px; line-height: 45px; }',
+    'span { color: white;}',
   ]
 })
 export class NavHeaderComponent implements OnInit {
 
-  url: Observable<string[]>;
-  baseUrl: Observable<string>;
   baseSeg: string;
   fullSeg: any;
 

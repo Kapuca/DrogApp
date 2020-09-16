@@ -10,8 +10,8 @@ import { Component, OnInit } from '@angular/core';
   </div>
   `,
   styles: [
-    'div {background-color: black; padding: 5px;}',
-    'p {margin: 0; text-align: center; color: white;}'
+    'div {background-color: #262626; padding: 5px; letter-spacing: 1.4em; height: 64px; line-height: 64px}',
+    'p {margin: 0; text-align: center; color: white; font-size: 2em;}'
   ]
 })
 export class HeaderComponent implements OnInit {

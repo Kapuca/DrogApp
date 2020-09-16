@@ -40,4 +40,6 @@
 body {
     margin: 0;
     font-family: "brandon_grotesque_regularRg";
+    width: 100%;
+    height: 100vh;
 }

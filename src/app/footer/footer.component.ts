@@ -10,7 +10,7 @@ import { Component, OnInit } from '@angular/core';
   </div>
   `,
   styles: [
-    'div {background-color: black; padding: 5px;}',
+    'div {background-color: #262626; padding: 5px; height: 60px; line-height: 60px}',
     'p {margin: 0; text-align: center; color: white; }'
   ]
 })
