@@ -15,6 +15,7 @@ export class DataService {
 
   getData(type: string, id?: number): Observable<any[]>{
     const tmp = this.http.get<any[]>( this.url + type + this.endParam).pipe(map(arr => {
+      if (type === 'opozorila') { return arr; }
       return arr.map(obj => {
         const newObj = {};
         Object.keys(obj).forEach(key => newObj[key.substring(1).toLowerCase()] = obj[key]);
