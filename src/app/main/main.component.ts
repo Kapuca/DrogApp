@@ -11,8 +11,8 @@ import { GeneralService } from '../general/general.service';
     </div>
   `,
   styles: [
-    '#main { display: grid;   grid-template-columns: auto auto; grid-template-rows: 25vh 25vh 25vh; grid-gap: 0px; max-width: 100%; max-height: 100%}',
-    '.tile { text-align: center; padding: 5px;}',
+    '#main { display: grid;   grid-template-columns: auto auto; grid-template-rows: repeat(3, 33.33%); grid-gap: 0px;}',
+    '.tile { text-align: center; padding: 5vh 12px;}',
     'img { object-fit: scale-down; width: 100%; max-height: 100%; }',
   ]
 })

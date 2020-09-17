@@ -4,19 +4,23 @@ import { DataService } from '../data/data.service';
 @Component({
   selector: 'app-info',
   template: `
-  <app-nav-header></app-nav-header>
-    <div>
-      <h2>{{info.firsttitle | uppercase}}</h2>
-      <p>{{info.firsttext}}</p>
+  <div id='main'>
+    <app-nav-header></app-nav-header>
+    <div id='content'>
+      <div class='section'>
+        <h2>{{info.firsttitle | uppercase}}</h2>
+        <p>{{info.firsttext}}</p>
+      </div>
+      <div class='section'>
+        <h2>{{info.secondtitle | uppercase}}</h2>
+        <p>{{info.secondtext}}</p>
+      </div>
     </div>
-    <div>
-      <h2>{{info.secondtitle | uppercase}}</h2>
-      <p>{{info.secondtext}}</p>
-    </div>
+  </div>
   `,
   styles: [
     'h2 {text-align: center; font-size: 16px; letter-spacing: 0.1em; padding-bottom: 15px;}',
-    'div:nth-child(2n+1) { background: #f4f4f4; }',
+    '.section:nth-child(2n+1) { background: #f4f4f4; }',
     'p {text-align: justify;}'
   ]
 })

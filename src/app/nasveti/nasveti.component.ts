@@ -5,10 +5,14 @@ import { DataService } from '../data/data.service';
 @Component({
   selector: 'app-nasveti',
   template: `
+  <div id='main'>
     <app-nav-header></app-nav-header>
-    <p>
-      {{ nasvet.msg }}
-    </p>
+    <div id='content'>
+      <p>
+        {{ nasvet.msg }}
+      </p>
+    </div>
+  </div>
    `,
   styles: [
   ]

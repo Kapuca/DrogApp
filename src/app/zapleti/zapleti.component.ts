@@ -5,21 +5,25 @@ import { DataService } from '../data/data.service';
 @Component({
   selector: 'app-zapleti',
   template: `
+  <div id='main'>
     <app-nav-header></app-nav-header>
     <div class="tab">
       <button class="tablinks" (click)="open('info')">{{ 'info' | uppercase }}</button>
       <button class="tablinks" (click)="open('znaki')">{{ 'znaki' | uppercase }}</button>
       <button class="tablinks" (click)="open('ukrepi')">{{ 'ukrepi' | uppercase }}</button>
     </div>
-    <p [style.display]="display('info')">
-      {{ zaplet.info }}
-    </p>
-    <p [style.display]="display('znaki')">
-      {{ zaplet.znaki }}
-    </p>
-    <p [style.display]="display('ukrepi')">
-      {{ zaplet.ukrepi }}
-    </p>
+    <div id='content'>
+      <p [style.display]="display('info')">
+        {{ zaplet.info }}
+      </p>
+      <p [style.display]="display('znaki')">
+        {{ zaplet.znaki }}
+      </p>
+      <p [style.display]="display('ukrepi')">
+        {{ zaplet.ukrepi }}
+      </p>
+    </div>
+  </div>
   `,
   styles: [
   ]

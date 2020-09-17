@@ -7,13 +7,17 @@ import { Observable } from 'rxjs';
 @Component({
   selector: 'app-list',
   template: `
+  <div id='main'>
     <app-nav-header></app-nav-header>
-    <div *ngFor='let item of items' [routerLink]='item.id'>
-      {{ item.title | uppercase }}
+    <div id='content'>
+      <div class='item' *ngFor='let item of items' [routerLink]='item.id'>
+        {{ item.title | uppercase }}
+      </div>
     </div>
+  </div>
   `,
   styles: [
-    'div:nth-child(2n+1) { background: #f4f4f4; }'
+    '.item:nth-child(2n+1) { background: #f4f4f4; }'
   ]
 })
 export class ListComponent implements OnInit {

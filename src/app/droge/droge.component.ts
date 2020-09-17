@@ -5,25 +5,29 @@ import { ActivatedRoute } from '@angular/router';
 @Component({
   selector: 'app-droge',
   template: `
-    <app-nav-header></app-nav-header>
-    <div class="tab">
-      <button class="tablinks" (click)="open('info')">{{ 'info' | uppercase }}</button>
-      <button class="tablinks" (click)="open('efekt')">{{ 'učinek' | uppercase }}</button>
-      <button class="tablinks" (click)="open('doza')">{{ 'odmerek' | uppercase }}</button>
-      <button class="tablinks" (click)="open('risk')">{{ 'tveganja' | uppercase }}</button>
+    <div id='main'>
+      <app-nav-header></app-nav-header>
+      <div class='content'>
+        <div class="tab">
+          <button class="tablinks" (click)="open('info')">{{ 'info' | uppercase }}</button>
+          <button class="tablinks" (click)="open('efekt')">{{ 'učinek' | uppercase }}</button>
+          <button class="tablinks" (click)="open('doza')">{{ 'odmerek' | uppercase }}</button>
+          <button class="tablinks" (click)="open('risk')">{{ 'tveganja' | uppercase }}</button>
+        </div>
+        <p [style.display]="display('info')">
+          {{ droga.info }}
+        </p>
+        <p [style.display]="display('risk')">
+          {{ droga.risk }}
+        </p>
+        <p [style.display]="display('doza')">
+          {{ droga.doza }}
+        </p>
+        <p [style.display]="display('efekt')">
+          {{ droga.efekt }}
+        </p>
+      </div>
     </div>
-    <p [style.display]="display('info')">
-      {{ droga.info }}
-    </p>
-    <p [style.display]="display('risk')">
-      {{ droga.risk }}
-    </p>
-    <p [style.display]="display('doza')">
-      {{ droga.doza }}
-    </p>
-    <p [style.display]="display('efekt')">
-      {{ droga.efekt }}
-    </p>
   `,
   styles: [
   ]
