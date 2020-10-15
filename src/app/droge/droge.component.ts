@@ -14,18 +14,10 @@ import { ActivatedRoute } from '@angular/router';
           <button class="tablinks" (click)="open('doza')">{{ 'odmerek' | uppercase }}</button>
           <button class="tablinks" (click)="open('risk')">{{ 'tveganja' | uppercase }}</button>
         </div>
-        <p [style.display]="display('info')">
-          {{ droga.info }}
-        </p>
-        <p [style.display]="display('risk')">
-          {{ droga.risk }}
-        </p>
-        <p [style.display]="display('doza')">
-          {{ droga.doza }}
-        </p>
-        <p [style.display]="display('efekt')">
-          {{ droga.efekt }}
-        </p>
+        <p class="basic-txt" [style.display]="display('info')" [innerHTML]='droga.info'></p>
+        <p class="basic-txt" [style.display]="display('risk')"  [innerHTML]='droga.risk'></p>
+        <p class="basic-txt" [style.display]="display('doza')"  [innerHTML]='droga.doza'></p>
+        <p class="basic-txt" [style.display]="display('efekt')"  [innerHTML]='droga.efekt'></p>
       </div>
     </div>
   `,

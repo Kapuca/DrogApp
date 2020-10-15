@@ -13,15 +13,9 @@ import { DataService } from '../data/data.service';
       <button class="tablinks" (click)="open('ukrepi')">{{ 'ukrepi' | uppercase }}</button>
     </div>
     <div id='content'>
-      <p [style.display]="display('info')">
-        {{ zaplet.info }}
-      </p>
-      <p [style.display]="display('znaki')">
-        {{ zaplet.znaki }}
-      </p>
-      <p [style.display]="display('ukrepi')">
-        {{ zaplet.ukrepi }}
-      </p>
+      <p class="basic-txt" [style.display]="display('info')" [innerHTML]='zaplet.info'></p>
+      <p class="basic-txt" [style.display]="display('znaki')" [innerHTML]='zaplet.znaki'></p>
+      <p class="basic-txt" [style.display]="display('ukrepi')" [innerHTML]='zaplet.ukrepi'></p>
     </div>
   </div>
   `,

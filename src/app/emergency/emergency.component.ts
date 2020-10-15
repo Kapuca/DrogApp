@@ -11,8 +11,8 @@ import { ActivatedRoute } from '@angular/router';
         <div *ngIf='choice === undefined'>
           {{ emergency.main }}
           <div id="choice-bar">
-            <div id="da" [routerLink]="['./']" [queryParams]="{choice: true}">{{ "da" | uppercase }}</div>
-            <div id="ne" [routerLink]="['./']" [queryParams]="{choice: false}">{{ "ne" | uppercase }}</div>
+            <div id="da" [routerLink]="['./']" [queryParams]="{choice: true}">DA</div>
+            <div id="ne" [routerLink]="['./']" [queryParams]="{choice: false}">NE</div>
           </div>
           <img src="/assets/img/emergency_1.png"/>
         </div>
@@ -42,8 +42,16 @@ export class EmergencyComponent implements OnInit {
   constructor( private ds: DataService, private route: ActivatedRoute) { }
 
   ngOnInit(): void {
-    this.ds.getData('emergency').subscribe(data => this.emergency = data[0]);
+    this.ds.getData('emergency').subscribe(
+      data => this.emergency = data[0],
+      error => {
+        console.error(error);
+        this.emergency = {main: 'Cant get DB'};
+        this.emergency.da = this.emergency.main;
+        this.emergency.ne = this.emergency.main;
+      });
     this.route.queryParams.subscribe(data => this.choice = data.choice);
+    console.log(this.choice);
   }
 
 }

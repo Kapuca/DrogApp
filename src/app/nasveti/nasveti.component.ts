@@ -8,8 +8,7 @@ import { DataService } from '../data/data.service';
   <div id='main'>
     <app-nav-header></app-nav-header>
     <div id='content'>
-      <p>
-        {{ nasvet.msg }}
+      <p class="basic-txt" [innerHTML]='nasvet.msg'>
       </p>
     </div>
   </div>

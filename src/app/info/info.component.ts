@@ -9,11 +9,11 @@ import { DataService } from '../data/data.service';
     <div id='content'>
       <div class='section'>
         <h2>{{info.firsttitle | uppercase}}</h2>
-        <p>{{info.firsttext}}</p>
+        <p class="basic-txt" [innerHTML]='info.firsttext'><p>
       </div>
       <div class='section'>
         <h2>{{info.secondtitle | uppercase}}</h2>
-        <p>{{info.secondtext}}</p>
+        <p class="basic-txt" [innerHTML]='info.secondtext'><p>
       </div>
     </div>
   </div>
@@ -33,7 +33,10 @@ export class InfoComponent implements OnInit {
   constructor( private ds: DataService) { }
 
   ngOnInit(): void {
-    this.ds.getData('info').subscribe(data => this.info = data[0]);
+    this.ds.getData('info').subscribe(
+      data => this.info = data[0],
+      error => this.info = {firsttitle: 'DB connectiion not working', firsttext: error.message, secondtitle: '', secondtext: ''}
+      );
   }
 
 }
