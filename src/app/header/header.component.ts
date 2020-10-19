@@ -4,7 +4,7 @@ import { Component, OnInit } from '@angular/core';
   selector: 'app-header',
   template: `
   <div>
-    <p routerLink="/">
+    <p routerLink="/" onclick="this.blur();">
       DROG<strong>APP</strong>
     </p>
   </div>
