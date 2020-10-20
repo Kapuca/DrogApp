@@ -14,6 +14,7 @@ import { DataService } from '../data/data.service';
   </div>
    `,
   styles: [
+		'#content { position: absolute; top: calc(64px + 45px); width: 100%; z-index: 0; }'
   ]
 })
 export class NasvetiComponent implements OnInit {

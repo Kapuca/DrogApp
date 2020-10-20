@@ -22,7 +22,7 @@ import { ActivatedRoute } from '@angular/router';
     </div>
   `,
   styles: [
-		'.content { position: absolute; top: calc(64px + 45px + 10px); }'
+		'.content { position: absolute; top: calc(64px + 45px + 10px); width: 100%; z-index: 0; }'
   ]
 })
 export class DrogeComponent implements OnInit {

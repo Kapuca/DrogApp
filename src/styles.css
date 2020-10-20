@@ -42,6 +42,7 @@ body {
     font-family: "brandon_grotesque_regularRg";
     width: 100%;
     height: 100vh;
+	 overflow-x: hidden;
 }
 
 #main {
@@ -51,20 +52,25 @@ body {
 
 #content {
     margin-bottom: 61px;
-    overflow: scroll;
-    overflow-x: hidden;
+    overflow: hidden;
 }
 
 .content {
     margin-bottom: 61px;
-    overflow: scroll;
-    overflow-x: hidden;
+    overflow: hidden;
 }
 
 .tab {
 	position: fixed;
 	top: calc(64px + 45px);
 	z-index: 420;
+}
+
+.vertical { 
+	position: absolute; 
+	border-left: 6px solid #262626;
+   height: calc(45px/2 - 5px + 45px);
+   margin-top: -17.5px;
 }
 
 /* #footer {

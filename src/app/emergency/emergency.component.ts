@@ -11,9 +11,9 @@ import { ActivatedRoute } from '@angular/router';
         <div *ngIf='choice === undefined'>
           {{ emergency.main }}
           <div id="choice-bar">
-            <div id="da" [routerLink]="['./']" [queryParams]="{choice: true}">DA</div>
+            <div class="izbira" id="da" [routerLink]="['./']" [queryParams]="{choice: true}">DA</div>
 				<div class="vertical"></div>
-            <div id="ne" [routerLink]="['./']" [queryParams]="{choice: false}">NE</div>
+            <div class="izbira" id="ne" [routerLink]="['./']" [queryParams]="{choice: false}">NE</div>
           </div>
           <img src="assets/img/emergency_1.svg"/>
         </div>
@@ -32,9 +32,9 @@ import { ActivatedRoute } from '@angular/router';
   styles: [
     '#choice-bar { margin: 20px 0px 20px 0px; display: flex; width: 100%; justify-content: space-around; background: #f4f4f4; height: 45px; font-size: 20px; padding-top: calc(45px/2 - 5px); }',
     '#da { color: #31656d; } #ne { color: #dd6c56; }',
-    'img { object-fit: scale-down; width: 100%; }',
-    '#content { position: absolute; top: calc(64px + 45px); }',
-    '.vertical { position: absolute; border-left: 6px solid green; height: calc(45px/2 + 45px); }'
+    'img { object-fit: scale-down; width: 90%; }',
+    '#content { position: absolute; top: calc(64px + 45px + 10px); width: 100%; z-index: 0; }',
+	 '.izbira { font-weight: 650; }'
   ]
 })
 export class EmergencyComponent implements OnInit {
