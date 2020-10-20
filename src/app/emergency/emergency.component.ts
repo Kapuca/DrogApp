@@ -14,16 +14,16 @@ import { ActivatedRoute } from '@angular/router';
             <div id="da" [routerLink]="['./']" [queryParams]="{choice: true}">DA</div>
             <div id="ne" [routerLink]="['./']" [queryParams]="{choice: false}">NE</div>
           </div>
-          <img src="/assets/img/emergency_1.png"/>
+          <img src="assets/img/emergency_1.png"/>
         </div>
         <div *ngIf='choice === "true"'>
           {{ emergency.da }}
-          <img src="/assets/img/emergency_2.png"/>
-          <img src="/assets/img/emergency_3.png"/>
+          <img src="assets/img/emergency_2.png"/>
+          <img src="assets/img/emergency_3.png"/>
         </div>
         <div *ngIf='choice == "false"'>
           {{ emergency.ne }}
-          <img src="/assets/img/emergency_4.png"/>
+          <img src="assets/img/emergency_4.png"/>
         </div>
         </div>
     </div>
