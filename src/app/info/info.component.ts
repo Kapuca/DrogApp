@@ -21,7 +21,8 @@ import { DataService } from '../data/data.service';
   styles: [
     'h2 {text-align: center; font-size: 16px; letter-spacing: 0.1em; padding-bottom: 15px;}',
     '.section:nth-child(2n+1) { background: #f4f4f4; }',
-    'p {text-align: justify;}'
+    'p {text-align: justify;}',
+	 '#content {position: absolute; top: calc(64px + 45px); width: 100%; z-index: 0;}'
   ]
 })
 export class InfoComponent implements OnInit {

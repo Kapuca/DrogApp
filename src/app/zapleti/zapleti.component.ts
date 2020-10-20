@@ -20,6 +20,7 @@ import { DataService } from '../data/data.service';
   </div>
   `,
   styles: [
+		'#content { position: absolute; top: calc(64px + 45px); }'
   ]
 })
 export class ZapletiComponent implements OnInit {

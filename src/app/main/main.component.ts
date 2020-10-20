@@ -11,7 +11,7 @@ import { GeneralService } from '../general/general.service';
     </div>
   `,
   styles: [
-    '#main { display: grid;   grid-template-columns: auto auto; grid-template-rows: repeat(3, 33.33%); grid-gap: 0px;}',
+    '#main { position: absolute; top: 64px; display: grid; grid-template-columns: auto auto; grid-template-rows: repeat(3, 33.33%); grid-gap: 0px;}',
     '.tile { text-align: center; padding: 5vh 12px;}',
     'img { object-fit: scale-down; width: 100%; max-height: 100%; }',
   ]

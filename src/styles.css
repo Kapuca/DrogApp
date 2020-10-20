@@ -50,10 +50,26 @@ body {
 }
 
 #content {
-    margin-bottom: 60px;
+    margin-bottom: 61px;
     overflow: scroll;
     overflow-x: hidden;
 }
+
+.content {
+    margin-bottom: 61px;
+    overflow: scroll;
+    overflow-x: hidden;
+}
+
+.tab {
+	position: fixed;
+	top: calc(64px + 45px);
+	z-index: 420;
+}
+
+/* #footer {
+	opacity: 0;
+} */
 
 .basic-txt {
     padding: 20px;

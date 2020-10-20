@@ -7,14 +7,16 @@ import { DataService } from '../data/data.service';
   selector: 'app-nav-header',
   template: `
     <div [routerLink]="['../']" [style.background-color]='color()'>
-      <img [src]="['assets/img/home-' + baseSeg + '.png']"/>
+		<div class="backButton">&lt;</div>
+      <img [src]="['assets/img/home-' + baseSeg + '.svg']"/>
       <span>{{ fullSeg | uppercase }}</span>
     </div>
   `,
   styles: [
-    'img { width:28px; height:28px; float:left; background-size: 28px 28px; background-repeat: no-repeat; margin:8px 15px; }',
-    'div { height: 45px; line-height: 45px; }',
+    'img { color: white; width:28px; height:28px; float:left; background-size: 28px 28px; background-repeat: no-repeat; margin:8px 15px; }',
+    'div { position: fixed; top: 64px; width: 100%; height: 45px; line-height: 45px; z-index: 420; }',
     'span { color: white;}',
+	 '.backButton { color: white; font-size: 1.6em; }',
   ]
 })
 export class NavHeaderComponent implements OnInit {
