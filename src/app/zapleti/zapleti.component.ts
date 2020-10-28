@@ -7,10 +7,10 @@ import { DataService } from '../data/data.service';
   template: `
   <div id='main'>
     <app-nav-header></app-nav-header>
-    <div class="tab">
-      <button class="tablinks" (click)="open('info')">{{ 'info' | uppercase }}</button>
-      <button class="tablinks" (click)="open('znaki')">{{ 'znaki' | uppercase }}</button>
-      <button class="tablinks" (click)="open('ukrepi')">{{ 'ukrepi' | uppercase }}</button>
+    <div class="tab" id="tabZapleti">
+      <button class="tablinksZapleti" id="tabInfo" (click)="open('info')">{{ 'info' | uppercase }}</button>
+      <button class="tablinksZapleti" id="tabZnaki" (click)="open('znaki')">{{ 'znaki' | uppercase }}</button>
+      <button class="tablinksZapleti" id="tabUkrepi" (click)="open('ukrepi')">{{ 'ukrepi' | uppercase }}</button>
     </div>
     <div id='content'>
       <p class="basic-txt" [style.display]="display('info')" [innerHTML]='zaplet.info'></p>
@@ -20,6 +20,7 @@ import { DataService } from '../data/data.service';
   </div>
   `,
   styles: [
+	'#content { top: 100px; }'
   ]
 })
 export class ZapletiComponent implements OnInit {
