@@ -20,9 +20,11 @@ import { ActivatedRoute } from '@angular/router';
         <p class="basic-txt" [style.display]="display('efekt')"  [innerHTML]='droga.efekt'></p>
       </div>
     </div>
+    <div id='moreInfo'><a [href]="droga.link">VEČ INFO</a></div>
   `,
   styles: [
-	'#content { top: 100px; }'
+    '#content { top: 100px; }',
+    '#moreInfo { position: fixed; bottom: 61px; right: 15px; background-color: rgb(238, 213, 134)}',
   ]
 })
 export class DrogeComponent implements OnInit {
