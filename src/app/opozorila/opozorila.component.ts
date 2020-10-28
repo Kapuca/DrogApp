@@ -10,10 +10,10 @@ import { DataService } from '../data/data.service';
       <div *ngFor='let opozorilo of opozorila' class='container'>
         <div id="opozorilo">
           <div id="naslov">
-            <h2 id="naslovOpozorila">{{opozorilo.title | uppercase}}</h2>
-            <a [href]='opozorilo.link'>
-              <img id="opozoriloICO" src='assets/img/more.png'/>
+				<a [href]='opozorilo.link'>
+              <img id="opozoriloICO" src='assets/img/more.svg'/>
             </a>
+            <h2 id="naslovOpozorila">{{opozorilo.title | uppercase}}</h2>
           </div>
           <p>{{opozorilo.datetime}}</p>
           <p class="basic-txt" [innerHTML]='opozorilo.msg'></p>
@@ -25,8 +25,8 @@ import { DataService } from '../data/data.service';
   styles: [
     '.container:nth-child(2n+1) { background: #f4f4f4; }',
     '.container { display: flex; }',
-    '#opozoriloICO { height: 3.5em; float: right; margin-top: -4em; }',
-    '#naslovOpozorila { width: 85vw; }',
+    '#opozoriloICO { height: 3.5em; float: right; }',
+    '#naslovOpozorila { width: 87vw; }',
     '#opozorilo { padding-left: 15px; padding-right: 15px; }',
   ]
 })
