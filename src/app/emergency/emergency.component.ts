@@ -9,21 +9,21 @@ import { ActivatedRoute } from '@angular/router';
       <app-nav-header></app-nav-header>
       <div id='content'>
         <div *ngIf='choice === undefined'>
-          {{ emergency.main }}
+          <p class="basic-txt" [innerHTML]='emergency.main'></p>
           <div id="choice-bar">
             <div class="izbira" id="da" [routerLink]="['./']" [queryParams]="{choice: true}">DA</div>
-				<div class="vertical"></div>
+            <div class="vertical"></div>
             <div class="izbira" id="ne" [routerLink]="['./']" [queryParams]="{choice: false}">NE</div>
           </div>
           <img src="assets/img/emergency_1.svg"/>
         </div>
         <div *ngIf='choice === "true"'>
-          {{ emergency.da }}
+          <p class="basic-txt" [innerHTML]='emergency.da'></p>
           <img src="assets/img/emergency_2.svg"/>
           <img src="assets/img/emergency_3.svg"/>
         </div>
         <div *ngIf='choice == "false"'>
-          {{ emergency.ne }}
+          <p class="basic-txt" [innerHTML]='emergency.ne'></p>
           <img src="assets/img/emergency_4.svg"/>
         </div>
         </div>
@@ -34,7 +34,7 @@ import { ActivatedRoute } from '@angular/router';
     '#da { color: #31656d; } #ne { color: #dd6c56; }',
     'img { object-fit: scale-down; width: 90%; }',
     '#content { position: absolute; top: calc(64px + 45px + 10px); width: 100%; z-index: 0; }',
-	 '.izbira { font-weight: 650; }'
+    '.izbira { font-weight: 650; }'
   ]
 })
 export class EmergencyComponent implements OnInit {

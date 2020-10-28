@@ -16,7 +16,7 @@ import { DataService } from '../data/data.service';
             </a>
           </div>
           <p>{{opozorilo.datetime}}</p>
-          <p>{{opozorilo.msg}}</p>
+          <p class="basic-txt" [innerHTML]='opozorilo.msg'></p>
         </div>
       </div>
     </div>
