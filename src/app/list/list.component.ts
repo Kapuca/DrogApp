@@ -18,8 +18,7 @@ import { Observable } from 'rxjs';
   `,
   styles: [
     '.item:nth-child(2n+1) { background: #f4f4f4; }',
-	 '.item {padding: 0px 10px 0px 10px; line-height: 2;}',
-	 '#content {position: absolute; top: calc(64px + 45px); width: 100%; z-index: 0;}'
+    '.item {padding: 0px 10px 0px 10px; line-height: 2;}',
   ]
 })
 export class ListComponent implements OnInit {

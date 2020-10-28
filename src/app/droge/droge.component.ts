@@ -7,13 +7,13 @@ import { ActivatedRoute } from '@angular/router';
   template: `
     <div id='main'>
       <app-nav-header></app-nav-header>
-		<div class="tab">
-         <button class="tablinks" (click)="open('info')">{{ 'info' | uppercase }}</button>
-         <button class="tablinks" (click)="open('efekt')">{{ 'učinek' | uppercase }}</button>
-         <button class="tablinks" (click)="open('doza')">{{ 'odmerek' | uppercase }}</button>
-			<button class="tablinks" (click)="open('risk')">{{ 'tveganja' | uppercase }}</button>
+		  <div class="tab">
+        <button class="tablinks" (click)="open('info')">{{ 'info' | uppercase }}</button>
+        <button class="tablinks" (click)="open('efekt')">{{ 'učinek' | uppercase }}</button>
+        <button class="tablinks" (click)="open('doza')">{{ 'odmerek' | uppercase }}</button>
+        <button class="tablinks" (click)="open('risk')">{{ 'tveganja' | uppercase }}</button>
       </div>
-      <div class='content'>
+      <div id='content'>
         <p class="basic-txt" [style.display]="display('info')" [innerHTML]='droga.info'></p>
         <p class="basic-txt" [style.display]="display('risk')"  [innerHTML]='droga.risk'></p>
         <p class="basic-txt" [style.display]="display('doza')"  [innerHTML]='droga.doza'></p>
@@ -22,7 +22,6 @@ import { ActivatedRoute } from '@angular/router';
     </div>
   `,
   styles: [
-		'.content { position: absolute; top: calc(64px + 45px + 10px); width: 100%; z-index: 0; }'
   ]
 })
 export class DrogeComponent implements OnInit {

@@ -33,7 +33,6 @@ import { ActivatedRoute } from '@angular/router';
     '#choice-bar { margin: 20px 0px 20px 0px; display: flex; width: 100%; justify-content: space-around; background: #f4f4f4; height: 45px; font-size: 20px; padding-top: calc(45px/2 - 5px); }',
     '#da { color: #31656d; } #ne { color: #dd6c56; }',
     'img { object-fit: scale-down; width: 90%; }',
-    '#content { position: absolute; top: calc(64px + 45px + 10px); width: 100%; z-index: 0; }',
     '.izbira { font-weight: 650; }'
   ]
 })
