@@ -7,11 +7,11 @@ import { ActivatedRoute } from '@angular/router';
   template: `
     <div id='main'>
       <app-nav-header></app-nav-header>
-		  <div class="tab">
-        <button class="tablinks" (click)="open('info')">{{ 'info' | uppercase }}</button>
-        <button class="tablinks" (click)="open('efekt')">{{ 'učinek' | uppercase }}</button>
-        <button class="tablinks" (click)="open('doza')">{{ 'odmerek' | uppercase }}</button>
-        <button class="tablinks" (click)="open('risk')">{{ 'tveganja' | uppercase }}</button>
+		  <div class="tab" id="tabDroge">
+        <button class="tablinksDroge" id="tabInfo" (click)="open('info')">{{ 'info' | uppercase }}</button>
+        <button class="tablinksDroge" id="tabUcinki" (click)="open('efekt')">{{ 'učinek' | uppercase }}</button>
+        <button class="tablinksDroge" id="tabDoza" (click)="open('doza')">{{ 'odmerek' | uppercase }}</button>
+        <button class="tablinksDroge" id="tabRisk" (click)="open('risk')">{{ 'tveganja' | uppercase }}</button>
       </div>
       <div id='content'>
         <p class="basic-txt" [style.display]="display('info')" [innerHTML]='droga.info'></p>
@@ -22,6 +22,7 @@ import { ActivatedRoute } from '@angular/router';
     </div>
   `,
   styles: [
+	'#content { top: 100px; }'
   ]
 })
 export class DrogeComponent implements OnInit {

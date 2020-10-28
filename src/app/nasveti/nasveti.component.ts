@@ -7,13 +7,14 @@ import { DataService } from '../data/data.service';
   template: `
   <div id='main'>
     <app-nav-header></app-nav-header>
-    <div id='content'>
+    <div id='content' class='different'>
       <p class="basic-txt" [innerHTML]='nasvet.msg'>
       </p>
     </div>
   </div>
    `,
   styles: [
+	
   ]
 })
 export class NasvetiComponent implements OnInit {

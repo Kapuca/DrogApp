@@ -27,7 +27,7 @@ import { DataService } from '../data/data.service';
     '.container { display: flex; }',
     '#opozoriloICO { height: 3.5em; float: right; }',
     '#naslovOpozorila { width: 87vw; }',
-    '#opozorilo { padding-left: 15px; padding-right: 15px; }',
+    '#opozorilo { padding-left: 15px; padding-right: 15px; }'
   ]
 })
 export class OpozorilaComponent implements OnInit {

@@ -57,6 +57,10 @@ body {
 	cursor: pointer;
 }
 
+#content.different {
+	top: 25px;
+}
+
 .app-list {
 	cursor: pointer;
 }
@@ -79,10 +83,64 @@ body {
 	position: fixed;
 	top: calc(64px + 45px);
 	z-index: 420;
+	width: 100%;
+	text-align: center;
 }
 
 .tab > button {
 	cursor: pointer;
+}
+
+.tablinksDroge {
+	background-size: 100px;
+    background-repeat: no-repeat;
+    background-position-x: center;
+    background-position-y: 30%;
+    height: 80px !important;
+    width: 25%;
+    padding-top: 50px;
+    display: inline-block;
+    letter-spacing: 0.18rem;
+    font-weight: 650;
+}
+
+#tabInfo {
+    background-color: #49d3a3;
+    background-image: url('assets/img/sub-info.svg');
+}
+#tabUcinki {
+    background-color: #653a4b;
+    background-image: url('assets/img/sub-ucinki.svg');
+}
+#tabDoza {
+    background-color: #c63f55;
+    background-image: url('assets/img/sub-doza.svg');
+}
+#tabRisk {
+    background-color: #dd6c56;
+    background-image: url('assets/img/sub-risk.svg');
+}
+
+.tablinksZapleti {
+	background-size: 50px;
+	background-repeat: no-repeat;
+	background-position-x: center;
+	background-position-y:-60%;
+	height:80px !important;
+	width:33.33%;
+	padding-top:50px;
+    display: inline-block;
+    letter-spacing: 0.18rem;
+    font-weight: 650;
+}
+
+#tabZnaki {
+  background-color: #653a4b;
+  background-image: url('assets/img/sub-ucinki.svg');
+}
+#tabUkrepi {
+  background-color: #eed586;
+  background-image: url('assets/img/sub-doza.svg');
 }
 
 .vertical { 
