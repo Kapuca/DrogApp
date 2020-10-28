@@ -11,7 +11,7 @@ import { DataService } from '../data/data.service';
         <div id="opozorilo">
           <div id="naslov">
 				<a [href]='opozorilo.link'>
-              <img id="opozoriloICO" src='assets/img/more.png'/>
+              <img id="opozoriloICO" src='assets/img/more.svg'/>
             </a>
             <h2 id="naslovOpozorila">{{opozorilo.title | uppercase}}</h2>
           </div>
