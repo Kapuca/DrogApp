@@ -9,7 +9,7 @@ import { Observable } from 'rxjs';
   template: `
   <div id='main'>
     <app-nav-header></app-nav-header>
-    <div id='content'>
+    <div class="app-list" id='content'>
       <div class='item' *ngFor='let item of items' [routerLink]='item.id'>
         {{ item.title | uppercase }}
       </div>

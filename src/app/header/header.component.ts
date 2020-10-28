@@ -5,7 +5,7 @@ import { Component, OnInit } from '@angular/core';
   template: `
   <div id="header">
     <p routerLink="/" onclick="this.blur();">
-      DROG<strong>APP</strong> <!-- <span>DROG<span style="font-family:gotham_mediumregular; font-weight:bold">APP</span></span> -->
+      DROG<span style="font-family:gotham_mediumregular; font-weight:bold">APP</span>
     </p>
   </div>
   `,
