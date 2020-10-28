@@ -32,10 +32,11 @@ export class NavHeaderComponent implements OnInit {
       this.baseSeg = segs[0].toString();
       if (segs[1] !== undefined){
         this.ds.getData(this.baseSeg, +segs[1].toString()).subscribe(s =>
-          this.fullSeg = [this.baseSeg, s[0].title].join(' / '));
+          // this.fullSeg = [this.baseSeg, s[0].title].join(' / ')
+          this.fullSeg = s[0].title
+        );
       }else{
-        this.route.url.subscribe(s =>
-          this.fullSeg = s[0].toString());
+        this.fullSeg = segs[0].toString();
       }
     });
   }
