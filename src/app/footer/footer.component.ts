@@ -14,7 +14,6 @@ import { Router } from '@angular/router';
   styles: [
     'div {position: fixed; bottom: 0px; background-color: #262626; height: 61px; width: 100%; line-height: 61px; box-sizing: border-box}',
     'p {margin: 0; text-align: center; color: white; }',
-    'a { color: inherit; text-align: inherit; text-decoration: inherit; }'
   ]
 })
 export class FooterComponent implements OnInit {

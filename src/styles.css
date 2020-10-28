@@ -45,6 +45,12 @@ body {
 	 overflow-x: hidden;
 }
 
+a { 
+    color: inherit;
+    text-align: inherit;
+    text-decoration: inherit;
+}
+
 #main {
     height: calc(100vh - 124px);
     width: 100%;
