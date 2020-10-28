@@ -27,7 +27,7 @@ export class NavHeaderComponent implements OnInit {
   constructor(private route: ActivatedRoute, private gs: GeneralService, private ds: DataService) { }
 
   ngOnInit(): void {
-    this.fullSeg = 'wtf';
+    this.fullSeg = '';
     this.route.url.subscribe(segs => {
       this.baseSeg = segs[0].toString();
       if (segs[1] !== undefined){
