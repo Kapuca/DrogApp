@@ -53,11 +53,15 @@ body {
     z-index: 0;
 }
 
+#main > div {
+	cursor: pointer;
+}
+
 #content {
     padding-bottom: 61px;
     overflow: hidden;
     position: absolute;
-    top: calc(45px);
+    top: 45px;
     width: 100%;
     z-index: 0;
 }
@@ -73,6 +77,10 @@ body {
 	z-index: 420;
 }
 
+.tab > button {
+	cursor: pointer;
+}
+
 .vertical { 
 	position: absolute; 
 	border-left: 6px solid #262626;
@@ -80,9 +88,18 @@ body {
    margin-top: -17.5px;
 }
 
-/* #footer {
-	opacity: 0;
-} */
+#header {
+	cursor: pointer;
+}
+
+#nav-header {
+	cursor: pointer;
+}
+
+#footer {
+	cursor: pointer;
+	overflow: hidden;
+}
 
 .basic-txt {
     padding: 20px;

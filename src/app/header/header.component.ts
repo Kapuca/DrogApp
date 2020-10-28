@@ -3,7 +3,7 @@ import { Component, OnInit } from '@angular/core';
 @Component({
   selector: 'app-header',
   template: `
-  <div>
+  <div id="header">
     <p routerLink="/" onclick="this.blur();">
       DROG<strong>APP</strong> <!-- <span>DROG<span style="font-family:gotham_mediumregular; font-weight:bold">APP</span></span> -->
     </p>
