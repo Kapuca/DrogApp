@@ -26,7 +26,7 @@ import { ActivatedRoute } from '@angular/router';
           <img src="assets/img/emergency_2.svg"/>
           <img src="assets/img/emergency_3.svg"/>
         </div>
-        <div *ngIf='choice == "false"'>
+        <div *ngIf='choice === "false"'>
           <p class="basic-txt" [innerHTML]='emergency.ne'></p>
           <img src="assets/img/emergency_4.svg"/>
         </div>

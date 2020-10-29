@@ -28,7 +28,7 @@ import { ActivatedRoute } from '@angular/router';
   `,
   styles: [
     '#content { top: 140px; }',
-    '#moreInfo { position: fixed; bottom: 61px; right: 15px; background-color: rgb(238, 213, 134)}',
+    '#moreInfo { position: fixed; bottom: 61px; right: 15px; background: linear-gradient(to right bottom, rgb(238, 213, 134, 0.6), rgb(238, 213, 134, 1));}',
   ]
 })
 export class DrogeComponent implements OnInit {
