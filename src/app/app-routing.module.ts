@@ -8,7 +8,6 @@ import { ListComponent } from './list/list.component';
 import { DrogeComponent } from './droge/droge.component';
 import { NasvetiComponent } from './nasveti/nasveti.component';
 import { ZapletiComponent } from './zapleti/zapleti.component';
-import { OpozoriloComponent } from './opozorilo/opozorilo.component';
 
 
 const routes: Routes = [
@@ -17,7 +16,6 @@ const routes: Routes = [
   { path: 'info', component: InfoComponent },
   { path: 'emergency', component: EmergencyComponent },
   { path: 'opozorila', component: OpozorilaComponent },
-  { path: 'opozorila/:id', component: OpozoriloComponent },
   { path: 'droge', component: ListComponent },
   { path: 'droge/:id', component: DrogeComponent },
   { path: 'nasveti', component: ListComponent },

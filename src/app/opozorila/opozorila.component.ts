@@ -1,5 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, ElementRef, OnInit, QueryList, ViewChildren } from '@angular/core';
 import { DataService } from '../data/data.service';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-opozorila',
@@ -7,41 +8,49 @@ import { DataService } from '../data/data.service';
   <div id='main'>
     <app-nav-header></app-nav-header>
     <div id='content'>
-      <div *ngFor='let opozorilo of opozorila' class='container'>
-        <div id="opozorilo">
-          <div id="naslov" [routerLink]='opozorilo.id'>
-				  <a [href]='opozorilo.link'>
-              <img id="opozoriloICO" src='assets/img/more.svg'/>
-            </a>
-            <h2 id="naslovOpozorila">{{opozorilo.title | uppercase}}</h2>
-          </div>
-          <p>{{opozorilo.datetime}}</p>
-          <p class="basic-txt" [innerHTML]='shorten(opozorilo.msg)'></p>
-        </div>
+      <div *ngFor='let opozorilo of opozorila; index as i' class='container' #container>
+
+        <h2 class="naslov" (click)='focusOn(i)'>{{opozorilo.title | uppercase}}</h2>
+        <p>{{ opozorilo.datetime }}</p>
+        <div class='details' *ngIf='show[i]'>
+          <p class="basic-txt" [innerHTML]='opozorilo.msg'></p>
+          <a [href]='opozorilo.link'><img class="opozoriloICO" src='assets/img/more.svg'/></a>
+        <div>
       </div>
     </div>
   </div>
   `,
   styles: [
     '.container:nth-child(2n+1) { background: #f4f4f4; }',
-    '.container { display: flex; }',
-    '#opozoriloICO { height: 3.5em; float: right; }',
-    '#naslovOpozorila { width: 87vw; }',
-    '#opozorilo { padding-left: 15px; padding-right: 15px; }'
+    '.container { display: flex; padding-left: 15px; padding-right: 15px; }',
+    '.naslov { width: 87vw; }',
+    '.details { display: initial}',
+    '.opozoriloICO { height: 3.5em;}',
   ]
 })
 export class OpozorilaComponent implements OnInit {
 
   opozorila: any[];
-
-  constructor(private ds: DataService) { }
+  @ViewChildren('container') containers: QueryList<ElementRef>;
+  show: boolean[];
+  constructor(private ds: DataService, private route: ActivatedRoute) { }
 
   ngOnInit(): void {
     this.ds.getData('opozorila').subscribe(data => this.opozorila = data);
+    this.show = [];
+    this.route.queryParams.subscribe(data => {
+      this.show.fill(false);
+      this.show[+data.show] = true;
+    });
   }
 
-  shorten(text: string): string{
-    return text.substring(0, 200).concat(' ...');
+  focusOn(idx: number): void {
+    const tmp = this.containers.toArray()[idx].nativeElement;
+    tmp.focus();
+    tmp.scrollIntoView({behavior: 'smooth', block: 'center'});
+    this.show.fill(false); // auto close other textst
+    if (this.show[idx]) { this.show[idx] = false; }
+    else { this.show[idx] = true; }
   }
 
 }

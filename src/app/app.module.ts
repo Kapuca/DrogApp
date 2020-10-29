@@ -17,7 +17,6 @@ import { NavHeaderComponent } from './nav-header/nav-header.component';
 import { HttpClientModule } from '@angular/common/http';
 import { ServiceWorkerModule } from '@angular/service-worker';
 import { environment } from '../environments/environment';
-import { OpozoriloComponent } from './opozorilo/opozorilo.component';
 
 @NgModule({
   declarations: [
@@ -33,7 +32,6 @@ import { OpozoriloComponent } from './opozorilo/opozorilo.component';
     ZapletiComponent,
     NasvetiComponent,
     NavHeaderComponent,
-    OpozoriloComponent
   ],
   imports: [
     BrowserModule,
