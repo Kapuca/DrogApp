@@ -45,18 +45,31 @@ body {
 	 overflow-x: hidden;
 }
 
-a { 
+/* a { 
     color: inherit;
     text-align: inherit;
     text-decoration: inherit;
+} */
+
+app-main > div#main {
+	 background-color: #262626;
 }
 
 #main {
     height: calc(100vh - 124px);
     width: 100%;
-    position: absolute;
-    top: 64px;
     z-index: 0;
+	 position: absolute;
+	 animation: 0.3s ease-out 0s 1 slideFromLeft;
+}
+
+@keyframes slideFromLeft {
+   0% {
+		transform: translateX(-100%);
+	}
+	100% {
+		transform: translateX(0);
+	}
 }
 
 #main > div.tile {
@@ -64,7 +77,7 @@ a {
 }
 
 #content.different {
-	top: 25px;
+	top: 85px;
 }
 
 .app-list {
@@ -75,7 +88,7 @@ a {
     padding-bottom: 61px;
     overflow: hidden;
     position: absolute;
-    top: 45px;
+    top: 109px;
     width: 100%;
     z-index: 0;
 }
@@ -98,55 +111,59 @@ a {
 }
 
 .tablinksDroge {
-	background-size: 100px;
+	background-size: 35px;
     background-repeat: no-repeat;
-    background-position-x: center;
-    background-position-y: 30%;
-    height: 80px !important;
+    background-position-x: 12%;
+    background-position-y: 15%;
+    height: 50px !important;
     width: 25%;
-    padding-top: 50px;
-    display: inline-block;
     letter-spacing: 0.18rem;
     font-weight: 650;
+    color: white;
 }
 
 #tabInfo {
     background-color: #49d3a3;
     background-image: url('assets/img/sub-info.svg');
+	 background-blend-mode: overlay;
 }
 #tabUcinki {
     background-color: #653a4b;
     background-image: url('assets/img/sub-ucinki.svg');
+	 background-blend-mode: overlay;
 }
 #tabDoza {
     background-color: #c63f55;
     background-image: url('assets/img/sub-doza.svg');
+	 background-blend-mode: overlay;
 }
 #tabRisk {
     background-color: #dd6c56;
     background-image: url('assets/img/sub-risk.svg');
+	 background-blend-mode: overlay;
 }
 
 .tablinksZapleti {
-	background-size: 50px;
-	background-repeat: no-repeat;
-	background-position-x: center;
-	background-position-y:-60%;
-	height:80px !important;
-	width:33.33%;
-	padding-top:50px;
-    display: inline-block;
+	background-size: 35px;
+    background-repeat: no-repeat;
+    background-position-x: 12%;
+    background-position-y: 15%;
+    height: 50px !important;
+    width: 33.33%;
     letter-spacing: 0.18rem;
     font-weight: 650;
+    color: white;
 }
 
 #tabZnaki {
   background-color: #653a4b;
   background-image: url('assets/img/sub-ucinki.svg');
+  background-blend-mode: overlay;
 }
 #tabUkrepi {
   background-color: #eed586;
   background-image: url('assets/img/sub-doza.svg');
+  background-blend-mode: overlay;
 }
 
 .vertical { 
@@ -176,3 +193,12 @@ a {
     font-size: 16px;
     white-space: pre-wrap;
 }  
+
+#vecICO {
+	width: 1.6rem;
+	padding: 0.5rem;
+}
+
+h2.naslov {
+	font-size: 1.1rem;
+}

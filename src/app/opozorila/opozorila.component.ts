@@ -9,7 +9,6 @@ import { ActivatedRoute } from '@angular/router';
     <app-nav-header></app-nav-header>
     <div id='content'>
       <div *ngFor='let opozorilo of opozorila; index as i' class='container' #container>
-
         <h2 class="naslov" (click)='focusOn(i)'>{{opozorilo.title | uppercase}}</h2>
         <p>{{ opozorilo.datetime }}</p>
         <div class='details' *ngIf='show[i]'>
@@ -22,10 +21,10 @@ import { ActivatedRoute } from '@angular/router';
   `,
   styles: [
     '.container:nth-child(2n+1) { background: #f4f4f4; }',
-    '.container { display: flex; padding-left: 15px; padding-right: 15px; }',
-    '.naslov { width: 87vw; }',
+    '.container { padding: 10px 15px; cursor: pointer; }',
+    '.naslov { width: 100%; }',
     '.details { display: initial}',
-    '.opozoriloICO { height: 3.5em;}',
+    '.opozoriloICO { height: 3.5em; display: block; width: 100%; }',
   ]
 })
 export class OpozorilaComponent implements OnInit {
