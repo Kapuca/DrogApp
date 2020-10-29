@@ -205,3 +205,28 @@ app-main > div#main {
 h2.naslov {
 	font-size: 1.1rem;
 }
+
+#da { color: #31656d; } 
+#ne { color: #dd6c56; }
+
+#da:active {
+	background-color: #1d763ab3;
+	color: white;
+}
+
+#da(:not):active {
+	background-color: #1f6f3d00;
+	color: #31656d;
+	transition: 0.1s background-color ease-out, 0.1s color ease-out;
+}
+
+#ne:active {
+	background-color: #a30b0bd4;
+	color: white;
+}
+
+#ne(:not):active {
+	background-color: #a30b0b00;
+	color: #dd6c56;
+	transition: 0.1s background-color ease-out, 0.1s color ease-out;
+}
