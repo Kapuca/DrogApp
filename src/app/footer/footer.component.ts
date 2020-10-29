@@ -6,7 +6,7 @@ import { Router } from '@angular/router';
   template: `
   <div id="footer">
     <p *ngIf="showKlic" ><a href="tel:112">KLIC 112</a></p>
-    <p *ngIf="!showKlic" routerLink="/opozorila" onclick="this.blur();">
+    <p *ngIf="!showKlic" routerLink="/opozorila/last" onclick="this.blur();">
       ZADNJE OPOZORILO
     </p>
   </div>

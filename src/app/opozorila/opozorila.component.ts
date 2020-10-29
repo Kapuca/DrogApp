@@ -9,14 +9,14 @@ import { DataService } from '../data/data.service';
     <div id='content'>
       <div *ngFor='let opozorilo of opozorila' class='container'>
         <div id="opozorilo">
-          <div id="naslov">
-				<a [href]='opozorilo.link'>
+          <div id="naslov" [routerLink]='opozorilo.id'>
+				  <a [href]='opozorilo.link'>
               <img id="opozoriloICO" src='assets/img/more.svg'/>
             </a>
             <h2 id="naslovOpozorila">{{opozorilo.title | uppercase}}</h2>
           </div>
           <p>{{opozorilo.datetime}}</p>
-          <p class="basic-txt" [innerHTML]='opozorilo.msg'></p>
+          <p class="basic-txt" [innerHTML]='shorten(opozorilo.msg)'></p>
         </div>
       </div>
     </div>
@@ -38,6 +38,10 @@ export class OpozorilaComponent implements OnInit {
 
   ngOnInit(): void {
     this.ds.getData('opozorila').subscribe(data => this.opozorila = data);
+  }
+
+  shorten(text: string): string{
+    return text.substring(0, 200).concat(' ...');
   }
 
 }
