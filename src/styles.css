@@ -45,11 +45,14 @@ body {
 	 overflow-x: hidden;
 }
 
-/* a { 
-    color: inherit;
-    text-align: inherit;
-    text-decoration: inherit;
-} */
+a {
+	color: black;
+}
+
+a.onDark { 
+    color: white;
+    text-decoration: none;
+}
 
 app-main > div#main {
 	 background-color: #262626;

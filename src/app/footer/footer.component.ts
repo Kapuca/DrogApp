@@ -5,7 +5,7 @@ import { Router } from '@angular/router';
   selector: 'app-footer',
   template: `
   <div id="footer">
-    <p *ngIf="showKlic" ><a href="tel:112">KLIC 112</a></p>
+    <p *ngIf="showKlic" ><a href="tel:112" class="onDark">KLIC 112</a></p>
     <p *ngIf="!showKlic" routerLink="/opozorila" [queryParams]="{show: 0}" onclick="this.blur();">
       ZADNJE OPOZORILO
     </p>
