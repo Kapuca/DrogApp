@@ -47,6 +47,7 @@ export class EmergencyComponent implements OnInit {
   constructor( private ds: DataService, private route: ActivatedRoute) { }
 
   ngOnInit(): void {
+    this.emergency = {main: '', da: '', ne: ''};
     this.ds.getData('emergency').subscribe(
       data => this.emergency = data[0],
       error => {
@@ -56,7 +57,6 @@ export class EmergencyComponent implements OnInit {
         this.emergency.ne = this.emergency.main;
       });
     this.route.queryParams.subscribe(data => this.choice = data.choice);
-    console.log(this.choice);
   }
 
 }

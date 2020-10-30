@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
+import { RouterEvent, Router } from '@angular/router';
 
 @Component({
   selector: 'app-footer',
@@ -24,8 +24,8 @@ export class FooterComponent implements OnInit {
 
   ngOnInit(): void {
     this.router.events.subscribe(event => {
-      if (event['url']){
-        this.showKlic = event['url'] === '/emergency';
+      if (event instanceof RouterEvent){
+        this.showKlic = event.url.includes('/emergency');
       }
   });
 
