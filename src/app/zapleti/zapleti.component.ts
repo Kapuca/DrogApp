@@ -8,9 +8,9 @@ import { DataService } from '../data/data.service';
   <div id='main'>
     <app-nav-header></app-nav-header>
     <div class="tab" id="tabZapleti">
-      <button class="tablinksZapleti" id="tabInfo" (click)="open('info')">{{ 'info' | uppercase }}</button>
-      <button class="tablinksZapleti" id="tabZnaki" (click)="open('znaki')">{{ 'znaki' | uppercase }}</button>
-      <button class="tablinksZapleti" id="tabUkrepi" (click)="open('ukrepi')">{{ 'ukrepi' | uppercase }}</button>
+      <button class="tablinksZapleti" id="tabInfo" (click)="open('info', $event)" onclick="this.blur();">{{ 'info' | uppercase }}</button>
+      <button class="tablinksZapleti" id="tabZnaki" (click)="open('znaki', $event)" onclick="this.blur();">{{ 'znaki' | uppercase }}</button>
+      <button class="tablinksZapleti" id="tabUkrepi" (click)="open('ukrepi', $event)" onclick="this.blur();">{{ 'ukrepi' | uppercase }}</button>
     </div>
     <div id='content'>
       <p class="basic-txt" [style.display]="display('info')" [innerHTML]='zaplet.info'></p>
@@ -27,18 +27,21 @@ export class ZapletiComponent implements OnInit {
 
   zaplet: any;
   openedTab: string;
+  tabGroupEl: any;
 
   constructor( private ds: DataService, private route: ActivatedRoute) { }
 
   ngOnInit(): void {
     this.openedTab = 'info';
+	 this.tabGroupEl = document.getElementsByClassName("tab")[0];
     this.route.url.subscribe(segs =>
       this.ds.getData(segs[0].toString(), +segs[1].toString()).subscribe(res =>
         this.zaplet = res[0])
     );
   }
 
-  open(attr: string): void{
+  open(attr: string, el: any): void{
+    this.tabGroupEl.style.borderBottomColor = window.getComputedStyle(el.target).backgroundColor;
     this.openedTab = attr;
   }
 

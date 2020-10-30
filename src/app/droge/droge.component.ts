@@ -8,10 +8,10 @@ import { ActivatedRoute } from '@angular/router';
     <div id='main'>
       <app-nav-header></app-nav-header>
 		  <div class="tab" id="tabDroge">
-        <button class="tablinksDroge" id="tabInfo" (click)="open('info')">{{ 'info' | uppercase }}</button>
-        <button class="tablinksDroge" id="tabUcinki" (click)="open('efekt')">{{ 'učinek' | uppercase }}</button>
-        <button class="tablinksDroge" id="tabDoza" (click)="open('doza')">{{ 'odmerek' | uppercase }}</button>
-        <button class="tablinksDroge" id="tabRisk" (click)="open('risk')">{{ 'tveganja' | uppercase }}</button>
+        <button class="tablinksDroge" id="tabInfo" (click)="open('info', $event)" onclick="this.blur();">{{ 'info' | uppercase }}</button>
+        <button class="tablinksDroge" id="tabUcinki" (click)="open('efekt', $event)" onclick="this.blur();">{{ 'učinek' | uppercase }}</button>
+        <button class="tablinksDroge" id="tabDoza" (click)="open('doza', $event)" onclick="this.blur();">{{ 'odmerek' | uppercase }}</button>
+        <button class="tablinksDroge" id="tabRisk" (click)="open('risk', $event)" onclick="this.blur();">{{ 'tveganja' | uppercase }}</button>
       </div>
       <div id='content'>
         <p class="basic-txt" [style.display]="display('info')" [innerHTML]='droga.info'></p>
@@ -35,18 +35,21 @@ export class DrogeComponent implements OnInit {
 
   droga: any;
   openedTab: string;
+  tabGroupEl: any;
 
   constructor( private ds: DataService, private route: ActivatedRoute) { }
 
   ngOnInit(): void {
     this.openedTab = 'info';
+	 this.tabGroupEl = document.getElementsByClassName("tab")[0];
     this.route.url.subscribe(segs =>
       this.ds.getData(segs[0].toString(), +segs[1].toString()).subscribe(res =>
         this.droga = res[0])
     );
   }
 
-  open(attr: string): void{
+  open(attr: string, el: any): void{
+	 this.tabGroupEl.style.borderBottomColor = window.getComputedStyle(el.target).backgroundColor;
     this.openedTab = attr;
   }
 

@@ -54,6 +54,10 @@ a.onDark {
     text-decoration: none;
 }
 
+button {
+	border: none;
+}
+
 app-main > div#main {
 	 background-color: #262626;
 }
@@ -64,15 +68,6 @@ app-main > div#main {
     z-index: 0;
 	 position: absolute;
 	 animation: 0.3s ease-out 0s 1 slideFromLeft;
-}
-
-@keyframes slideFromLeft {
-   0% {
-		transform: translateX(-100%);
-	}
-	100% {
-		transform: translateX(0);
-	}
 }
 
 #main > div.tile {
@@ -107,11 +102,26 @@ app-main > div#main {
 	z-index: 420;
 	width: 100%;
 	text-align: center;
+	border-bottom: 5px solid #49d3a3;
 }
+
+/* .tab::after > .me#tabInfo {
+	border-bottom: 5px solid #49d3a3;
+}
+.tab::after > .me#tabUcinki {
+	border-bottom: 5px solid #653a4b;
+}
+.tab::after > .me#tabDoza {
+	border-bottom: 5px solid #c63f55;
+} */
 
 .tab > button {
 	cursor: pointer;
 }
+
+/* button:active {
+	transform: none;
+} */
 
 .tablinksDroge {
 	background-size: 35px;
@@ -209,6 +219,8 @@ h2.naslov {
 #da { color: #31656d; } 
 #ne { color: #dd6c56; }
 
+/*  ANIMATIONS */
+
 #da:active {
 	background-color: #1d763ab3;
 	color: white;
@@ -229,4 +241,13 @@ h2.naslov {
 	background-color: #a30b0b00;
 	color: #dd6c56;
 	transition: 0.1s background-color ease-out, 0.1s color ease-out;
+}
+
+@keyframes slideFromLeft {
+   0% {
+		transform: translateX(-100%);
+	}
+	100% {
+		transform: translateX(0);
+	}
 }
