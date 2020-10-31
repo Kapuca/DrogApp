@@ -1,6 +1,8 @@
 {
   "$schema": "./node_modules/@angular/service-worker/config/schema.json",
+  "version": 0.1,
   "index": "/index.html",
+  "scope": "/",
   "assetGroups": [
     {
       "name": "app",
@@ -12,18 +14,37 @@
           "/manifest.webmanifest",
           "/*.css",
           "/*.js",
-			 "/*.svg"
+			 "/*.woff2",
+			 "/assets/**"
         ]
       }
     }, {
       "name": "assets",
-      "installMode": "lazy",
+      "installMode": "prefetch",
       "updateMode": "prefetch",
       "resources": {
         "files": [
-          "/assets/**",
-          "/*.(eot|cur|jpg|png|webp|gif|otf|ttf|woff|woff2|ani)"
+          "/favicon.ico",
+          "/index.html",
+          "/manifest.webmanifest",
+          "/*.css",
+          "/*.js",
+			 "/*.woff2",
+			 "/assets/**"
         ]
+      }
+    }
+  ],
+  "dataGroups": [
+	 {
+      "name": "drogapp.drogart.org",
+      "urls": [
+        "https://drogapp.drogart.org/**"
+      ],
+      "cacheConfig": {
+        "maxSize": 10,
+        "maxAge": "100d",
+        "strategy": "performance"
       }
     }
   ]
