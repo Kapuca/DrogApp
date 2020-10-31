@@ -43,6 +43,7 @@ body {
     width: 100%;
     height: 100vh;
 	 overflow-x: hidden;
+	 /* background-color: #262626; */
 }
 
 a {
@@ -58,10 +59,6 @@ button {
 	border: none;
 }
 
-app-main > div#main {
-	 background-color: #262626;
-}
-
 #main {
     height: calc(100vh - 124px);
     width: 100%;
@@ -69,6 +66,16 @@ app-main > div#main {
 	 position: absolute;
 	 animation: 0.3s ease-out 0s 1 slideFromLeft;
 }
+
+/* app-list > div#main,
+app-droge > div#main,
+app-nasveti > div#main,
+app-zapleti > div#main,
+app-emergency > div#main,
+app-info > div#main,
+app-opozorila > div#main {
+	background-color: white;
+} */
 
 #main > div.tile {
 	cursor: pointer;
@@ -102,17 +109,28 @@ app-main > div#main {
 	z-index: 420;
 	width: 100%;
 	text-align: center;
-	border-bottom: 5px solid #49d3a3;
+	animation: 0.6s ease-out 0s 1 slideFromUp;
+	z-index: 1;
 }
 
-/* .tab::after > .me#tabInfo {
-	border-bottom: 5px solid #49d3a3;
+#tabBorder {
+	width: 100%;
+	height: 5px;
+	background-color: #49d3a3;
 }
-.tab::after > .me#tabUcinki {
-	border-bottom: 5px solid #653a4b;
+
+/* #tabBorder:active {
+	 animation: 0.3s ease-out 0s 1 slideFromLeft;
+} */
+
+/* #tabInfo:active .tabBorder {
+	animation: 0.3s ease-out 0s 1 slideFromLeft;
 }
-.tab::after > .me#tabDoza {
-	border-bottom: 5px solid #c63f55;
+#tabUcinki:active .tabBorder {
+	animation: 0.3s ease-out 0s 1 slideFromLeft;
+}
+#tabDoza:active .tabBorder {
+	animation: 0.3s ease-out 0s 1 slideFromLeft;
 } */
 
 .tab > button {
@@ -219,6 +237,10 @@ h2.naslov {
 #da { color: #31656d; } 
 #ne { color: #dd6c56; }
 
+#moreInfo {
+	 animation: 0.3s ease-in-out 0s 1 slideFromDown;
+}
+
 /*  ANIMATIONS */
 
 #da:active {
@@ -249,5 +271,32 @@ h2.naslov {
 	}
 	100% {
 		transform: translateX(0);
+	}
+}
+
+@keyframes slideFromUp {
+   0% {
+		transform: translateY(-300%);
+		opacity: 0;
+	}
+   50% {
+		transform: translateY(-200%);
+		opacity: 0.1;
+	}
+	100% {
+		transform: translateY(0);
+		opacity: 1;
+	}
+}
+
+@keyframes slideFromDown {
+   0% {
+		transform: translateY(100%);
+	}
+   60% {
+		transform: translateY(100%);
+	}
+	100% {
+		transform: translateY(0);
 	}
 }
