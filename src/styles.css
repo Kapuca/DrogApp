@@ -43,7 +43,6 @@ body {
     width: 100%;
     height: 100vh;
 	 overflow-x: hidden;
-	 /* background-color: #262626; */
 }
 
 a {
@@ -66,16 +65,6 @@ button {
 	 position: absolute;
 	 animation: 0.3s ease-out 0s 1 slideFromLeft;
 }
-
-/* app-list > div#main,
-app-droge > div#main,
-app-nasveti > div#main,
-app-zapleti > div#main,
-app-emergency > div#main,
-app-info > div#main,
-app-opozorila > div#main {
-	background-color: white;
-} */
 
 #main > div.tile {
 	cursor: pointer;
@@ -140,6 +129,11 @@ app-opozorila > div#main {
 /* button:active {
 	transform: none;
 } */
+
+.tablinksDroge,
+.tablinksZapleti {
+	font-size: 0.6rem;
+}
 
 .tablinksDroge {
 	background-size: 35px;
@@ -233,6 +227,10 @@ app-opozorila > div#main {
 h2.naslov {
 	font-size: 1.1rem;
 }
+
+/* h2.naslov + p + div.details {
+	animation: 1s ease-in-out 0s 1 slideFromDown;
+} */
 
 #da { color: #31656d; } 
 #ne { color: #dd6c56; }
