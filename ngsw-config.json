@@ -30,7 +30,13 @@
           "/*.css",
           "/*.js",
 			 "/*.woff2",
-			 "/assets/**"
+			 "/assets/**",
+			 "/droge.php?type=json",
+			 "/nasveti.php?type=json",
+			 "/zapleti.php?type=json",
+			 "/emergency.php?type=json",
+			 "/info.php?type=json",
+			 "/opozorila.php?type=json"
         ]
       }
     }
@@ -39,11 +45,16 @@
 	 {
       "name": "drogapp.drogart.org",
       "urls": [
-        "https://drogapp.drogart.org/**"
+        "/droge.php?type=json",
+        "/nasveti.php?type=json",
+        "/zapleti.php?type=json",
+        "/emergency.php?type=json",
+        "/info.php?type=json",
+        "/opozorila.php?type=json"
       ],
       "cacheConfig": {
-        "maxSize": 10,
-        "maxAge": "100d",
+        "maxSize": 7,
+        "maxAge": "5d",
         "strategy": "performance"
       }
     }

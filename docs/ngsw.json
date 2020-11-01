@@ -1,6 +1,6 @@
 {
   "configVersion": 1,
-  "timestamp": 1604185004876,
+  "timestamp": 1604254839338,
   "index": "/DrogApp/index.html",
   "assetGroups": [
     {
@@ -46,8 +46,8 @@
         "/DrogApp/favicon.ico",
         "/DrogApp/gotham-medium-webfont.b5ccc7d8ac56590a153b.woff2",
         "/DrogApp/index.html",
-        "/DrogApp/main-es2015.9d1830de8475b6756a84.js",
-        "/DrogApp/main-es5.9d1830de8475b6756a84.js",
+        "/DrogApp/main-es2015.dff46edd68d5cf3e33a7.js",
+        "/DrogApp/main-es5.dff46edd68d5cf3e33a7.js",
         "/DrogApp/manifest.webmanifest",
         "/DrogApp/polyfills-es2015.f332a089ad1600448873.js",
         "/DrogApp/polyfills-es5.177e85a9724683782539.js",
@@ -69,11 +69,16 @@
     {
       "name": "drogapp.drogart.org",
       "patterns": [
-        "https:\\/\\/drogapp\\.drogart\\.org\\/.*"
+        "\\/droge\\.php\\?type=json",
+        "\\/nasveti\\.php\\?type=json",
+        "\\/zapleti\\.php\\?type=json",
+        "\\/emergency\\.php\\?type=json",
+        "\\/info\\.php\\?type=json",
+        "\\/opozorila\\.php\\?type=json"
       ],
       "strategy": "performance",
-      "maxSize": 10,
-      "maxAge": 8640000000,
+      "maxSize": 7,
+      "maxAge": 432000000,
       "version": 1
     }
   ],
@@ -115,10 +120,10 @@
     "/DrogApp/brandon_reg-webfont.8dab3f00ba14298e5750.woff2": "770bb499c0eecee75c701aa7a6cb7bd334baf23b",
     "/DrogApp/favicon.ico": "aa561d13acc0c969985a802b3c47c84eabb574bd",
     "/DrogApp/gotham-medium-webfont.b5ccc7d8ac56590a153b.woff2": "1157e60da38ca771412f3f140ebf5f94e863374c",
-    "/DrogApp/index.html": "d30d3f6cd49558b6eb4157cf53b8d4d88ed27281",
-    "/DrogApp/main-es2015.9d1830de8475b6756a84.js": "64b7351db76e66b922049c3cbcc5ca8e8887602f",
-    "/DrogApp/main-es5.9d1830de8475b6756a84.js": "7c174e0b694f129e0e0d74cda5cf54fd96db83d4",
-    "/DrogApp/manifest.webmanifest": "e50c83b4ff1a382b6e5f6d566b1448932d29213b",
+    "/DrogApp/index.html": "bc4fb9655dd2cb8c8a6bcaa5fbfc8c6643781b66",
+    "/DrogApp/main-es2015.dff46edd68d5cf3e33a7.js": "57d42238c228a40a0863997147d8e0b3b20b2ba8",
+    "/DrogApp/main-es5.dff46edd68d5cf3e33a7.js": "cde565e27db5fe2d9c71ae785e9484e3970af813",
+    "/DrogApp/manifest.webmanifest": "1dd0531459b1de60bc76f1449b2553754305a000",
     "/DrogApp/polyfills-es2015.f332a089ad1600448873.js": "72ad4ccc0a3916ae4598199447cdeadd6d380570",
     "/DrogApp/polyfills-es5.177e85a9724683782539.js": "8aa26ea87b9958c6bd13b7c257c0e9940438e684",
     "/DrogApp/runtime-es2015.0dae8cbc97194c7caed4.js": "a9aafcf49f49145093fc831efd9b8e2f6c71bb9c",

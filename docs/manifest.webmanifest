@@ -19,5 +19,14 @@
       "type": "image/png",
 		"purpose": "maskable"
     }
+  ],
+  "shortcuts": [
+    {
+      "name": "Droge",
+      "short_name": "Droge",
+      "description": "Seznam drog",
+      "url": "/droge",
+      "icons": [{ "src": "assets/img/home-droge.svg", "sizes": "192x192" }]
+    }
   ]
 }
