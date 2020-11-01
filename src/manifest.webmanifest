@@ -5,8 +5,8 @@
   "background_color": "#262626",
   "display": "fullscreen",
   "orientation": "portrait",
-  "scope": "/",
-  "start_url": "/",
+  "scope": "/DrogApp/",
+  "start_url": "/DrogApp/",
   "icons": [
     {
       "src": "assets/icons/icon-512x512.png",

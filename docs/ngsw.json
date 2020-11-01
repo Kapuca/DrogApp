@@ -1,6 +1,6 @@
 {
   "configVersion": 1,
-  "timestamp": 1604254839338,
+  "timestamp": 1604273863289,
   "index": "/DrogApp/index.html",
   "assetGroups": [
     {
@@ -123,7 +123,7 @@
     "/DrogApp/index.html": "bc4fb9655dd2cb8c8a6bcaa5fbfc8c6643781b66",
     "/DrogApp/main-es2015.dff46edd68d5cf3e33a7.js": "57d42238c228a40a0863997147d8e0b3b20b2ba8",
     "/DrogApp/main-es5.dff46edd68d5cf3e33a7.js": "cde565e27db5fe2d9c71ae785e9484e3970af813",
-    "/DrogApp/manifest.webmanifest": "1dd0531459b1de60bc76f1449b2553754305a000",
+    "/DrogApp/manifest.webmanifest": "b24d381cbb01e6f110f426221eb260536e57ff61",
     "/DrogApp/polyfills-es2015.f332a089ad1600448873.js": "72ad4ccc0a3916ae4598199447cdeadd6d380570",
     "/DrogApp/polyfills-es5.177e85a9724683782539.js": "8aa26ea87b9958c6bd13b7c257c0e9940438e684",
     "/DrogApp/runtime-es2015.0dae8cbc97194c7caed4.js": "a9aafcf49f49145093fc831efd9b8e2f6c71bb9c",
