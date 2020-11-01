@@ -25,7 +25,7 @@
       "name": "Droge",
       "short_name": "Droge",
       "description": "Seznam drog",
-      "url": "/droge",
+      "url": "/DrogApp/droge",
       "icons": [{ "src": "assets/img/home-droge.svg", "sizes": "512x512" }]
     }
   ]
