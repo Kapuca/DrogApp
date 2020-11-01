@@ -30,13 +30,7 @@
           "/*.css",
           "/*.js",
 			 "/*.woff2",
-			 "/assets/**",
-			 "/droge.php?type=json",
-			 "/nasveti.php?type=json",
-			 "/zapleti.php?type=json",
-			 "/emergency.php?type=json",
-			 "/info.php?type=json",
-			 "/opozorila.php?type=json"
+			 "/assets/**"
         ]
       }
     }
