@@ -2,7 +2,7 @@
   "$schema": "./node_modules/@angular/service-worker/config/schema.json",
   "version": 0.1,
   "index": "/index.html",
-  "scope": "/",
+  "scope": "/DrogApp/",
   "assetGroups": [
     {
       "name": "app",
