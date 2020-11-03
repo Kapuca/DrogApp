@@ -1,8 +1,9 @@
 {
   "$schema": "./node_modules/@angular/service-worker/config/schema.json",
-  "version": 0.1,
   "index": "/index.html",
-  "scope": "/DrogApp/",
+  "appData": {
+    "version": 0.2
+  },
   "assetGroups": [
     {
       "name": "app",
@@ -14,42 +15,46 @@
           "/manifest.webmanifest",
           "/*.css",
           "/*.js",
-			 "/*.woff2",
-			 "/assets/**"
+          "/*.ts"
         ]
       }
     }, {
       "name": "assets",
       "installMode": "prefetch",
-      "updateMode": "prefetch",
       "resources": {
         "files": [
-          "/favicon.ico",
-          "/index.html",
-          "/manifest.webmanifest",
-          "/*.css",
-          "/*.js",
-			 "/*.woff2",
-			 "/assets/**"
+          "/assets/**",
+          "/*.(eot|svg|cur|jpg|png|webp|gif|otf|ttf|woff|woff2|ani)"
         ]
       }
     }
   ],
   "dataGroups": [
 	 {
-      "name": "drogapp.drogart.org",
+      "name": "backend-data",
       "urls": [
-        "/droge.php?type=json",
-        "/nasveti.php?type=json",
-        "/zapleti.php?type=json",
-        "/emergency.php?type=json",
-        "/info.php?type=json",
-        "/opozorila.php?type=json"
+        "https://drogapp.drogart.org//droge.php?type=json",
+        "https://drogapp.drogart.org//nasveti.php?type=json",
+        "https://drogapp.drogart.org//zapleti.php?type=json",
+        "https://drogapp.drogart.org//emergency.php?type=json",
+        "https://drogapp.drogart.org//info.php?type=json"
       ],
       "cacheConfig": {
-        "maxSize": 7,
+        "maxSize": 100,
         "maxAge": "5d",
         "strategy": "performance"
+      }
+    },
+    {
+      "name": "backend-feed",
+      "urls": [
+        "https://drogapp.drogart.org//opozorila.php?type=json"
+      ],
+      "cacheConfig": {
+        "maxSize": 20,
+        "maxAge": "12h",
+        "timeout": "0u",
+        "strategy": "freshness"
       }
     }
   ]
