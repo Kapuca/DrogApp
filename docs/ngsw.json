@@ -1,10 +1,32 @@
 {
   "configVersion": 1,
-  "timestamp": 1604278107145,
+  "timestamp": 1604442079061,
+  "appData": {
+    "version": 0.2
+  },
   "index": "/DrogApp/index.html",
   "assetGroups": [
     {
       "name": "app",
+      "installMode": "prefetch",
+      "updateMode": "prefetch",
+      "urls": [
+        "/DrogApp/favicon.ico",
+        "/DrogApp/index.html",
+        "/DrogApp/404.html",
+        "/DrogApp/main-es2015.8bd2e87826839b1fe6b2.js",
+        "/DrogApp/main-es5.8bd2e87826839b1fe6b2.js",
+        "/DrogApp/manifest.webmanifest",
+        "/DrogApp/polyfills-es2015.f332a089ad1600448873.js",
+        "/DrogApp/polyfills-es5.177e85a9724683782539.js",
+        "/DrogApp/runtime-es2015.0dae8cbc97194c7caed4.js",
+        "/DrogApp/runtime-es5.0dae8cbc97194c7caed4.js",
+        "/DrogApp/styles.6310dea1a9282a10c19b.css"
+      ],
+      "patterns": []
+    },
+    {
+      "name": "assets",
       "installMode": "prefetch",
       "updateMode": "prefetch",
       "urls": [
@@ -41,44 +63,53 @@
         "/DrogApp/assets/img/sub-info.svg",
         "/DrogApp/assets/img/sub-risk.svg",
         "/DrogApp/assets/img/sub-ucinki.svg",
+        "/DrogApp/brandon_med-webfont.6005cfd45b3360db2d62.svg",
         "/DrogApp/brandon_med-webfont.a016910184eeff96ab5d.woff2",
+        "/DrogApp/brandon_med-webfont.b35f19dff1aad20a2304.woff",
+        "/DrogApp/brandon_med-webfont.f3319ef8f8001392ca3d.eot",
+        "/DrogApp/brandon_med-webfont.f8fe69db66709b83eb48.ttf",
+        "/DrogApp/brandon_reg-webfont.2026b63bd2bbc079794a.eot",
+        "/DrogApp/brandon_reg-webfont.40f0a1902c00b4bb0ab8.svg",
         "/DrogApp/brandon_reg-webfont.8dab3f00ba14298e5750.woff2",
-        "/DrogApp/favicon.ico",
+        "/DrogApp/brandon_reg-webfont.d01e323357d6e7431444.woff",
+        "/DrogApp/brandon_reg-webfont.dec3272a5911cfc0cf25.ttf",
+        "/DrogApp/gotham-medium-webfont.828dbe68280eb4342215.woff",
+        "/DrogApp/gotham-medium-webfont.a14bf4c1b2f50ecaed79.ttf",
+        "/DrogApp/gotham-medium-webfont.a77ef1900ed788404dc9.eot",
         "/DrogApp/gotham-medium-webfont.b5ccc7d8ac56590a153b.woff2",
-        "/DrogApp/index.html",
-        "/DrogApp/main-es2015.ca9e8d38b5d0bc0b0567.js",
-        "/DrogApp/main-es5.ca9e8d38b5d0bc0b0567.js",
-        "/DrogApp/manifest.webmanifest",
-        "/DrogApp/polyfills-es2015.f332a089ad1600448873.js",
-        "/DrogApp/polyfills-es5.177e85a9724683782539.js",
-        "/DrogApp/runtime-es2015.0dae8cbc97194c7caed4.js",
-        "/DrogApp/runtime-es5.0dae8cbc97194c7caed4.js",
-        "/DrogApp/styles.72b271ebb21328bd3c81.css"
+        "/DrogApp/gotham-medium-webfont.edb948c1926b8bbce389.svg",
+        "/DrogApp/sub-doza.7f2683665f85080fb048.svg",
+        "/DrogApp/sub-info.cda105fd4c7b587b4f61.svg",
+        "/DrogApp/sub-risk.c19ebd360e5400320958.svg",
+        "/DrogApp/sub-ucinki.d1cb396e747f1661ae5f.svg"
       ],
-      "patterns": []
-    },
-    {
-      "name": "assets",
-      "installMode": "prefetch",
-      "updateMode": "prefetch",
-      "urls": [],
       "patterns": []
     }
   ],
   "dataGroups": [
     {
-      "name": "drogapp.drogart.org",
+      "name": "backend-data",
       "patterns": [
-        "\\/droge\\.php\\?type=json",
-        "\\/nasveti\\.php\\?type=json",
-        "\\/zapleti\\.php\\?type=json",
-        "\\/emergency\\.php\\?type=json",
-        "\\/info\\.php\\?type=json",
-        "\\/opozorila\\.php\\?type=json"
+        "https:\\/\\/drogapp\\.drogart\\.org\\/\\/droge\\.php\\?type=json",
+        "https:\\/\\/drogapp\\.drogart\\.org\\/\\/nasveti\\.php\\?type=json",
+        "https:\\/\\/drogapp\\.drogart\\.org\\/\\/zapleti\\.php\\?type=json",
+        "https:\\/\\/drogapp\\.drogart\\.org\\/\\/emergency\\.php\\?type=json",
+        "https:\\/\\/drogapp\\.drogart\\.org\\/\\/info\\.php\\?type=json"
       ],
       "strategy": "performance",
-      "maxSize": 7,
+      "maxSize": 100,
       "maxAge": 432000000,
+      "version": 1
+    },
+    {
+      "name": "backend-feed",
+      "patterns": [
+        "https:\\/\\/drogapp\\.drogart\\.org\\/\\/opozorila\\.php\\?type=json"
+      ],
+      "strategy": "freshness",
+      "maxSize": 20,
+      "maxAge": 43200000,
+      "timeoutMs": 0,
       "version": 1
     }
   ],
@@ -109,26 +140,42 @@
     "/DrogApp/assets/img/home-info.svg": "a7dd97330020cdf5b7b8d1de76b613f04295aa32",
     "/DrogApp/assets/img/home-nasveti.svg": "053647db1408431f553754cba6c843354c2da6a2",
     "/DrogApp/assets/img/home-opozorila.svg": "6477650b277f369927216927671196eecfd5a986",
-    "/DrogApp/assets/img/home-zapleti.svg": "517b48dfc9e954eb224d35ae99825d74ca19665f",
+    "/DrogApp/assets/img/home-zapleti.svg": "aea2f7d3cc1ed0c8658dedc5a94afd7bf3afe1eb",
     "/DrogApp/assets/img/icon.jpg": "6330ca7787bbbba0fd27dc66ec44505d13396cea",
     "/DrogApp/assets/img/more.svg": "6a19b28010f5536b29b1c9127ba041de5a0c9122",
     "/DrogApp/assets/img/sub-doza.svg": "875fd720c5fda4080f1695e72c3993edef2e31a0",
     "/DrogApp/assets/img/sub-info.svg": "c9a26e52fc53ff7dbbba7d6c149721f84575a64b",
     "/DrogApp/assets/img/sub-risk.svg": "0ed3cca95846270915850f389ddfa4ed745e8cb5",
     "/DrogApp/assets/img/sub-ucinki.svg": "d4893d08a2e60d7a29c9944f857f4b82ea94d6a5",
+    "/DrogApp/brandon_med-webfont.6005cfd45b3360db2d62.svg": "c1e427353a46ec00a1198abe5695a4417e6669dc",
     "/DrogApp/brandon_med-webfont.a016910184eeff96ab5d.woff2": "499e7b6fb35d39e20d7fc9cce2b6472b5a1065a6",
+    "/DrogApp/brandon_med-webfont.b35f19dff1aad20a2304.woff": "6ad24d5fd3a2bf765edda6aa31cfb5740ca769c6",
+    "/DrogApp/brandon_med-webfont.f3319ef8f8001392ca3d.eot": "36498fba3b2494ce08f72f506131383ce88a24d8",
+    "/DrogApp/brandon_med-webfont.f8fe69db66709b83eb48.ttf": "b4d8a45ab777a1ffa02d4300e1028e1fd6e12410",
+    "/DrogApp/brandon_reg-webfont.2026b63bd2bbc079794a.eot": "f1d21bda70fe76b1dc11ec1e0dd92060b7c9cd4e",
+    "/DrogApp/brandon_reg-webfont.40f0a1902c00b4bb0ab8.svg": "1a1c677725f865311a50150f9d6a0589ee784577",
     "/DrogApp/brandon_reg-webfont.8dab3f00ba14298e5750.woff2": "770bb499c0eecee75c701aa7a6cb7bd334baf23b",
+    "/DrogApp/brandon_reg-webfont.d01e323357d6e7431444.woff": "6f474488fdfc3297c8fcfa23ad35973d2f8f99aa",
+    "/DrogApp/brandon_reg-webfont.dec3272a5911cfc0cf25.ttf": "b6473389d47ee31e147a32c553d467341d767f1d",
     "/DrogApp/favicon.ico": "aa561d13acc0c969985a802b3c47c84eabb574bd",
+    "/DrogApp/gotham-medium-webfont.828dbe68280eb4342215.woff": "da698a4fc95334b0c6f6c5b0d044699d1cafe0f8",
+    "/DrogApp/gotham-medium-webfont.a14bf4c1b2f50ecaed79.ttf": "723f6dcd10087f2b804e7b5881e01dfb7f803ddc",
+    "/DrogApp/gotham-medium-webfont.a77ef1900ed788404dc9.eot": "b8bc15cd9b0ad602ef91bc37f5f8f70e62481583",
     "/DrogApp/gotham-medium-webfont.b5ccc7d8ac56590a153b.woff2": "1157e60da38ca771412f3f140ebf5f94e863374c",
-    "/DrogApp/index.html": "b57a0ecbe24e7f0999d4cb52a5de5228bc5d0503",
-    "/DrogApp/main-es2015.ca9e8d38b5d0bc0b0567.js": "c195bbe8596fd77eafdba1065e00c7b068f39432",
-    "/DrogApp/main-es5.ca9e8d38b5d0bc0b0567.js": "3bb5edb218405fa1e8f768f7c2bad37114419495",
-    "/DrogApp/manifest.webmanifest": "b24d381cbb01e6f110f426221eb260536e57ff61",
+    "/DrogApp/gotham-medium-webfont.edb948c1926b8bbce389.svg": "e59c97372696973f32b32f4601729348311a1035",
+    "/DrogApp/index.html": "9c03d819f11e90ecc73f5f8f621acf1cefd6d87f",
+    "/DrogApp/main-es2015.8bd2e87826839b1fe6b2.js": "9745eb69ebcb9e8bdec0c1cb01feb2ba27fd6492",
+    "/DrogApp/main-es5.8bd2e87826839b1fe6b2.js": "6b8c0dac589b233c78da99fcfafde51f6dcba131",
+    "/DrogApp/manifest.webmanifest": "0558269177558140f6642f7e745efbe8a40c27b3",
     "/DrogApp/polyfills-es2015.f332a089ad1600448873.js": "72ad4ccc0a3916ae4598199447cdeadd6d380570",
     "/DrogApp/polyfills-es5.177e85a9724683782539.js": "8aa26ea87b9958c6bd13b7c257c0e9940438e684",
     "/DrogApp/runtime-es2015.0dae8cbc97194c7caed4.js": "a9aafcf49f49145093fc831efd9b8e2f6c71bb9c",
     "/DrogApp/runtime-es5.0dae8cbc97194c7caed4.js": "a9aafcf49f49145093fc831efd9b8e2f6c71bb9c",
-    "/DrogApp/styles.72b271ebb21328bd3c81.css": "1556b18e8ae7e95a28683040df05f4063f0ed5ae"
+    "/DrogApp/styles.6310dea1a9282a10c19b.css": "e6e4e522381f0dbe1edf8e3408ab300ce46fbf1a",
+    "/DrogApp/sub-doza.7f2683665f85080fb048.svg": "875fd720c5fda4080f1695e72c3993edef2e31a0",
+    "/DrogApp/sub-info.cda105fd4c7b587b4f61.svg": "c9a26e52fc53ff7dbbba7d6c149721f84575a64b",
+    "/DrogApp/sub-risk.c19ebd360e5400320958.svg": "0ed3cca95846270915850f389ddfa4ed745e8cb5",
+    "/DrogApp/sub-ucinki.d1cb396e747f1661ae5f.svg": "d4893d08a2e60d7a29c9944f857f4b82ea94d6a5"
   },
   "navigationUrls": [
     {

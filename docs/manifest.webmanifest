@@ -5,8 +5,8 @@
   "background_color": "#262626",
   "display": "fullscreen",
   "orientation": "portrait",
-  "scope": "/DrogApp/",
-  "start_url": "/DrogApp/",
+  "scope": "./",
+  "start_url": "./",
   "icons": [
     {
       "src": "assets/icons/icon-512x512.png",
@@ -25,7 +25,7 @@
       "name": "Droge",
       "short_name": "Droge",
       "description": "Seznam drog",
-      "url": "/DrogApp/droge",
+      "url": "/droge",
       "icons": [{ "src": "assets/img/home-droge.svg", "sizes": "512x512" }]
     }
   ]
