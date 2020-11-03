@@ -11,7 +11,8 @@ import { ZapletiComponent } from './zapleti/zapleti.component';
 
 
 const routes: Routes = [
-  { path: '', component: MainComponent },
+  { path: '', redirectTo: 'home', pathMatch: 'full' },
+  { path: 'home', component: MainComponent },
   { path: 'info', component: InfoComponent },
   { path: 'emergency', component: EmergencyComponent },
   { path: 'opozorila', component: OpozorilaComponent },
@@ -21,7 +22,7 @@ const routes: Routes = [
   { path: 'nasveti/:id', component: NasvetiComponent },
   { path: 'zapleti', component: ListComponent },
   { path: 'zapleti/:id', component: ZapletiComponent },
-  { path: '**', redirectTo: '', pathMatch: 'full' }
+  { path: '**', redirectTo: 'home', pathMatch: 'full' }
 ];
 
 @NgModule({
