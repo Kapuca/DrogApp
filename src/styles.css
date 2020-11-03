@@ -42,7 +42,7 @@ body {
     font-family: "brandon_grotesque_regularRg";
     width: 100%;
     height: 100vh;
-	 overflow-x: hidden;
+    overflow-x: hidden;
 }
 
 a {
@@ -62,8 +62,8 @@ button {
     height: calc(100vh - 124px);
     width: 100%;
     z-index: 0;
-	 position: absolute;
-	 animation: 0.3s ease-out 0s 1 slideFromLeft;
+	position: absolute;
+    animation: 0.3s ease-out 0s 1 slideFromLeft;
 }
 
 #main > div.tile {
@@ -291,7 +291,7 @@ ul {
 	color: white;
 }
 
-#da(:not):active {
+#da :not :active {
 	background-color: #1f6f3d00;
 	color: #31656d;
 	transition: 0.1s background-color ease-out, 0.1s color ease-out;
@@ -302,7 +302,7 @@ ul {
 	color: white;
 }
 
-#ne(:not):active {
+#ne :not :active {
 	background-color: #a30b0b00;
 	color: #dd6c56;
 	transition: 0.1s background-color ease-out, 0.1s color ease-out;
