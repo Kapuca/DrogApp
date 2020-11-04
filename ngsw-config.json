@@ -33,14 +33,14 @@
 	 {
       "name": "backend-data",
       "urls": [
-        "https://drogapp.drogart.org//droge.php?type=json",
-        "https://drogapp.drogart.org//nasveti.php?type=json",
-        "https://drogapp.drogart.org//zapleti.php?type=json",
-        "https://drogapp.drogart.org//emergency.php?type=json",
-        "https://drogapp.drogart.org//info.php?type=json"
+        "https://drogapp.drogart.org/droge.php?type=json",
+        "https://drogapp.drogart.org/nasveti.php?type=json",
+        "https://drogapp.drogart.org/zapleti.php?type=json",
+        "https://drogapp.drogart.org/emergency.php?type=json",
+        "https://drogapp.drogart.org/info.php?type=json"
       ],
       "cacheConfig": {
-        "maxSize": 100,
+        "maxSize": 5,
         "maxAge": "5d",
         "strategy": "performance"
       }
@@ -48,10 +48,10 @@
     {
       "name": "backend-feed",
       "urls": [
-        "https://drogapp.drogart.org//opozorila.php?type=json"
+        "https://drogapp.drogart.org/opozorila.php?type=json"
       ],
       "cacheConfig": {
-        "maxSize": 20,
+        "maxSize": 1,
         "maxAge": "12h",
         "timeout": "0u",
         "strategy": "freshness"
