@@ -21,15 +21,15 @@ import { ActivatedRoute } from '@angular/router';
           </div>
           <img src="assets/img/emergency_1.svg" alt="PIC:EMERGENCY1"/>
         </div>
-        <div *ngIf='choice === "true"'>
-          <p class="basic-txt" [innerHTML]='emergency.da'></p>
+        <div *ngIf='choice === "false"'>
+          <p class="basic-txt" [innerHTML]='emergency.ne'></p>
 			 <ul class="emergencyDaSlike">
 				<li id="mergency2"><img src="assets/img/emergency_2.svg" alt="PIC:EMERGENCY2"/></li>
 				<li id="mergency3"><img id="mergency3Slika" src="assets/img/emergency_3.svg" alt="PIC:EMERGENCY3"/></li>
 			 </ul>
         </div>
-        <div *ngIf='choice === "false"'>
-          <p class="basic-txt" [innerHTML]='emergency.ne'></p>
+        <div *ngIf='choice === "true"'>
+          <p class="basic-txt" [innerHTML]='emergency.da'></p>
           <img src="assets/img/emergency_4.svg" alt="PIC:EMERGENCY4"/>
         </div>
         </div>
