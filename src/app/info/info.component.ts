@@ -24,20 +24,20 @@ import { GeneralService } from '../general/general.service';
     'h2 {text-align: center; font-size: 16px; letter-spacing: 0.1em; padding: 15px; margin: 0;}',
     '.section:nth-child(2n+1) { background: #f4f4f4; }',
     '#duck { text-align: center; padding: 15px;}',
+    'input { text-align: center; }',
     'p {text-align: justify;}',
   ]
 })
 export class InfoComponent implements OnInit {
 
   info: any;
-  egg: number;
+  egg = 0;
   @ViewChild('txt', { static: false }) txt: ElementRef;
 
 
   constructor( private ds: DataService, private gs: GeneralService) { }
 
   ngOnInit(): void {
-    this.egg = 0;
     this.ds.getData('info').subscribe(
       data => this.info = data[0],
       error => this.info = {firsttitle: 'DB connectiion not working', firsttext: error.message, secondtitle: '', secondtext: ''}

@@ -7,7 +7,7 @@ import { catchError, map } from 'rxjs/operators';
   providedIn: 'root'
 })
 export class DataService {
-  easter
+
   private url = 'https://drogapp.drogart.org/';
   private endParam = '.php?type=json';
 
@@ -39,7 +39,7 @@ export class DataService {
 
   filter(tmp: Observable<any[]>, id: number) {
     return tmp.pipe(map(arr => {
-      arr = arr.filter(obj => +obj['id'] === id);
+      arr = arr.filter(obj => +obj.id === id);
       if (arr.length > 0) { return arr; }
       else { throw new Error('Data with ' + id + ' not found.'); }
     }));

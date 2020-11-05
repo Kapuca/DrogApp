@@ -38,8 +38,8 @@ import { ActivatedRoute } from '@angular/router';
   styles: [
     '#choice-bar { margin: 20px 0px 20px 0px; display: flex; width: 100%; justify-content: space-around; background: #f4f4f4; height: 45px; font-size: 20px; padding-top: calc(45px/2 - 5px); }',
     'img { object-fit: scale-down; width: 90%; padding-left: 5%; height: fit-content; }',
-	 '.emergencyDaSlike > li { width: 100%; transform:rotateX(180deg); }',
-	 '#mergency3Slika { width: 85%; margin-top: -10%; }',
+    '.emergencyDaSlike > li { width: 100%; transform:rotateX(180deg); }',
+    '#mergency3Slika { width: 85%; margin-top: -10%; }',
     '.izbira { font-size: 1.4rem; font-weight: 650; cursor: pointer; width: calc(50vw - 6px); height: 61.5px; top: -17px; position: relative; background-color: #00000000; border: none; }'
   ]
 })
