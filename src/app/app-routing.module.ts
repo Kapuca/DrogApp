@@ -8,6 +8,7 @@ import { ListComponent } from './list/list.component';
 import { DrogeComponent } from './droge/droge.component';
 import { NasvetiComponent } from './nasveti/nasveti.component';
 import { ZapletiComponent } from './zapleti/zapleti.component';
+import { KittyComponent } from './kitty/kitty.component';
 
 
 const routes: Routes = [
@@ -22,6 +23,7 @@ const routes: Routes = [
   { path: 'nasveti/:id', component: NasvetiComponent },
   { path: 'zapleti', component: ListComponent },
   { path: 'zapleti/:id', component: ZapletiComponent },
+  { path: 'kitty', component: KittyComponent },
   { path: '**', redirectTo: 'home', pathMatch: 'full' }
 ];
 

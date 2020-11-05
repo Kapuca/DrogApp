@@ -1,5 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 import { DataService } from '../data/data.service';
+import { GeneralService } from '../general/general.service';
 
 @Component({
   selector: 'app-info',
@@ -8,7 +9,8 @@ import { DataService } from '../data/data.service';
     <app-nav-header></app-nav-header>
     <div id='content'>
       <div class='section'>
-        <h2>{{info.firsttitle | uppercase}}</h2>
+        <h2 *ngIf='egg < 7' (click)='hatch()'>{{info.firsttitle | uppercase}}</h2>
+        <div id='duck' *ngIf='egg >= 7'> <input #txt /><button (click)='quack()'>Quack</button> </div>
         <p class="basic-txt" [innerHTML]='info.firsttext'><p>
       </div>
       <div class='section'>
@@ -21,22 +23,34 @@ import { DataService } from '../data/data.service';
   styles: [
     'h2 {text-align: center; font-size: 16px; letter-spacing: 0.1em; padding: 15px; margin: 0;}',
     '.section:nth-child(2n+1) { background: #f4f4f4; }',
+    '#duck { text-align: center; padding: 15px;}',
     'p {text-align: justify;}',
   ]
 })
 export class InfoComponent implements OnInit {
 
   info: any;
+  egg: number;
+  @ViewChild('txt', { static: false }) txt: ElementRef;
 
 
-
-  constructor( private ds: DataService) { }
+  constructor( private ds: DataService, private gs: GeneralService) { }
 
   ngOnInit(): void {
+    this.egg = 0;
     this.ds.getData('info').subscribe(
       data => this.info = data[0],
       error => this.info = {firsttitle: 'DB connectiion not working', firsttext: error.message, secondtitle: '', secondtext: ''}
       );
+  }
+
+  hatch(): void {
+    this.egg++;
+  }
+
+  quack(): void {
+    this.gs.addTile(this.txt.nativeElement.value);
+    this.txt.nativeElement.value = '';
   }
 
 }

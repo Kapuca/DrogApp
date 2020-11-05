@@ -17,6 +17,7 @@ import { NavHeaderComponent } from './nav-header/nav-header.component';
 import { HttpClientModule } from '@angular/common/http';
 import { ServiceWorkerModule } from '@angular/service-worker';
 import { environment } from '../environments/environment';
+import { KittyComponent } from './kitty/kitty.component';
 
 @NgModule({
   declarations: [
@@ -32,6 +33,7 @@ import { environment } from '../environments/environment';
     ZapletiComponent,
     NasvetiComponent,
     NavHeaderComponent,
+    KittyComponent,
   ],
   imports: [
     BrowserModule,
