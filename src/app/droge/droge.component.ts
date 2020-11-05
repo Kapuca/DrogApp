@@ -5,7 +5,7 @@ import { ActivatedRoute } from '@angular/router';
 @Component({
   selector: 'app-droge',
   template: `
-    <div id='main'>
+    <div id='main' class='secondPage'>
       <app-nav-header></app-nav-header>
 		<div class="tab" id="tabDroge">
         <button class="tablinksDroge" id="tabInfo" (click)="open('info', $event)" onclick="this.blur();">{{ 'info' | uppercase }}</button>

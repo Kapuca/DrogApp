@@ -5,7 +5,7 @@ import { ActivatedRoute } from '@angular/router';
 @Component({
   selector: 'app-emergency',
   template: `
-    <div id='main'>
+    <div id='main' class='secondPage'>
       <app-nav-header></app-nav-header>
       <div id='content' class='different'>
         <div *ngIf='choice === undefined'>

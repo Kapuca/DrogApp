@@ -5,7 +5,7 @@ import { DataService } from '../data/data.service';
 @Component({
   selector: 'app-nasveti',
   template: `
-  <div id='main'>
+  <div id='main' class='secondPage'>
     <app-nav-header></app-nav-header>
     <div id='content' class='different'>
       <p class="basic-txt" [innerHTML]='nasvet.msg'>

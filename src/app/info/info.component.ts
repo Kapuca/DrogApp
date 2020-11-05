@@ -5,7 +5,7 @@ import { GeneralService } from '../general/general.service';
 @Component({
   selector: 'app-info',
   template: `
-  <div id='main'>
+  <div id='main' class='secondPage'>
     <app-nav-header></app-nav-header>
     <div id='content'>
       <div class='section'>

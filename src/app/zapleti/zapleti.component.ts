@@ -5,7 +5,7 @@ import { DataService } from '../data/data.service';
 @Component({
   selector: 'app-zapleti',
   template: `
-  <div id='main'>
+  <div id='main' class='secondPage'>
     <app-nav-header></app-nav-header>
     <div class="tab" id="tabZapleti">
       <button class="tablinksZapleti" id="tabInfo" (click)="open('info', $event)" onclick="this.blur();">{{ 'info' | uppercase }}</button>

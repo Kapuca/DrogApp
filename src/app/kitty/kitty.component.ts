@@ -6,13 +6,15 @@ import { DataService } from '../data/data.service';
   template: `
     <div id='main'>
     <app-nav-header></app-nav-header>
-    <div id='content'>
+    <div id='content' class="kittyBlock">
       <p> A kitty a day keeps the drugz away</p>
       <img [src]='source' />
     </div>
   </div>
   `,
   styles: [
+  	'.kittyBlock > p { text-align: center; content-align: center; }',
+	'.kittyBlock > img { position: fixed; object-fit: contain; top: 50%; left: 50%; transform: translate(-50%, -50%); }'
   ]
 })
 export class KittyComponent implements OnInit {

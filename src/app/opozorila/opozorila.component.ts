@@ -5,7 +5,7 @@ import { ActivatedRoute } from '@angular/router';
 @Component({
   selector: 'app-opozorila',
   template: `
-  <div id='main'>
+  <div id='main' class='secondPage'>
     <app-nav-header></app-nav-header>
     <div id='content'>
       <div *ngFor='let opozorilo of opozorila; index as i' class='container' #container>

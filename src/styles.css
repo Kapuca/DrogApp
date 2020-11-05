@@ -59,12 +59,27 @@ button {
 }
 
 #main {
-    height: calc(100vh - 124px);
-    width: 100%;
-    z-index: 0;
+   height: calc(100vh - 124px);
+   width: 100%;
+   z-index: 0;
 	position: absolute;
-    animation: 0.3s ease-out 0s 1 slideFromLeft;
 }
+
+.firstPage {
+	animation: 0.3s ease-out 0s 1 slideFromLeft;
+}
+
+/* .firstPage :not :focus {
+	animation: 0.3s ease-out 0s 1 slideFromRight;
+} */
+
+.secondPage {
+	animation: 0.3s ease-out 0s 1 slideFromRight;
+}
+
+/* .secondPage :not :focus {
+	animation: 0.3s ease-out 0s 1 slideFromLeft;
+} */
 
 #main > div.tile {
 	cursor: pointer;
@@ -311,6 +326,15 @@ ul {
 @keyframes slideFromLeft {
    0% {
 		transform: translateX(-100%);
+	}
+	100% {
+		transform: translateX(0);
+	}
+}
+
+@keyframes slideFromRight {
+   0% {
+		transform: translateX(100%);
 	}
 	100% {
 		transform: translateX(0);
