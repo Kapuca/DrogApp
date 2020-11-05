@@ -29,7 +29,7 @@ export class GeneralService {
   addTile(tile: string): void {
     if (!(tile.startsWith('#') && tile.endsWith('#')) ) { return; }
     this.reserved.forEach( val => {
-      if (tile.includes(val)) { this.tiles.push(val); }
+      if (tile.includes(val)) { this.tiles.push(val); } //&& !this.tiles.includes(tile) .. zakaj ne dela..? haha
     });
   }
 }

@@ -50,7 +50,7 @@ export class InfoComponent implements OnInit {
 
   quack(): void {
     this.gs.addTile(this.txt.nativeElement.value);
-    this.txt.nativeElement.value = '';
+	 this.txt.nativeElement.value = '';
   }
 
 }
