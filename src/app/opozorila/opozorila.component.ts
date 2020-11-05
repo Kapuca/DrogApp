@@ -8,8 +8,8 @@ import { ActivatedRoute } from '@angular/router';
   <div id='main' class='secondPage'>
     <app-nav-header></app-nav-header>
     <div id='content'>
-      <div *ngFor='let opozorilo of opozorila; index as i' class='container' #container>
-        <h2 class="naslov" (click)='focusOn(i)'>{{opozorilo.title | uppercase}}</h2>
+      <div *ngFor='let opozorilo of opozorila; index as i' class='container' #container (click)='focusOn(i)'>
+        <h2 class="naslov">{{opozorilo.title | uppercase}}</h2>
         <p>{{ opozorilo.datetime }}</p>
         <div class='details' *ngIf='show[i]'>
           <p class="basic-txt" [innerHTML]='opozorilo.msg'></p>
