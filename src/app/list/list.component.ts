@@ -7,7 +7,7 @@ import { Observable } from 'rxjs';
 @Component({
   selector: 'app-list',
   template: `
-  <div id='main'>
+  <div id='main' class='secondPage'>
     <app-nav-header></app-nav-header>
     <div class="app-list" id='content'>
       <div class='item' *ngFor='let item of items' [routerLink]='item.id'>
