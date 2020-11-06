@@ -3,10 +3,8 @@ import { ActivatedRoute } from '@angular/router';
 import { DataService } from '../data/data.service';
 
 @Component({
-  selector: 'app-zapleti',
+  selector: 'app-zapleti-view',
   template: `
-  <div id='main' class='secondPage'>
-    <app-nav-header></app-nav-header>
     <div class="tab" id="tabZapleti">
       <button class="tablinksZapleti" id="tabInfo" (click)="open('info', $event)" onclick="this.blur();">{{ 'info' | uppercase }}</button>
       <button class="tablinksZapleti" id="tabZnaki" (click)="open('znaki', $event)" onclick="this.blur();">{{ 'znaki' | uppercase }}</button>
@@ -18,13 +16,12 @@ import { DataService } from '../data/data.service';
       <p class="basic-txt" [style.display]="display('znaki')" [innerHTML]='zaplet.znaki'></p>
       <p class="basic-txt" [style.display]="display('ukrepi')" [innerHTML]='zaplet.ukrepi'></p>
     </div>
-  </div>
   `,
   styles: [
-	'#content { top: 140px; }'
+    '#content { top: 140px; }'
   ]
 })
-export class ZapletiComponent implements OnInit {
+export class ZapletiViewComponent implements OnInit {
 
   zaplet: any;
   openedTab: string;
@@ -34,9 +31,9 @@ export class ZapletiComponent implements OnInit {
 
   ngOnInit(): void {
     this.openedTab = 'info';
-	 this.tabGroupBorderEl = document.getElementById("tabBorder");
+    this.tabGroupBorderEl = document.getElementById('tabBorder');
     this.route.url.subscribe(segs =>
-      this.ds.getData(segs[0].toString(), +segs[1].toString()).subscribe(res =>
+      this.ds.getData('zapleti', +segs[0].toString()).subscribe(res =>
         this.zaplet = res[0])
     );
   }

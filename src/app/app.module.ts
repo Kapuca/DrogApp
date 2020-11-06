@@ -10,14 +10,15 @@ import { InfoComponent } from './info/info.component';
 import { OpozorilaComponent } from './opozorila/opozorila.component';
 import { EmergencyComponent } from './emergency/emergency.component';
 import { ListComponent } from './list/list.component';
-import { DrogeComponent } from './droge/droge.component';
-import { ZapletiComponent } from './zapleti/zapleti.component';
-import { NasvetiComponent } from './nasveti/nasveti.component';
 import { NavHeaderComponent } from './nav-header/nav-header.component';
 import { HttpClientModule } from '@angular/common/http';
 import { ServiceWorkerModule } from '@angular/service-worker';
 import { environment } from '../environments/environment';
 import { KittyComponent } from './kitty/kitty.component';
+import { DrogeViewComponent } from './droge-view/droge-view.component';
+import { ListViewComponent } from './list-view/list-view.component';
+import { ZapletiViewComponent } from './zapleti-view/zapleti-view.component';
+import { NasvetiViewComponent } from './nasveti-view/nasveti-view.component';
 
 @NgModule({
   declarations: [
@@ -29,11 +30,12 @@ import { KittyComponent } from './kitty/kitty.component';
     OpozorilaComponent,
     EmergencyComponent,
     ListComponent,
-    DrogeComponent,
-    ZapletiComponent,
-    NasvetiComponent,
     NavHeaderComponent,
     KittyComponent,
+    DrogeViewComponent,
+    ListViewComponent,
+    ZapletiViewComponent,
+    NasvetiViewComponent,
   ],
   imports: [
     BrowserModule,

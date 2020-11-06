@@ -1,40 +1,37 @@
 import { Component, OnInit } from '@angular/core';
-import { DataService } from '../data/data.service';
 import { ActivatedRoute } from '@angular/router';
+import { DataService } from '../data/data.service';
 
 @Component({
-  selector: 'app-droge',
+  selector: 'app-droge-view',
   template: `
-    <div id='main' class='secondPage'>
-      <app-nav-header></app-nav-header>
-		<div class="tab" id="tabDroge">
+    <div class="tab" id="tabDroge">
         <button class="tablinksDroge" id="tabInfo" (click)="open('info', $event)" onclick="this.blur();">{{ 'info' | uppercase }}</button>
         <button class="tablinksDroge" id="tabUcinki" (click)="open('efekt', $event)" onclick="this.blur();">{{ 'učinek' | uppercase }}</button>
         <button class="tablinksDroge" id="tabDoza" (click)="open('doza', $event)" onclick="this.blur();">{{ 'odmerek' | uppercase }}</button>
         <button class="tablinksDroge" id="tabRisk" (click)="open('risk', $event)" onclick="this.blur();">{{ 'tveganja' | uppercase }}</button>
-		  <div id="tabBorder"></div>
+		    <div id="tabBorder"></div>
       </div>
       <div id='content'>
-        <p class="basic-txt" [style.display]="display('info')" [innerHTML]='droga.info'></p>
-        <p class="basic-txt" [style.display]="display('risk')"  [innerHTML]='droga.risk'></p>
-        <p class="basic-txt" [style.display]="display('doza')"  [innerHTML]='droga.doza'></p>
-        <p class="basic-txt" [style.display]="display('efekt')"  [innerHTML]='droga.efekt'></p>
+        <p class="basic-txt" [style.display]="display('info')" [innerHTML]='detail.info'></p>
+        <p class="basic-txt" [style.display]="display('risk')"  [innerHTML]='detail.risk'></p>
+        <p class="basic-txt" [style.display]="display('doza')"  [innerHTML]='detail.doza'></p>
+        <p class="basic-txt" [style.display]="display('efekt')"  [innerHTML]='detail.efekt'></p>
       </div>
-    </div>
-    <div id='moreInfo'>
-		 <a [href]="droga.link">
-			<img id="vecICO" src='assets/img/more.svg'/>
-		 </a>
-	 </div>
+      <div id='moreInfo'>
+        <a [href]="detail.link">
+          <img id="vecICO" src='assets/img/more.svg'/>
+        </a>
+      </div>
   `,
   styles: [
     '#content { top: 140px; }',
     '#moreInfo { position: fixed; bottom: 61px; right: 15px; background: linear-gradient(to right bottom, rgb(238, 213, 134, 0.6), rgb(238, 213, 134, 1)); }',
   ]
 })
-export class DrogeComponent implements OnInit {
+export class DrogeViewComponent implements OnInit {
 
-  droga: any;
+  detail: any;
   openedTab: string;
   tabGroupBorderEl: any;
 
@@ -42,15 +39,15 @@ export class DrogeComponent implements OnInit {
 
   ngOnInit(): void {
     this.openedTab = 'info';
-	 this.tabGroupBorderEl = document.getElementById("tabBorder");
+    this.tabGroupBorderEl = document.getElementById("tabBorder");
     this.route.url.subscribe(segs =>
-      this.ds.getData(segs[0].toString(), +segs[1].toString()).subscribe(res =>
-        this.droga = res[0])
+      this.ds.getData('droge', +segs[0].toString()).subscribe(res =>
+        this.detail = res[0])
     );
   }
 
   open(attr: string, el: any): void{
-	 this.tabGroupBorderEl.style.backgroundColor = window.getComputedStyle(el.target).backgroundColor;
+    this.tabGroupBorderEl.style.backgroundColor = window.getComputedStyle(el.target).backgroundColor;
     this.openedTab = attr;
   }
 
@@ -58,5 +55,6 @@ export class DrogeComponent implements OnInit {
     if (attr === this.openedTab) { return 'block'; }
     return 'none';
   }
+
 
 }

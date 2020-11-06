@@ -1,20 +1,20 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { ZapletiComponent } from './zapleti.component';
+import { NasvetiViewComponent } from './nasveti-view.component';
 
-describe('ZapletiComponent', () => {
-  let component: ZapletiComponent;
-  let fixture: ComponentFixture<ZapletiComponent>;
+describe('NasvetiViewComponent', () => {
+  let component: NasvetiViewComponent;
+  let fixture: ComponentFixture<NasvetiViewComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ ZapletiComponent ]
+      declarations: [ NasvetiViewComponent ]
     })
     .compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(ZapletiComponent);
+    fixture = TestBed.createComponent(NasvetiViewComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

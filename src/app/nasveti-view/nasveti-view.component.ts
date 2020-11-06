@@ -3,21 +3,17 @@ import { ActivatedRoute } from '@angular/router';
 import { DataService } from '../data/data.service';
 
 @Component({
-  selector: 'app-nasveti',
+  selector: 'app-nasveti-view',
   template: `
-  <div id='main' class='secondPage'>
-    <app-nav-header></app-nav-header>
     <div id='content' class='different'>
       <p class="basic-txt" [innerHTML]='nasvet.msg'>
       </p>
     </div>
-  </div>
-   `,
+  `,
   styles: [
-	
   ]
 })
-export class NasvetiComponent implements OnInit {
+export class NasvetiViewComponent implements OnInit {
 
   nasvet: any;
 
@@ -25,7 +21,7 @@ export class NasvetiComponent implements OnInit {
 
   ngOnInit(): void {
     this.route.url.subscribe(segs =>
-      this.ds.getData(segs[0].toString(), +segs[1].toString()).subscribe(res =>
+      this.ds.getData('nasveti', +segs[0].toString()).subscribe(res =>
         this.nasvet = res[0])
     );
   }

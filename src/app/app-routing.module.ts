@@ -5,10 +5,10 @@ import { InfoComponent } from './info/info.component';
 import { EmergencyComponent } from './emergency/emergency.component';
 import { OpozorilaComponent } from './opozorila/opozorila.component';
 import { ListComponent } from './list/list.component';
-import { DrogeComponent } from './droge/droge.component';
-import { NasvetiComponent } from './nasveti/nasveti.component';
-import { ZapletiComponent } from './zapleti/zapleti.component';
 import { KittyComponent } from './kitty/kitty.component';
+import { DrogeViewComponent } from './droge-view/droge-view.component';
+import { NasvetiViewComponent } from './nasveti-view/nasveti-view.component';
+import { ZapletiViewComponent } from './zapleti-view/zapleti-view.component';
 
 
 const routes: Routes = [
@@ -17,12 +17,18 @@ const routes: Routes = [
   { path: 'info', component: InfoComponent },
   { path: 'emergency', component: EmergencyComponent },
   { path: 'opozorila', component: OpozorilaComponent },
-  { path: 'droge', component: ListComponent },
-  { path: 'droge/:id', component: DrogeComponent },
-  { path: 'nasveti', component: ListComponent },
-  { path: 'nasveti/:id', component: NasvetiComponent },
-  { path: 'zapleti', component: ListComponent },
-  { path: 'zapleti/:id', component: ZapletiComponent },
+  { path: 'droge', component: ListComponent,
+    children: [
+      { path: ':id', component: DrogeViewComponent}
+    ]},
+  { path: 'nasveti', component: ListComponent,
+    children: [
+      { path: ':id', component: NasvetiViewComponent}
+    ]},
+  { path: 'zapleti', component: ListComponent,
+    children: [
+      { path: ':id', component: ZapletiViewComponent}
+    ]},
   { path: 'kitty', component: KittyComponent },
   { path: '**', redirectTo: 'home', pathMatch: 'full' }
 ];
