@@ -29,10 +29,8 @@ export class GeneralService {
 
   addTile(tile: string): void {
     if (!(tile.startsWith('#') && tile.endsWith('#')) ) { return; }
-    let tmp = -1;
     this.reserved.forEach( (val, idx) => {
       if (tile.includes(val) && !this.tiles.includes(val)) {
-        tmp = idx;
         this.tiles.push(val);
       }
     });
