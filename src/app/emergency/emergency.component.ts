@@ -11,18 +11,15 @@ import { ActivatedRoute } from '@angular/router';
         <div *ngIf='choice === undefined'>
           <p class="basic-txt" [innerHTML]='emergency.main'></p>
           <div id="choice-bar">
-            <div>
-					<button id="da" class="izbira" [routerLink]="['./']" [queryParams]="{choice: true}" onclick="this.blur();">DA</button>
-				</div>
+					  <button id="da" class="izbira" [routerLink]="['./']" [queryParams]="{choice: true}" onclick="this.blur();">DA</button>
             <div class="vertical"></div>
-            <div>
-					<button id="ne" class="izbira" [routerLink]="['./']" [queryParams]="{choice: false}" onclick="this.blur();">NE</button>
-				</div>
+				  	<button id="ne" class="izbira" [routerLink]="['./']" [queryParams]="{choice: false}" onclick="this.blur();">NE</button>
           </div>
           <img src="assets/img/emergency_1.svg" alt="PIC:EMERGENCY1"/>
         </div>
         <div *ngIf='choice === "false"'>
           <p class="basic-txt" [innerHTML]='emergency.ne'></p>
+          <button id="choice-bar" class="izbira" [routerLink]="['./']" [queryParams]="{choice: null}" onclick="this.blur();">< Nazaj</button>
 			 <ul class="emergencyDaSlike">
 				<li id="mergency2"><img src="assets/img/emergency_2.svg" alt="PIC:EMERGENCY2"/></li>
 				<li id="mergency3"><img id="mergency3Slika" src="assets/img/emergency_3.svg" alt="PIC:EMERGENCY3"/></li>
@@ -30,6 +27,7 @@ import { ActivatedRoute } from '@angular/router';
         </div>
         <div *ngIf='choice === "true"'>
           <p class="basic-txt" [innerHTML]='emergency.da'></p>
+          <button id="choice-bar" class="izbira" [routerLink]="['./']" [queryParams]="{choice: null}" onclick="this.blur();">< Nazaj</button>
           <img src="assets/img/emergency_4.svg" alt="PIC:EMERGENCY4"/>
         </div>
         </div>
