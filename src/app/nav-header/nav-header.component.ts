@@ -1,15 +1,15 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { Location } from '@angular/common';
 import { GeneralService } from '../general/general.service';
 import { DataService } from '../data/data.service';
 
 @Component({
   selector: 'app-nav-header',
   template: `
-    <div id="nav-header" [routerLink]="['../']" [style.background-color]='color()'>
+    <div id="nav-header" [routerLink]='linkSeg' [style.background-color]='color()'>
 		<div class="backButton">&lt;</div>
-      <img [src]="['assets/img/home-' + baseSeg + '.svg']"/>
-      <span>{{ fullSeg | uppercase }}</span>
+      <img [src]='src()'/>
+      <span>{{ titleSeg | uppercase }}</span>
     </div>
   `,
   styles: [
@@ -22,25 +22,35 @@ import { DataService } from '../data/data.service';
 export class NavHeaderComponent implements OnInit {
 
   baseSeg: string;
-  fullSeg: any;
+  titleSeg: string;
+  linkSeg: string;
 
-  constructor(private route: ActivatedRoute, private gs: GeneralService, private ds: DataService) { }
+  constructor(private gs: GeneralService, private ds: DataService, private loc: Location) { }
 
   ngOnInit(): void {
-    this.fullSeg = '';
-    this.route.url.subscribe(segs => {
-      this.baseSeg = segs[0].toString();
-      if (segs[1] !== undefined){
-        this.ds.getData(this.baseSeg, +segs[1].toString()).subscribe(s =>
-          // this.fullSeg = [this.baseSeg, s[0].title].join(' / ')
-          this.fullSeg = s[0].title
-        );
-      }else{
-        this.fullSeg = segs[0].toString();
-      }
-    });
+    this.titleSeg = '';
+    this.makeSegs(this.loc.path());
+    this.loc.onUrlChange((url, state) => this.makeSegs(url));
   }
 
   color(){ return this.gs.getColor(this.baseSeg); }
+  
+  src(): string{
+    return 'assets/img/home-' + this.baseSeg + '.svg';
+  }
 
+  makeSegs(url: string){
+    const segs = url.split('/');
+    this.baseSeg = segs[1].toString();
+
+    if (segs[2] !== undefined){
+      this.ds.getData(this.baseSeg, +segs[2].toString()).subscribe(s =>
+        this.titleSeg = s[0].title
+      );
+    }else{
+      this.titleSeg = this.baseSeg;
+    }
+    segs.pop();
+    this.linkSeg = segs.join('/');
+  }
 }
