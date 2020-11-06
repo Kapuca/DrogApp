@@ -41,7 +41,7 @@ import { NasvetiViewComponent } from './nasveti-view/nasveti-view.component';
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
-    ServiceWorkerModule.register('ngsw-worker.js', { enabled: environment.production })
+    ServiceWorkerModule.register(environment.serviceWorkerScript)
   ],
   providers: [],
   bootstrap: [AppComponent]
