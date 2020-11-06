@@ -24,7 +24,7 @@ export class KittyComponent implements OnInit {
   constructor(private ds: DataService) { }
 
   ngOnInit(): void {
-    this.summonKitty()
+    this.summonKitty();
   }
 
   summonKitty(): void{

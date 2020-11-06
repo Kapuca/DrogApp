@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnDestroy, OnInit } from '@angular/core';
 import { GeneralService } from '../general/general.service';
 
 @Component({
@@ -18,16 +18,16 @@ import { GeneralService } from '../general/general.service';
     'p { font-family: "brandon_grotesque_regularRg"; color: #fff; text-transform: uppercase; font-weight: 600; letter-spacing: 0.15rem; }'
   ]
 })
-export class MainComponent implements OnInit {
+export class MainComponent implements OnInit, OnDestroy {
 
   constructor(private gs: GeneralService) { }
 
   ngOnInit(): void {
-		document.body.style.backgroundColor = '#262626';
+    document.body.style.backgroundColor = '#262626';
   }
-  
+
   ngOnDestroy(): void {
-		document.body.style.backgroundColor = 'white';
+    document.body.style.backgroundColor = 'white';
   }
 
   titles(){ return this.gs.getTitles(); }

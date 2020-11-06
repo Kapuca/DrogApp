@@ -23,13 +23,14 @@ export class GeneralService {
   }
 
   getColor(tile: string){
-    return this.colors[(this.tiles.indexOf(tile) % 6) || 0];
+    const idx = (this.tiles.indexOf(tile) % 6);
+    return this.colors[idx < 0 ? 0 : idx];
   }
 
   addTile(tile: string): void {
     if (!(tile.startsWith('#') && tile.endsWith('#')) ) { return; }
     this.reserved.forEach( val => {
-      if (tile.includes(val)) { this.tiles.push(val); } //&& !this.tiles.includes(tile) .. zakaj ne dela..? haha
+      if (tile.includes(val)) { this.tiles.push(val); }
     });
   }
 }
