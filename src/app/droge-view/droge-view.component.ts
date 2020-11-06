@@ -39,7 +39,7 @@ export class DrogeViewComponent implements OnInit {
 
   ngOnInit(): void {
     this.openedTab = 'info';
-    this.tabGroupBorderEl = document.getElementById("tabBorder");
+    this.tabGroupBorderEl = document.getElementById('tabBorder');
     this.route.url.subscribe(segs =>
       this.ds.getData('droge', +segs[0].toString()).subscribe(res =>
         this.detail = res[0])

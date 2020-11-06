@@ -34,17 +34,17 @@ export class NavHeaderComponent implements OnInit {
   }
 
   color(){ return this.gs.getColor(this.baseSeg); }
-  
+
   src(): string{
     return 'assets/img/home-' + this.baseSeg + '.svg';
   }
 
   makeSegs(url: string){
     const segs = url.split('/');
-    this.baseSeg = segs[1].toString();
+    this.baseSeg = segs[1].split('?')[0];
 
     if (segs[2] !== undefined){
-      this.ds.getData(this.baseSeg, +segs[2].toString()).subscribe(s =>
+      this.ds.getData(this.baseSeg, +segs[2].split('?')[0]).subscribe(s =>
         this.titleSeg = s[0].title
       );
     }else{
