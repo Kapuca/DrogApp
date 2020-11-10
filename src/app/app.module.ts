@@ -19,6 +19,10 @@ import { DrogeViewComponent } from './droge-view/droge-view.component';
 import { ListViewComponent } from './list-view/list-view.component';
 import { ZapletiViewComponent } from './zapleti-view/zapleti-view.component';
 import { NasvetiViewComponent } from './nasveti-view/nasveti-view.component';
+import { TimerComponent } from './timer/timer.component';
+import { ChatComponent } from './chat/chat.component';
+import { KnofiComponent } from './knofi/knofi.component';
+import { MeterComponent } from './meter/meter.component';
 
 @NgModule({
   declarations: [
@@ -36,6 +40,10 @@ import { NasvetiViewComponent } from './nasveti-view/nasveti-view.component';
     ListViewComponent,
     ZapletiViewComponent,
     NasvetiViewComponent,
+    TimerComponent,
+    ChatComponent,
+    KnofiComponent,
+    MeterComponent,
   ],
   imports: [
     BrowserModule,
