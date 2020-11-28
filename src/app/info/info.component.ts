@@ -30,7 +30,8 @@ import { GeneralService } from '../general/general.service';
     '.section:nth-child(2n+1):last-child > p { margin-block-end: 0px; }',
     '#duck { text-align: center; padding: 15px;}',
     'input { text-align: center; }',
-    'p { text-align: justify; }'
+    'p { text-align: justify; }',
+	'.basic-txt { padding: 5px 20px 20px 20px; }'
   ]
 })
 export class InfoComponent implements OnInit {
