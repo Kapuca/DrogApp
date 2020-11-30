@@ -39,6 +39,7 @@ export class OpozorilaComponent implements OnInit {
     this.route.queryParams.subscribe(data => {
       this.show = data.show;
     });
+    this.ds.getSubscribed();
   }
 
   focusOn(idx: number): void {

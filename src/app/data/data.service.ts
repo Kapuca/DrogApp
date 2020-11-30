@@ -10,8 +10,10 @@ export class DataService {
 
   private url = 'https://drogapp.drogart.org/';
   private endParam = '.php?type=json';
+  private subscription: PushSubscription;
+  private publicKey = 'BCmA9Ore3MvD5aK6Pscbr2iYgNm-O2RWE7bGKTZaClnOvcD1dIqpgzcqNraTNgyoVM3-CO7VwlOy-VcGwKS8Ly4';
 
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient) {}
 
   getData(type: string, id?: number): Observable<any[]>{
     try {
@@ -54,6 +56,84 @@ export class DataService {
     } catch (error) {
       console.log(error);
       return null;
+    }
+  }
+
+  getSubscribed() {
+    if ('serviceWorker' in navigator) {
+      navigator.serviceWorker.getRegistration().then( reg => {
+        reg.pushManager.getSubscription().then( sub => {
+
+          const tmp = () =>  {
+            reg.pushManager.subscribe({
+              userVisibleOnly: true,
+              // applicationServerKey: this.urlBase64ToUint8Array(this.publicKey)
+            })
+            .then( newSub => {
+
+              this.http.post(
+                this.url + 'push.php',
+                JSON.stringify(newSub.toJSON()),
+                {headers: {'Content-Type': 'application/json'}}
+              ).subscribe( res => console.log('save sub res', res));
+
+              console.log('new sub', newSub.toJSON());
+              this.subscription = newSub;
+            })
+            .catch( e => {
+                if (Notification.permission === 'denied') {
+                  console.warn('Permission for notifications was denied');
+                } else {
+                  console.error('Unable to subscribe to push', e);
+                }
+            });
+          };
+
+          if (sub === null) {
+            console.log('sub nonexistent');
+            tmp();
+          } else {
+            console.log('sub exists', sub.toJSON());
+            if (!this.subscription){ this.subscription = sub; }
+          }
+
+        });
+      }).catch(err => {
+        console.log('Service Worker registration failed: ', err);
+      });
+    }
+  }
+
+  urlBase64ToUint8Array(base64String: string) {
+    const padding = '='.repeat((4 - base64String.length % 4) % 4);
+    const base64 = (base64String + padding)
+      .replace(/\-/g, '+')
+      .replace(/_/g, '/');
+
+    const rawData = window.atob(base64);
+    const outputArray = new Uint8Array(rawData.length);
+
+    for (let i = 0; i < rawData.length; ++i) {
+      outputArray[i] = rawData.charCodeAt(i);
+    }
+    return outputArray;
+  }
+
+  resubscribe() {
+    console.log('resubscribe');
+    if (this.subscription){
+      this.subscription.unsubscribe().then(val => this.getSubscribed());
+    }else{
+      this.getSubscribed();
+    }
+  }
+
+  unsubscribe() {
+    if (this.subscription){
+      this.subscription.unsubscribe().then(val => console.log('unsubscribing', val));
+      this.subscription = null;
+    }else{
+      console.log('not subscribed');
     }
   }
 }
