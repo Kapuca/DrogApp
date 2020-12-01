@@ -11,27 +11,36 @@ import { GeneralService } from '../general/general.service';
       <div class='section'>
         <h2 *ngIf='egg < 7' (click)='hatch()'>{{info.firsttitle | uppercase}}</h2>
         <div id='duck' *ngIf='egg >= 7'> <input #txt /><button (click)='quack()'>Quack</button> </div>
-        <p class="basic-txt" [innerHTML]='info.firsttext'><p>
+        <p class="basic-txt" [innerHTML]='info.firsttext'></p>
       </div>
       <div class='section'>
         <h2>{{info.secondtitle | uppercase}}</h2>
-        <p class="basic-txt" [innerHTML]='info.secondtext'><p>
+        <p class="basic-txt" [innerHTML]='info.secondtext'></p>
+      </div>
+	  <div class='section'>
+        <h2 [innerHTML]='appDescTitle'></h2>
+        <p class="basic-txt" [innerHTML]='appDescText'></p>
       </div>
     </div>
   </div>
   `,
   styles: [
-    'h2 {text-align: center; font-size: 16px; letter-spacing: 0.1em; padding: 15px; margin: 0;}',
-    '.section:nth-child(2n+1) { background: #f4f4f4; }',
+    'h2 { font-size: 16px; letter-spacing: 0.1em; padding: 15px 15px 0px 15px; margin: 0; }',
+    '.section:nth-child(2n+1) { background: #f4f4f4; text-align-last: center; }',
+    '.section:nth-child(2n+1):last-child > p { margin-block-end: 0px; }',
     '#duck { text-align: center; padding: 15px;}',
     'input { text-align: center; }',
-    'p {text-align: justify;}',
+    'p { text-align: justify; }',
+	'.basic-txt { padding: 5px 20px 20px 20px; }'
   ]
 })
 export class InfoComponent implements OnInit {
 
   info: any;
-  egg = 0;
+  /*Treba prestavit v bazo*/
+  appDescTitle = 'O aplikaciji DROG<span style="font-family:gotham_mediumregular; font-weight:bold">APP</span>';
+  appDescText = 'Aplikacija informira in osvešèa o manj tvegani uporabi drog. Informacije v aplikaciji so informativne narave, <i>vsi uporabniki jih uporabljajo na lastno odgovornost</i>.<br><br><b>Edina varna uporaba je neuporaba!</b>';
+  egg: number = 0;
   @ViewChild('txt', { static: false }) txt: ElementRef;
 
 

@@ -1,5 +1,6 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { GeneralService } from '../general/general.service';
+import { slideInAnimation } from '../animations';
 
 @Component({
   selector: 'app-main',
@@ -16,15 +17,16 @@ import { GeneralService } from '../general/general.service';
     '.tile { text-align: center; padding: 5vh 12px; content-align: center; }',
     'img { object-fit: scale-down; max-width: 100%; height: 80%; display: block; margin: -5px auto auto auto; }',
     'p { font-family: "brandon_grotesque_regularRg"; color: #fff; text-transform: uppercase; font-weight: 600; letter-spacing: 0.15rem; }'
+  ],
+  animations: [
+	slideInAnimation
   ]
 })
 export class MainComponent implements OnInit, OnDestroy {
 
   constructor(private gs: GeneralService) { }
 
-  ngOnInit(): void {
-    document.body.style.backgroundColor = '#262626';
-  }
+  ngOnInit(): void { }
 
   ngOnDestroy(): void {
     document.body.style.backgroundColor = 'white';

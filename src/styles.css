@@ -43,6 +43,7 @@ body {
     width: 100%;
     height: 100vh;
     overflow-x: hidden;
+	background-color: #262626;
 }
 
 a {
@@ -65,17 +66,18 @@ button {
 	position: absolute;
 }
 
-.firstPage {
+/* .firstPage {
 	animation: 0.3s ease-out 0s 1 slideFromLeft;
 }
+
+.secondPage {
+	animation: 0.3s ease-out 0s 1 slideFromRight;
+} */
 
 /* .firstPage :not :focus {
 	animation: 0.3s ease-out 0s 1 slideFromRight;
 } */
 
-.secondPage {
-	animation: 0.3s ease-out 0s 1 slideFromRight;
-}
 
 /* .secondPage :not :focus {
 	animation: 0.3s ease-out 0s 1 slideFromLeft;

@@ -1,4 +1,5 @@
 import { BrowserModule } from '@angular/platform-browser';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { NgModule } from '@angular/core';
 
 import { AppRoutingModule } from './app-routing.module';
@@ -47,6 +48,7 @@ import { MeterComponent } from './meter/meter.component';
   ],
   imports: [
     BrowserModule,
+	BrowserAnimationsModule,
     AppRoutingModule,
     HttpClientModule,
     ServiceWorkerModule.register(environment.serviceWorkerScript)
