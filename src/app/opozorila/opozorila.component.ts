@@ -39,24 +39,25 @@ export class OpozorilaComponent implements OnInit {
 
   ngOnInit(): void {
     this.ds.getData('opozorila').subscribe(data => this.opozorila = data);
-	  this.opozorilaListBox = document.getElementById("content");
-	  this.lastOpenedTextHeight = 0;
+    this.opozorilaListBox = document.getElementById('content');
+    this.lastOpenedTextHeight = 0;
     this.route.queryParams.subscribe(data => {
       this.show = data.show;
     });
     this.ds.getSubscribed();
   }
 
-  focusOn(idx: number): void {this.show.fill(false);
-	  this.show = idx;
+  focusOn(idx: number): void {
+    this.show = idx;
 
     const tmp = this.containers.toArray().filter(el => el.nativeElement.id === ('container-' + idx))[0].nativeElement;
-    let box = tmp.getBoundingClientRect();
-	  if (document.getElementsByClassName('basic-txt')[0]) {
+    const box = tmp.getBoundingClientRect();
+    if (document.getElementsByClassName('basic-txt')[0]) {
       this.lastOpenedTextHeight = document.getElementsByClassName('basic-txt')[0].getBoundingClientRect().height + 72;
     }
-	  window.scrollTo({behavior: 'smooth', top: window.scrollY+(box.top-109-this.lastOpenedTextHeight)});
-	  //tmp.focus();
+    window.scrollTo({behavior: 'smooth', top: window.scrollY + (box.top - 109 - this.lastOpenedTextHeight)});
+    // tmp.focus();
+    this.ds.getSubscribed();
   }
 
 }
