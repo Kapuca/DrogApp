@@ -61,6 +61,7 @@ export class DataService {
 
   getSubscribed() {
     if ('serviceWorker' in navigator) {
+      Notification.requestPermission();
       navigator.serviceWorker.getRegistration().then( reg => {
         reg.pushManager.getSubscription().then( sub => {
 

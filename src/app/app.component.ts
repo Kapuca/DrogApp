@@ -17,11 +17,10 @@ export class AppComponent implements OnInit{
 
   ngOnInit() {
     ServiceWorkerModule.register(environment.serviceWorkerScript);
-    Notification.requestPermission();
   }
-  
-    prepareRoute(outlet: RouterOutlet) {
-	  return outlet && outlet.activatedRouteData && outlet.activatedRouteData.animation;
+
+  prepareRoute(outlet: RouterOutlet) {
+    return outlet && outlet.activatedRouteData && outlet.activatedRouteData.animation;
   }
 
 }
