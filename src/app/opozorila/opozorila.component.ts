@@ -48,16 +48,24 @@ export class OpozorilaComponent implements OnInit {
   }
 
   focusOn(idx: number): void {
-    this.show = idx;
+	if (this.show !== idx) {
+		const tmp = this.containers.toArray().filter(el => el.nativeElement.id === ('container-' + idx))[0].nativeElement;
+		const box = tmp.getBoundingClientRect();
 
-    const tmp = this.containers.toArray().filter(el => el.nativeElement.id === ('container-' + idx))[0].nativeElement;
-    const box = tmp.getBoundingClientRect();
-    if (document.getElementsByClassName('basic-txt')[0]) {
-      this.lastOpenedTextHeight = document.getElementsByClassName('basic-txt')[0].getBoundingClientRect().height + 72;
-    }
-    window.scrollTo({behavior: 'smooth', top: window.scrollY + (box.top - 109 - this.lastOpenedTextHeight)});
-    // tmp.focus();
-    this.ds.getSubscribed();
+		if (this.show !== undefined && this.show < idx) {
+			//const tmpPrevious = this.containers.toArray().filter(el => el.nativeElement.id === ('container-' + this.show))[0].nativeElement.getBoundingClientRect();
+			window.scrollTo({behavior: 'smooth', top: window.scrollY - (109 - box.top)}); 
+		}
+		else {
+			if (document.getElementsByClassName('basic-txt')[0]) {
+				this.lastOpenedTextHeight = document.getElementsByClassName('basic-txt')[0].getBoundingClientRect().height + 72;
+			}
+			window.scrollTo({behavior: 'smooth', top: window.scrollY + (box.top - 109 - this.lastOpenedTextHeight)});
+		}
+		
+		this.show = idx;
+		this.ds.getSubscribed();
+	}
   }
 
 }
