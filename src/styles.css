@@ -257,7 +257,7 @@ ul {
   padding: 0;
 }
 
-.emergencyDaSlike {
+.emergencyNeSlike {
 	width: 90%;
 	display: grid;
 	grid-gap: 10px;
@@ -272,25 +272,25 @@ ul {
 }
 
 /* Let's get this party started */
-.emergencyDaSlike::-webkit-scrollbar {
+.emergencyNeSlike::-webkit-scrollbar {
     width: 15px;
 }
  
 /* Track */
-.emergencyDaSlike::-webkit-scrollbar-track {
+.emergencyNeSlike::-webkit-scrollbar-track {
     -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0); 
     -webkit-border-radius: 10px;
     border-radius: 10px;
 }
  
 /* Handle */
-.emergencyDaSlike::-webkit-scrollbar-thumb {
+.emergencyNeSlike::-webkit-scrollbar-thumb {
     -webkit-border-radius: 10px;
     border-radius: 10px;
     background: #262626CC; 
     -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.5); 
 }
-.emergencyDaSlike::-webkit-scrollbar-thumb:window-inactive {
+.emergencyNeSlike::-webkit-scrollbar-thumb:window-inactive {
 	background: #262626;
 }
 
