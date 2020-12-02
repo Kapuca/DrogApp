@@ -17,9 +17,9 @@ import { GeneralService } from '../general/general.service';
         <h2>{{info.secondtitle | uppercase}}</h2>
         <p class="basic-txt" [innerHTML]='info.secondtext'></p>
       </div>
-	    <div class='section'>
-        <h2>{{appDescTitle | uppercase}}</h2>
-        <p class="basic-txt" [innerHTML]='appDescText'></p>
+	    <div *ngIf='info.thirdtitle' class='section'>
+        <h2>{{info.thirdtitle | uppercase}}</h2>
+        <p class="basic-txt" [innerHTML]='info.thirdtext'></p>
       </div>
     </div>
   </div>
