@@ -1,4 +1,4 @@
-import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
+import { Component, ElementRef, OnInit, ViewChild, OnDestroy } from '@angular/core';
 import { DataService } from '../data/data.service';
 import { GeneralService } from '../general/general.service';
 
@@ -34,7 +34,7 @@ import { GeneralService } from '../general/general.service';
     '.basic-txt { padding: 5px 20px 20px 20px; }'
   ]
 })
-export class InfoComponent implements OnInit {
+export class InfoComponent implements OnInit, OnDestroy {
 
   info: any;
   /*Treba prestavit v bazo*/
@@ -52,9 +52,9 @@ export class InfoComponent implements OnInit {
       error => this.info = {firsttitle: 'DB connectiion not working', firsttext: error.message, secondtitle: '', secondtext: ''}
       );
   }
-  
+
   ngOnDestroy(): void {
-	window.scrollTo({top: 0});
+    window.scrollTo({top: 0});
   }
 
   hatch(): void {
