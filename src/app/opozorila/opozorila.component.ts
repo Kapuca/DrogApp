@@ -25,6 +25,7 @@ import { ActivatedRoute } from '@angular/router';
     '.naslov { width: 100%; }',
     '.details { display: initial}',
     '.opozoriloICO { height: 3.5em; display: block; width: 100%; }',
+	'#content { animation: 0.6s ease-out 0s 1 slideFromUp; }'
   ]
 })
 export class OpozorilaComponent implements OnInit {

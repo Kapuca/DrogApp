@@ -6,26 +6,21 @@ export const slideInAnimation =
 		  style({ position: 'relative' }),
 		  query(':enter, :leave', [
 			style({
-			  position: 'absolute',
+			  position: 'fixed',
 			  top: 0,
 			  left: 0,
 			  width: '100%'
 			})
 		  ]),
-		  query(':leave', [
-			style({
-			  overflow: 'hidden'
-			})
-		  ]),
 		  query(':enter', [
-			style({ left: '100%', height: '50%' })
+			style({ left: '100%' })
 		  ]),
 		  group([
 			query(':leave', [
-			  animate('3000ms ease-in-out', style({ left: '-100%', overflow: 'hidden' }))
+			  animate('300ms ease-in-out', style({ left: '-100%' }))
 			]),
 			query(':enter', [
-			  animate('3000ms ease-in-out', style({ left: '0%' }))
+			  animate('300ms ease-in-out', style({ left: '0%' }))
 			])
 		  ]),
 		  //query(':enter', animateChild()),
@@ -35,7 +30,7 @@ export const slideInAnimation =
 		  style({ position: 'relative' }),
 		  query(':enter, :leave', [
 			style({
-			  position: 'absolute',
+			  position: 'fixed',
 			  top: 0,
 			  left: 0,
 			  width: '100%'
@@ -46,34 +41,34 @@ export const slideInAnimation =
 		  ]),
 		  group([
 			query(':leave', [
-			  animate('3000ms ease-in-out', style({ left: '100%' }))
+			  animate('300ms ease-in-out', style({ left: '100%' }))
 			]),
 			query(':enter', [
-			  animate('3000ms ease-in-out', style({ left: '0%' }))
+			  animate('300ms ease-in-out', style({ left: '0%' }))
 			])
 		  ]),
 		  //query(':enter', animateChild()),
 		  //query(':leave', animateChild()),
 		]),
-		transition('SecondPage => SecondPage', [ //NE DELA
+		transition('SecondPage => *', [ //NE DELA
 		  style({ position: 'relative' }),
 		  query(':enter, :leave', [
 			style({
-			  position: 'absolute',
+			  position: 'fixed',
 			  top: 0,
 			  left: 0,
 			  width: '100%'
 			})
 		  ]),
 		  query(':enter', [
-			style({ left: '50%' })
+			style({ left: '100%' })
 		  ]),
 		  group([
 			query(':leave', [
-			  animate('1500ms ease-in-out', style({ opacity: '0' }))
+			  animate('1500ms ease-in-out', style({ left: '-100%' }))
 			]),
 			query(':enter', [
-			  animate('3000ms ease-in-out', style({ left: '0%' }))
+			  animate('300ms ease-in-out', style({ left: '0%' }))
 			])
 		  ]),
 		  //query(':enter', animateChild()),

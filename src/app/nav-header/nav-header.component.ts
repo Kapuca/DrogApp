@@ -16,7 +16,7 @@ import { DataService } from '../data/data.service';
     'img { color: white; width:28px; height:28px; float:left; background-size: 28px 28px; background-repeat: no-repeat; margin: 8px 5px 8px 28px; }',
     'div { position: fixed; top: 64px; width: 100%; height: 45px; line-height: 45px; z-index: 420; }',
     'span { color: white;}',
-    '.backButton { color: white; font-size: 1.8em; left: 8px; margin-top: -0.2rem; }',
+    '.backButton { position: absolute; top: auto; color: white; font-size: 1.8em; left: 8px; margin-top: -0.2rem; }',
   ]
 })
 export class NavHeaderComponent implements OnInit {
