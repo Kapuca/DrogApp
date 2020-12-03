@@ -7,7 +7,7 @@ import { DataService } from '../data/data.service';
   selector: 'app-nav-header',
   template: `
     <div id="nav-header" [routerLink]='linkSeg' [style.background-color]='color()'>
-		<div class="backButton">&lt;</div>
+	  <div class="backButton">&lt;</div>
       <img [src]='src()'/>
       <span>{{ titleSeg | uppercase }}</span>
     </div>

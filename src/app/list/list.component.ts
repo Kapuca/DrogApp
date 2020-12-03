@@ -25,6 +25,10 @@ export class ListComponent implements OnInit {
   ngOnInit(): void {
     this.ds.getData(this.loc.path().split('/')[1]).subscribe(data => this.data = data);
   }
+  
+  ngOnDestroy(): void {
+	window.scrollTo({top: 0});
+  }
 
   onActivate(e: Event): void {
     this.listing = false;

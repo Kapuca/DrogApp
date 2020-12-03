@@ -46,6 +46,10 @@ export class OpozorilaComponent implements OnInit {
     });
     this.ds.getSubscribed();
   }
+  
+  ngOnDestroy(): void {
+	window.scrollTo({top: 0});
+  }
 
   focusOn(idx: number): void {
 	if (this.show !== idx) {

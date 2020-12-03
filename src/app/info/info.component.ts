@@ -52,6 +52,10 @@ export class InfoComponent implements OnInit {
       error => this.info = {firsttitle: 'DB connectiion not working', firsttext: error.message, secondtitle: '', secondtext: ''}
       );
   }
+  
+  ngOnDestroy(): void {
+	window.scrollTo({top: 0});
+  }
 
   hatch(): void {
     this.egg++;
