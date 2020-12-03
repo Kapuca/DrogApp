@@ -48,7 +48,7 @@ import { MeterComponent } from './meter/meter.component';
   ],
   imports: [
     BrowserModule,
-	BrowserAnimationsModule,
+    BrowserAnimationsModule,
     AppRoutingModule,
     HttpClientModule,
     ServiceWorkerModule.register(environment.serviceWorkerScript)

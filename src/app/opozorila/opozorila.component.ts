@@ -1,4 +1,4 @@
-import { Component, ElementRef, OnInit, QueryList, ViewChildren } from '@angular/core';
+import { Component, ElementRef, OnInit, QueryList, ViewChildren, OnDestroy } from '@angular/core';
 import { DataService } from '../data/data.service';
 import { ActivatedRoute } from '@angular/router';
 
@@ -28,7 +28,7 @@ import { ActivatedRoute } from '@angular/router';
 	'#content { animation: 0.6s ease-out 0s 1 slideFromUp; }'
   ]
 })
-export class OpozorilaComponent implements OnInit {
+export class OpozorilaComponent implements OnInit, OnDestroy{
 
   opozorila: any[];
   @ViewChildren('container') containers: QueryList<ElementRef>;
@@ -47,30 +47,29 @@ export class OpozorilaComponent implements OnInit {
     });
     this.ds.getSubscribed();
   }
-  
+
   ngOnDestroy(): void {
-	window.scrollTo({top: 0});
+    window.scrollTo({top: 0});
   }
 
   focusOn(idx: number): void {
-	if (this.show !== idx) {
-		const tmp = this.containers.toArray().filter(el => el.nativeElement.id === ('container-' + idx))[0].nativeElement;
-		const box = tmp.getBoundingClientRect();
+    if (this.show !== idx) {
+      const tmp = this.containers.toArray().filter(el => el.nativeElement.id === ('container-' + idx))[0].nativeElement;
+      const box = tmp.getBoundingClientRect();
 
-		if (this.show !== undefined && this.show < idx) {
-			//const tmpPrevious = this.containers.toArray().filter(el => el.nativeElement.id === ('container-' + this.show))[0].nativeElement.getBoundingClientRect();
-			window.scrollTo({behavior: 'smooth', top: window.scrollY - (109 - box.top)}); 
-		}
-		else {
-			if (document.getElementsByClassName('basic-txt')[0]) {
-				this.lastOpenedTextHeight = document.getElementsByClassName('basic-txt')[0].getBoundingClientRect().height + 72;
-			}
-			window.scrollTo({behavior: 'smooth', top: window.scrollY + (box.top - 109 - this.lastOpenedTextHeight)});
-		}
-		
-		this.show = idx;
-		this.ds.getSubscribed();
-	}
+      if (this.show !== undefined && this.show < idx) {
+      // const tmpPrevious = this.containers.toArray().filter(el => el.nativeElement.id === ('container-' + this.show))[0].nativeElement.getBoundingClientRect();
+      window.scrollTo({behavior: 'smooth', top: window.scrollY - (109 - box.top)});
+      } else {
+        if (document.getElementsByClassName('basic-txt')[0]) {
+          this.lastOpenedTextHeight = document.getElementsByClassName('basic-txt')[0].getBoundingClientRect().height + 72;
+        }
+        window.scrollTo({behavior: 'smooth', top: window.scrollY + (box.top - 109 - this.lastOpenedTextHeight)});
+      }
+
+      this.show = idx;
+      this.ds.getSubscribed();
+    }
   }
 
 }
