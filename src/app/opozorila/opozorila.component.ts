@@ -1,4 +1,4 @@
-import { Component, ElementRef, OnInit, QueryList, ViewChildren, OnDestroy } from '@angular/core';
+import { Component, ElementRef, OnInit, AfterViewChecked, QueryList, ViewChildren, OnDestroy } from '@angular/core';
 import { DataService } from '../data/data.service';
 import { ActivatedRoute } from '@angular/router';
 
@@ -8,10 +8,10 @@ import { ActivatedRoute } from '@angular/router';
   <div id='main' class='secondPage'>
     <app-nav-header></app-nav-header>
     <div id='content'>
-      <div *ngFor='let opozorilo of opozorila' class='container' #container (click)='focusOn(opozorilo.id)' [id]='"container-" + opozorilo.id'>
+      <div *ngFor='let opozorilo of opozorila' class='container' #container (click)='focusOn(opozorilo.id);' [id]='"container-" + opozorilo.id'>
         <h2 class="naslov">{{opozorilo.title | uppercase}}</h2>
         <p>{{ opozorilo.datetime }}</p>
-        <div class='details' *ngIf='show === opozorilo.id'>
+        <div class='details' *ngIf='show == opozorilo.id'>
           <p class="basic-txt" [innerHTML]='opozorilo.msg'></p>
           <a [href]='opozorilo.link'><img class="opozoriloICO" src='assets/img/more.svg'/></a>
         <div>
@@ -28,13 +28,15 @@ import { ActivatedRoute } from '@angular/router';
 	'#content { animation: 0.6s ease-out 0s 1 slideFromUp; }'
   ]
 })
-export class OpozorilaComponent implements OnInit, OnDestroy{
+export class OpozorilaComponent implements OnInit, AfterViewChecked, OnDestroy{
 
   opozorila: any[];
   @ViewChildren('container') containers: QueryList<ElementRef>;
   show: number;
+  showId: number;
   opozorilaListBox: any;
   lastOpenedTextHeight: number;
+  specialCase: boolean;
 
   constructor(private ds: DataService, private route: ActivatedRoute) { }
 
@@ -42,10 +44,23 @@ export class OpozorilaComponent implements OnInit, OnDestroy{
     this.ds.getData('opozorila').subscribe(data => this.opozorila = data);
     this.opozorilaListBox = document.getElementById('content');
     this.lastOpenedTextHeight = 0;
+	this.specialCase = false;
     this.route.queryParams.subscribe(data => {
       this.show = data.show;
+	  this.specialCase = true;
     });
     this.ds.getSubscribed();
+  }
+  
+  ngAfterViewChecked(): void {
+	if (this.specialCase) {
+	  this.specialCase = false;
+	  window.scrollTo({behavior: 'smooth', top: this.opozorilaListBox.getBoundingClientRect().height});
+	}
+	if (this.show && this.specialCase) {
+		this.specialCase = false;
+		this.showId = this.containers.toArray().indexOf(this.containers.toArray().filter(el => el.nativeElement.id === ('container-' + this.show))[0]);
+	}
   }
 
   ngOnDestroy(): void {
@@ -54,20 +69,24 @@ export class OpozorilaComponent implements OnInit, OnDestroy{
 
   focusOn(idx: number): void {
     if (this.show !== idx) {
-      const tmp = this.containers.toArray().filter(el => el.nativeElement.id === ('container-' + idx))[0].nativeElement;
-      const box = tmp.getBoundingClientRect();
+	  this.show = idx;
+      const tmp = this.containers.toArray().filter(el => el.nativeElement.id === ('container-' + idx))[0];
+	  const tmpId = this.containers.toArray().indexOf(tmp);
+      const box = tmp.nativeElement.getBoundingClientRect();
 
-      if (this.show !== undefined && this.show < idx) {
-      // const tmpPrevious = this.containers.toArray().filter(el => el.nativeElement.id === ('container-' + this.show))[0].nativeElement.getBoundingClientRect();
-      window.scrollTo({behavior: 'smooth', top: window.scrollY - (109 - box.top)});
+      if (typeof this.showId == 'number' && this.showId > tmpId) {
+        window.scrollTo({behavior: 'smooth', top: window.scrollY - (109 - box.top)});
       } else {
         if (document.getElementsByClassName('basic-txt')[0]) {
           this.lastOpenedTextHeight = document.getElementsByClassName('basic-txt')[0].getBoundingClientRect().height + 72;
-        }
-        window.scrollTo({behavior: 'smooth', top: window.scrollY + (box.top - 109 - this.lastOpenedTextHeight)});
+		  window.scrollTo({behavior: 'smooth', top: window.scrollY + (box.top - 109 - this.lastOpenedTextHeight)});
+        } 
+ 		else if (this.containers.toArray()[this.containers.toArray().length-1].nativeElement.attributes['id'].nodeValue.split('-')[1] == idx) {
+		  this.specialCase = true;
+		}
       }
-
-      this.show = idx;
+	  
+	  this.showId = tmpId;
       this.ds.getSubscribed();
     }
   }

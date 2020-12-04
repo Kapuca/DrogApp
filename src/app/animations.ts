@@ -50,7 +50,7 @@ export const slideInAnimation =
 		  //query(':enter', animateChild()),
 		  //query(':leave', animateChild()),
 		]),
-		transition('* => AnotherSecondPage', [ //NE DELA
+		transition('* => AnotherSecondPage', [
 		  style({ position: 'relative' }),
 		  query(':enter, :leave', [
 			style({
