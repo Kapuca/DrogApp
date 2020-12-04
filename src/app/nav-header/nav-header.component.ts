@@ -6,7 +6,7 @@ import { DataService } from '../data/data.service';
 @Component({
   selector: 'app-nav-header',
   template: `
-    <div id="nav-header" [routerLink]='linkSeg' [style.background-color]='color()'>
+    <div id="nav-header" [routerLink]='linkSeg' [style.background-color]='colorStr'>
 	  <div class="backButton">&lt;</div>
       <img [src]='src()'/>
       <span>{{ titleSeg | uppercase }}</span>
@@ -22,6 +22,7 @@ import { DataService } from '../data/data.service';
 export class NavHeaderComponent implements OnInit {
 
   baseSeg: string;
+  colorStr: string;
   titleSeg: string;
   linkSeg: string;
 
@@ -31,6 +32,7 @@ export class NavHeaderComponent implements OnInit {
     this.titleSeg = '';
     this.makeSegs(this.loc.path());
     this.loc.onUrlChange((url, state) => this.makeSegs(url));
+	this.colorStr = this.color();
   }
 
   color(){ return this.gs.getColor(this.baseSeg); }
