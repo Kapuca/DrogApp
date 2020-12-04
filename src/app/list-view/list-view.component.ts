@@ -11,7 +11,7 @@ import { Component, Input, OnInit } from '@angular/core';
   `,
   styles: [
     '.item:nth-child(2n+1) { background: #f4f4f4; }',
-    '.item {padding: 0px 10px 0px 10px; line-height: 2;}',
+    '.item {padding: 0px 10px 0px 10px; line-height: 2.4;}',
   ]
 })
 export class ListViewComponent implements OnInit {
