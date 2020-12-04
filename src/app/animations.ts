@@ -26,7 +26,7 @@ export const slideInAnimation =
 		  //query(':enter', animateChild()),
 		  //query(':leave', animateChild()),
 		]),		
-		transition('SecondPage => FirstPage', [
+		transition('SecondPage => FirstPage, AnotherSecondPage => *', [
 		  style({ position: 'relative' }),
 		  query(':enter, :leave', [
 			style({
@@ -50,7 +50,7 @@ export const slideInAnimation =
 		  //query(':enter', animateChild()),
 		  //query(':leave', animateChild()),
 		]),
-		transition('SecondPage => *', [ //NE DELA
+		transition('* => AnotherSecondPage', [ //NE DELA
 		  style({ position: 'relative' }),
 		  query(':enter, :leave', [
 			style({
@@ -65,7 +65,7 @@ export const slideInAnimation =
 		  ]),
 		  group([
 			query(':leave', [
-			  animate('1500ms ease-in-out', style({ left: '-100%' }))
+			  animate('300ms ease-in-out', style({ left: '-100%' }))
 			]),
 			query(':enter', [
 			  animate('300ms ease-in-out', style({ left: '0%' }))

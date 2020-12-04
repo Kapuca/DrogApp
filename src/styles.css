@@ -66,23 +66,6 @@ button {
    position: absolute;
 }
 
-/* .firstPage {
-	animation: 0.3s ease-out 0s 1 slideFromLeft;
-}
-
-.secondPage {
-	animation: 0.3s ease-out 0s 1 slideFromRight;
-} */
-
-/* .firstPage :not :focus {
-	animation: 0.3s ease-out 0s 1 slideFromRight;
-} */
-
-
-/* .secondPage :not :focus {
-	animation: 0.3s ease-out 0s 1 slideFromLeft;
-} */
-
 .app-list {
 	animation: 0.6s ease-out 0s 1 slideFromUp;
 }
@@ -108,15 +91,6 @@ button {
     z-index: 0;
 }
 
-/* :not(.app-list) .content {
-	animation: 0.6s ease-out 0s 1 slideFromUp;
-} */
-
-/* .content {
-    margin-bottom: 61px;
-    overflow: hidden;
-} */
-
 .tab {
 	position: fixed;
 	top: calc(64px + 45px);
@@ -132,27 +106,9 @@ button {
 	background-color: #49d3a3;
 }
 
-/* #tabBorder:active {
-	 animation: 0.3s ease-out 0s 1 slideFromLeft;
-} */
-
-/* #tabInfo:active .tabBorder {
-	animation: 0.3s ease-out 0s 1 slideFromLeft;
-}
-#tabUcinki:active .tabBorder {
-	animation: 0.3s ease-out 0s 1 slideFromLeft;
-}
-#tabDoza:active .tabBorder {
-	animation: 0.3s ease-out 0s 1 slideFromLeft;
-} */
-
 .tab > button {
 	cursor: pointer;
 }
-
-/* button:active {
-	transform: none;
-} */
 
 .tablinksDroge,
 .tablinksZapleti {
@@ -226,7 +182,6 @@ button {
 #nav-header,
 #footer {
 	cursor: pointer;
-	z-index: 421;
 }
 
 .basic-txt {
@@ -265,19 +220,16 @@ ul {
 	margin-bottom: -40px;
 }
 
-/* Let's get this party started */
 .emergencyNeSlike::-webkit-scrollbar {
     width: 15px;
 }
  
-/* Track */
 .emergencyNeSlike::-webkit-scrollbar-track {
     -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0); 
     -webkit-border-radius: 10px;
     border-radius: 10px;
 }
  
-/* Handle */
 .emergencyNeSlike::-webkit-scrollbar-thumb {
     -webkit-border-radius: 10px;
     border-radius: 10px;
@@ -287,10 +239,6 @@ ul {
 .emergencyNeSlike::-webkit-scrollbar-thumb:window-inactive {
 	background: #262626;
 }
-
-/* h2.naslov + p + div.details {
-	animation: 1s ease-in-out 0s 1 slideFromDown;
-} */
 
 #da { color: #31656d; } 
 #ne { color: #dd6c56; }
@@ -338,15 +286,6 @@ ul {
 		opacity: 1;
 	}
 }
-
-/* @keyframes forceStay {
-	0% {
-		transform: translateX(0%);
-	}
-	100% {
-		transform: translateX(0%);
-	}
-} */
 
 @keyframes slideFromLeft {
    0% {

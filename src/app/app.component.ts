@@ -4,6 +4,7 @@ import { environment } from 'src/environments/environment';
 import { RouterOutlet } from '@angular/router';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { slideInAnimation } from './animations';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-root',
@@ -12,6 +13,8 @@ import { slideInAnimation } from './animations';
   animations: [slideInAnimation]
 })
 export class AppComponent implements OnInit{
+	
+	constructor(private router: Router ) {}
 
   title = 'DrogApp';
 
@@ -20,6 +23,7 @@ export class AppComponent implements OnInit{
   }
 
   prepareRoute(outlet: RouterOutlet) {
+	if (this.router.url.indexOf('/opozorila?show=') >= 0) { outlet.activatedRouteData.animation = 'AnotherSecondPage'; }
     return outlet && outlet.activatedRouteData && outlet.activatedRouteData.animation;
   }
 
