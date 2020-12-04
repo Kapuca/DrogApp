@@ -8,7 +8,7 @@ import { DataService } from '../data/data.service';
   template: `
     <div id="nav-header" [routerLink]='linkSeg' [style.background-color]='colorStr'>
 	  <div class="backButton">&lt;</div>
-      <img [src]='src()'/>
+      <img [src]='linkIcon'/>
       <span>{{ titleSeg | uppercase }}</span>
     </div>
   `,
@@ -25,14 +25,16 @@ export class NavHeaderComponent implements OnInit {
   colorStr: string;
   titleSeg: string;
   linkSeg: string;
+  linkIcon: string;
 
   constructor(private gs: GeneralService, private ds: DataService, private loc: Location) { }
 
   ngOnInit(): void {
     this.titleSeg = '';
     this.makeSegs(this.loc.path());
-    this.loc.onUrlChange((url, state) => this.makeSegs(url));
+	this.makeSegs(this.loc.path());
 	this.colorStr = this.color();
+	this.linkIcon = this.src();
   }
 
   color(){ return this.gs.getColor(this.baseSeg); }
