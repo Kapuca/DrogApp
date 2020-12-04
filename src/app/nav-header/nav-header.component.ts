@@ -32,7 +32,6 @@ export class NavHeaderComponent implements OnInit {
   ngOnInit(): void {
     this.titleSeg = '';
     this.makeSegs(this.loc.path());
-	this.makeSegs(this.loc.path());
 	this.colorStr = this.color();
 	this.linkIcon = this.src();
   }
