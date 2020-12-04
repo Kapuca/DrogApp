@@ -57,7 +57,7 @@ export class OpozorilaComponent implements OnInit, AfterViewChecked, OnDestroy{
 	  this.specialCase = false;
 	  window.scrollTo({behavior: 'smooth', top: this.opozorilaListBox.getBoundingClientRect().height});
 	}
-	if (this.show && this.specialCase) {
+	if (typeof this.show == 'number' && this.specialCase) {
 		this.specialCase = false;
 		this.showId = this.containers.toArray().indexOf(this.containers.toArray().filter(el => el.nativeElement.id === ('container-' + this.show))[0]);
 	}
@@ -79,11 +79,11 @@ export class OpozorilaComponent implements OnInit, AfterViewChecked, OnDestroy{
       } else {
         if (document.getElementsByClassName('basic-txt')[0]) {
           this.lastOpenedTextHeight = document.getElementsByClassName('basic-txt')[0].getBoundingClientRect().height + 72;
-		  window.scrollTo({behavior: 'smooth', top: window.scrollY + (box.top - 109 - this.lastOpenedTextHeight)});
         } 
  		else if (this.containers.toArray()[this.containers.toArray().length-1].nativeElement.attributes['id'].nodeValue.split('-')[1] == idx) {
 		  this.specialCase = true;
 		}
+		window.scrollTo({behavior: 'smooth', top: window.scrollY + (box.top - 109 - this.lastOpenedTextHeight)});
       }
 	  
 	  this.showId = tmpId;
