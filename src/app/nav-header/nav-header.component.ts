@@ -8,13 +8,13 @@ import { DataService } from '../data/data.service';
   template: `
     <div id="nav-header" [routerLink]='linkSeg' [style.background-color]='colorStr'>
 	  <div class="backButton">&lt;</div>
-      <img [src]='linkIcon'/>
+      <img [src]='linkIcon' oncontextmenu="return false;"/>
       <span>{{ titleSeg | uppercase }}</span>
     </div>
   `,
   styles: [
     'img { color: white; width:28px; height:28px; float:left; background-size: 28px 28px; background-repeat: no-repeat; margin: 8px 5px 8px 28px; }',
-    'div { position: fixed; top: 64px; width: 100%; height: 45px; line-height: 45px; z-index: 420; }',
+    '#nav-header { position: fixed; top: 64px; width: 100%; height: 45px; line-height: 45px; z-index: 420; user-select: none; }',
     'span { color: white;}',
     '.backButton { position: absolute; top: auto; color: white; font-size: 1.8em; left: 8px; margin-top: -0.2rem; }',
   ]
@@ -32,14 +32,22 @@ export class NavHeaderComponent implements OnInit {
   ngOnInit(): void {
     this.titleSeg = '';
     this.makeSegs(this.loc.path());
-	this.colorStr = this.color();
 	this.linkIcon = this.src();
+	this.colorStr = this.color();
+	this.loc.onUrlChange((url, state) => this.detectChange(url));
   }
 
-  color(){ return this.gs.getColor(this.baseSeg); }
+  color(): string { return this.gs.getColor(this.baseSeg); }
 
-  src(): string{
+  src(): string {
     return 'assets/img/home-' + this.baseSeg + '.svg';
+  }
+  
+   detectChange(url: string): void {
+	if (url.indexOf(this.baseSeg) >= 0) {
+	  this.makeSegs(url);
+	  this.linkIcon = this.src();
+	}
   }
 
   makeSegs(url: string){

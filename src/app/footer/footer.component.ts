@@ -12,7 +12,7 @@ import { DataService } from '../data/data.service';
   </div>
   `,
   styles: [
-    'div { position: fixed; bottom: 0px; background-color: #262626; height: 61px; width: 100vw; line-height: 61px; box-sizing: border-box; }',
+    '#footer { position: fixed; bottom: 0px; background-color: #262626; height: 61px; width: 100vw; line-height: 61px; box-sizing: border-box; user-select: none; }',
     'p { margin: 0; text-align: center; color: white; font-weight: 600; letter-spacing: 0.25rem; font-size: 0.8rem; }'
   ]
 })

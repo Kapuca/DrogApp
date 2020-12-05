@@ -7,13 +7,13 @@ import { slideInAnimation } from '../animations';
   template: `
     <div class='firstPage' id='main'>
       <div class='tile' *ngFor='let title of titles()' [routerLink]="['/', title]" [style.background-color]='color(title)'>
-        <img [src]="['assets/img/home-' + title + '.svg']" [alt]="['PIC:' + title]"/>
+        <img [src]="['assets/img/home-' + title + '.svg']" [alt]="['PIC:' + title]" oncontextmenu="return false;"/>
 		  <p>{{ title }}</p>
       </div>
     </div>
   `,
   styles: [
-    '#main { background-color: #262626; position: fixed; top: 64px; display: grid; grid-template-columns: 50vw 50vw; grid-template-rows: repeat(6, 33.33%); grid-gap: 0px; overflow-y: hidden; overflow-x: hidden; }',
+    '#main { background-color: #262626; position: fixed; top: 64px; display: grid; grid-template-columns: 50vw 50vw; grid-template-rows: repeat(6, 33.33%); grid-gap: 0px; overflow-y: hidden; overflow-x: hidden; user-select: none; }',
     '.tile { text-align: center; padding: 5vh 12px; content-align: center; }',
     'img { object-fit: scale-down; max-width: 100%; height: 80%; display: block; margin: -5px auto auto auto; }',
     'p { font-family: "brandon_grotesque_regularRg"; color: #fff; text-transform: uppercase; font-weight: 600; letter-spacing: 0.15rem; }'

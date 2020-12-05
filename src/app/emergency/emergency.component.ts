@@ -15,20 +15,20 @@ import { ActivatedRoute } from '@angular/router';
             <div class="vertical"></div>
 		      	<button id="ne" class="izbira" [routerLink]="['./']" [queryParams]="{choice: false}" onclick="this.blur();">NE</button>
           </div>
-          <img src="assets/img/emergency_1.svg" alt="PIC:EMERGENCY1"/>
+          <img src="assets/img/emergency_1.svg" alt="PIC:EMERGENCY1" oncontextmenu="return false;"/>
         </div>
         <div *ngIf='choice === "false"'>
           <p class="basic-txt" [innerHTML]='emergency.ne'></p>
           <button class="choice-bar-back" [routerLink]="['./']" [queryParams]="{choice: null}" onclick="this.blur();"><span>sprememba stanja</span></button>
 		  <ul class="emergencyNeSlike">
-			<li id="mergency2"><img src="assets/img/emergency_2.svg" alt="PIC:EMERGENCY2"/></li>
-			<li id="mergency3"><img id="mergency3Slika" src="assets/img/emergency_3.svg" alt="PIC:EMERGENCY3"/></li>
+			<li id="mergency2"><img src="assets/img/emergency_2.svg" alt="PIC:EMERGENCY2" oncontextmenu="return false;"/></li>
+			<li id="mergency3"><img id="mergency3Slika" src="assets/img/emergency_3.svg" alt="PIC:EMERGENCY3" oncontextmenu="return false;"/></li>
 		  </ul>
         </div>
         <div *ngIf='choice === "true"' id="emergencyDa">
           <p class="basic-txt" [innerHTML]='emergency.da'></p>
           <button class="choice-bar-back" [routerLink]="['./']" [queryParams]="{choice: null}" onclick="this.blur();"><span>sprememba stanja</span></button>
-          <img src="assets/img/emergency_4.svg" alt="PIC:EMERGENCY4"/>
+          <img src="assets/img/emergency_4.svg" alt="PIC:EMERGENCY4" oncontextmenu="return false;"/>
         </div>
       </div>
     </div>

@@ -15,7 +15,7 @@ import { ActivatedRoute } from '@angular/router';
 		</div>
         <div class='details' *ngIf='show == opozorilo.id'>
           <p class="basic-txt" [innerHTML]='opozorilo.msg'></p>
-          <a [href]='opozorilo.link'><img class="opozoriloICO" src='assets/img/more.svg'/></a>
+          <a [href]='opozorilo.link'><img class="opozoriloICO" src='assets/img/more.svg' oncontextmenu="return false;"/></a>
         <div>
       </div>
     </div>

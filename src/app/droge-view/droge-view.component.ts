@@ -20,7 +20,7 @@ import { DataService } from '../data/data.service';
       </div>
       <div id='moreInfo'>
         <a [href]="detail.link">
-          <img id="vecICO" src='assets/img/more.svg'/>
+          <img id="vecICO" src='assets/img/more.svg' oncontextmenu="return false;"/>
         </a>
       </div>
   `,
