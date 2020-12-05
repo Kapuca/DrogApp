@@ -8,9 +8,11 @@ import { ActivatedRoute } from '@angular/router';
   <div id='main' class='secondPage'>
     <app-nav-header></app-nav-header>
     <div id='content'>
-      <div *ngFor='let opozorilo of opozorila' class='container' #container (click)='focusOn(opozorilo.id);' [id]='"container-" + opozorilo.id'>
-        <h2 class="naslov">{{opozorilo.title | uppercase}}</h2>
-        <p>{{ opozorilo.datetime }}</p>
+      <div *ngFor='let opozorilo of opozorila' class='container' #container [id]='"container-" + opozorilo.id'>
+		<div class="opozorilaItemHeader" (click)='focusOn(opozorilo.id);'>
+		  <h2 class="naslov">{{opozorilo.title | uppercase}}</h2>
+          <p>{{ opozorilo.datetime }}</p>
+		</div>
         <div class='details' *ngIf='show == opozorilo.id'>
           <p class="basic-txt" [innerHTML]='opozorilo.msg'></p>
           <a [href]='opozorilo.link'><img class="opozoriloICO" src='assets/img/more.svg'/></a>
@@ -88,7 +90,10 @@ export class OpozorilaComponent implements OnInit, AfterViewChecked, OnDestroy{
 	  
 	  this.showId = tmpId;
       this.ds.getSubscribed();
-    }
+    } else {
+	  this.show = -1;
+	  this.lastOpenedTextHeight = 0;
+	}
   }
 
 }
