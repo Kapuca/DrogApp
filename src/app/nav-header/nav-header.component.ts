@@ -14,8 +14,7 @@ import { DataService } from '../data/data.service';
   `,
   styles: [
     'img { color: white; width:28px; height:28px; float:left; background-size: 28px 28px; background-repeat: no-repeat; margin: 8px 5px 8px 28px; }',
-    '#nav-header { position: fixed; top: 64px; width: 100%; height: 45px; line-height: 45px; z-index: 420; user-select: none; }',
-    'span { color: white;}',
+    '#nav-header { position: fixed; top: 64px; width: 100%; height: 45px; line-height: 45px; z-index: 420; user-select: none; text-overflow: ellipsis; overflow: hidden; white-space: nowrap; color: white;}',
     '.backButton { position: absolute; top: auto; color: white; font-size: 1.8em; left: 8px; margin-top: -0.2rem; }',
   ]
 })
