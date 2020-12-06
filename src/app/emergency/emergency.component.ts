@@ -40,7 +40,7 @@ import { ActivatedRoute } from '@angular/router';
     'img { object-fit: scale-down; width: 95%; height: auto; padding: 15px 0px 0px 0px; }',
     '.emergencyNeSlike > li { width: 100%; transform:rotateX(180deg); }',
     '#mergency2Slika { margin-top: 10%; }',
-    '#mergency3Slika { height: 82%; margin-top: 1%; }',
+    '#mergency3Slika { height: 47vh; margin-top: 1%; }',
     '#mergency1Slika, #mergency4Slika { margin: 0px 2.5%; }',
     '.izbira { font-size: 1.4rem; font-weight: 650; cursor: pointer; width: calc(50vw - 6px); height: 61.5px; top: -17px; position: relative; background-color: #00000000; border: none; }',
 	//'p.basic-txt { padding: 20px 36px 20px 20px; }'
