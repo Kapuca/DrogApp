@@ -41,6 +41,9 @@ export class NavHeaderComponent implements OnInit {
 
   makeSegs(url: string){
     const segs = url.split('/');
+    if (this.baseSeg && this.baseSeg !== segs[1].split('?')[0]) {
+      return; // do not update state if main router outlet is about to change (animation purpuse only)
+    }
     this.baseSeg = segs[1].split('?')[0];
 
     if (segs[2] !== undefined){
