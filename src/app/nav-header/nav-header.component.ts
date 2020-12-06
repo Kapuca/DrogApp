@@ -32,13 +32,11 @@ export class NavHeaderComponent implements OnInit {
     this.loc.onUrlChange((url, state) => this.makeSegs(url));
   }
 
-  color(){ return this.gs.getColor(this.baseSeg); }
+  color(): string { return this.gs.getColor(this.baseSeg); }
 
-  src(): string{
-    return 'assets/img/home-' + this.baseSeg + '.svg';
-  }
+  src(): string { return 'assets/img/home-' + this.baseSeg + '.svg'; }
 
-  makeSegs(url: string){
+  makeSegs(url: string): void {
     const segs = url.split('/');
     if (this.baseSeg && this.baseSeg !== segs[1].split('?')[0]) {
       return; // do not update state if main router outlet is about to change (animation purpuse only)
