@@ -7,8 +7,7 @@ import { DataService } from '../data/data.service';
   template: `
   <div id="footer">
     <p *ngIf="showKlic" ><a href="tel:112" class="onDark">KLIC 112</a></p>
-    <p *ngIf="!onOpozorila" [routerLink]="['/opozorila']" [queryParams]="{show: last}" (click)='notifHook()'>ZADNJE OPOZORILO</p>
-    <p *ngIf="onOpozorila" (click)='scrolToOpozorilo(); notifHook();'>ZADNJE OPOZORILO</p>
+    <p *ngIf="!showKlic" [routerLink]="['/opozorila']" [queryParams]="{show: last}" (click)='notifHook()'>ZADNJE OPOZORILO</p>
   </div>
   `,
   styles: [
@@ -28,7 +27,7 @@ export class FooterComponent implements OnInit {
     this.router.events.subscribe(event => {
       if (event instanceof RouterEvent){
         this.showKlic = event.url.includes('/emergency');
-		this.onOpozorila = event.url.includes('/opozorila');
+        this.onOpozorila = event.url.includes('/opozorila');
       }
       this.ds.getData('opozorila').subscribe(res => {
         this.last =  res[0].id;
@@ -36,12 +35,11 @@ export class FooterComponent implements OnInit {
   });
 
   }
-  
-  scrolToOpozorilo() {
-	window.scrollTo({behavior: 'smooth', top: 0});
-  }
 
   notifHook(){
+    if (this.onOpozorila) {
+      window.scrollTo({behavior: 'smooth', top: 0});
+    }
     this.ds.getSubscribed();
   }
 
