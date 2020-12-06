@@ -68,7 +68,8 @@ export class OpozorilaComponent implements OnInit, OnDestroy{
     if (shownEl) {
       this.observer.observe( shownEl.nativeElement, {childList: true} );
     }else{
-      this.scrollView();
+      const elToShow = this.containers.filter(el => el.nativeElement.id === ('container-' + idx))[0];
+      this.observer.observe( elToShow.nativeElement, {childList: true} );
     }
 
   }
