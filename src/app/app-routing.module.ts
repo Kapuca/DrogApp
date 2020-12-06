@@ -16,7 +16,7 @@ const routes: Routes = [
   { path: 'home', component: MainComponent, data: {animation: 'FirstPage'} },
   { path: 'info', component: InfoComponent, data: {animation: 'SecondPage'} },
   { path: 'emergency', component: EmergencyComponent, data: {animation: 'SecondPage'} },
-  { path: 'opozorila', component: OpozorilaComponent, data: {animation: 'SecondPage'} },
+  { path: 'opozorila', component: OpozorilaComponent, data: {animation: 'SecondPageOpozorila'} },
   { path: 'droge', component: ListComponent, data: {animation: 'SecondPage'},
     children: [
       { path: ':id', component: DrogeViewComponent}

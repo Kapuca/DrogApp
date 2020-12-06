@@ -2,7 +2,7 @@
 
 export const slideInAnimation =
 	trigger('routeAnimations', [
-		transition('FirstPage => SecondPage', [
+		transition('FirstPage => SecondPage, FirstPage => SecondPageOpozorila', [
 		  style({ position: 'relative' }),
 		  query(':enter, :leave', [
 			style({
@@ -26,7 +26,7 @@ export const slideInAnimation =
 		  //query(':enter', animateChild()),
 		  //query(':leave', animateChild()),
 		]),		
-		transition('SecondPage => FirstPage, AnotherSecondPage => *', [
+		transition('SecondPage => FirstPage, SecondPageOpozorila => FirstPage, AnotherSecondPage => *', [
 		  style({ position: 'relative' }),
 		  query(':enter, :leave', [
 			style({
@@ -50,7 +50,7 @@ export const slideInAnimation =
 		  //query(':enter', animateChild()),
 		  //query(':leave', animateChild()),
 		]),
-		transition('* => AnotherSecondPage', [
+		transition('NOC => AnotherSecondPage, FirstPage => AnotherSecondPage, SecondPage => AnotherSecondPage', [
 		  style({ position: 'relative' }),
 		  query(':enter, :leave', [
 			style({
