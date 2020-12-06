@@ -6,9 +6,9 @@ import { DataService } from '../data/data.service';
 @Component({
   selector: 'app-nav-header',
   template: `
-    <div id="nav-header" [routerLink]='linkSeg' [style.background-color]='colorStr'>
+    <div id="nav-header" [routerLink]='linkSeg' [style.background-color]='color()'>
 	  <div class="backButton">&lt;</div>
-      <img [src]='linkIcon' oncontextmenu="return false;"/>
+      <img [src]='src()'/>
       <span>{{ titleSeg | uppercase }}</span>
     </div>
   `,
@@ -22,32 +22,21 @@ import { DataService } from '../data/data.service';
 export class NavHeaderComponent implements OnInit {
 
   baseSeg: string;
-  colorStr: string;
   titleSeg: string;
   linkSeg: string;
-  linkIcon: string;
 
   constructor(private gs: GeneralService, private ds: DataService, private loc: Location) { }
 
   ngOnInit(): void {
     this.titleSeg = '';
     this.makeSegs(this.loc.path());
-	this.linkIcon = this.src();
-	this.colorStr = this.color();
-	this.loc.onUrlChange((url, state) => this.detectChange(url));
+    this.loc.onUrlChange((url, state) => this.makeSegs(url));
   }
 
-  color(): string { return this.gs.getColor(this.baseSeg); }
+  color(){ return this.gs.getColor(this.baseSeg); }
 
-  src(): string {
+  src(): string{
     return 'assets/img/home-' + this.baseSeg + '.svg';
-  }
-  
-   detectChange(url: string): void {
-	if (url.indexOf(this.baseSeg) >= 0) {
-	  this.makeSegs(url);
-	  this.linkIcon = this.src();
-	}
   }
 
   makeSegs(url: string){
