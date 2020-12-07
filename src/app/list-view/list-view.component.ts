@@ -7,6 +7,7 @@ import { Component, Input, OnInit } from '@angular/core';
       <div class='item' *ngFor='let item of items' [routerLink]='item.id'>
         {{ item.title | uppercase }}
       </div>
+      <app-conn-status></app-conn-status>
     </div>
   `,
   styles: [
