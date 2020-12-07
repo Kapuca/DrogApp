@@ -42,10 +42,18 @@ export class OpozorilaComponent implements OnInit, OnDestroy{
   constructor(public ds: DataService, private route: ActivatedRoute) { }
 
   ngOnInit(): void {
-    this.ds.getData('opozorila').subscribe(data => this.opozorila = data);
-    this.route.queryParams.subscribe(data => {
-      this.show = data.show;
+    this.ds.getData('opozorila').subscribe(data => {
+      this.opozorila = data;
+
+      this.route.queryParams.subscribe(param => {
+        if (!isNaN(param.show)) { this.show = param.show; }
+        else if (param.show === 'last') { this.show = this.opozorila[0].id; }
+
+        if (this.show) { this.focusOn(this.show); }
+      });
+
     });
+
     // construct mechanism to be triggered after old shown el closes
     this.observer = new MutationObserver((mutations) => {
       mutations.forEach((mutation) => this.scrollView());

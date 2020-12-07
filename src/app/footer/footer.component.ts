@@ -7,7 +7,7 @@ import { DataService } from '../data/data.service';
   template: `
   <div id="footer">
     <p *ngIf="showKlic" ><a href="tel:112" class="onDark">KLIC 112</a></p>
-    <p *ngIf="!showKlic" [routerLink]="['/opozorila']" [queryParams]="{show: last}" (click)='notifHook()' onclick='this.blur()'>ZADNJE OPOZORILO</p>
+    <p *ngIf="!showKlic" [routerLink]="['/opozorila']" [queryParams]="{show: 'last'}" (click)='notifHook()' onclick='this.blur()'>ZADNJE OPOZORILO</p>
   </div>
   `,
   styles: [
@@ -19,7 +19,6 @@ export class FooterComponent implements OnInit {
 
   showKlic: boolean;
   onOpozorila: boolean;
-  last: any;
 
   constructor(private router: Router, private ds: DataService) { }
 
@@ -29,9 +28,6 @@ export class FooterComponent implements OnInit {
         this.showKlic = event.url.includes('/emergency');
         this.onOpozorila = event.url.includes('/opozorila');
       }
-      this.ds.getData('opozorila').subscribe(res => {
-        this.last =  res[0].id;
-      });
   });
 
   }
