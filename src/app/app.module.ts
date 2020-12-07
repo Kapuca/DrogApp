@@ -24,6 +24,7 @@ import { TimerComponent } from './timer/timer.component';
 import { ChatComponent } from './chat/chat.component';
 import { KnofiComponent } from './knofi/knofi.component';
 import { MeterComponent } from './meter/meter.component';
+import { ConnStatusComponent } from './conn-status/conn-status.component';
 
 @NgModule({
   declarations: [
@@ -45,6 +46,7 @@ import { MeterComponent } from './meter/meter.component';
     ChatComponent,
     KnofiComponent,
     MeterComponent,
+    ConnStatusComponent,
   ],
   imports: [
     BrowserModule,

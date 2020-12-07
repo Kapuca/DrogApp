@@ -40,7 +40,6 @@ body {
     margin: 0;
     font-family: "brandon_grotesque_regularRg";
     width: 100%;
-	min-width: 255px;
     height: 100vh;
     overflow-x: hidden;
 	background-color: white;
@@ -293,6 +292,18 @@ ul {
 	}
 	100% {
 		opacity: 1;
+	}
+}
+
+@keyframes slowHideAway {
+	0% {
+		opacity: 1;
+	}
+	60% {
+		opacity: 1;
+	}
+	100% {
+		opacity: 0;
 	}
 }
 

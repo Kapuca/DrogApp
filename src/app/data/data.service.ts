@@ -143,4 +143,16 @@ export class DataService {
       console.log('not subscribed');
     }
   }
+
+  isOnline(): boolean {
+    return navigator.onLine;
+  }
+
+  onStatusChange(callback: (isOnline: boolean) => void) {
+    const func = () => callback(this.isOnline());
+    window.addEventListener('online',  func );
+    window.addEventListener('offline', func );
+  }
+
+
 }
