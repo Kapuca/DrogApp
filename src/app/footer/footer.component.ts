@@ -7,7 +7,7 @@ import { DataService } from '../data/data.service';
   template: `
   <div id="footer">
     <p *ngIf="showKlic" ><a href="tel:112" class="onDark">KLIC 112</a></p>
-    <p *ngIf="!showKlic" [routerLink]="['/opozorila']" [queryParams]="{show: last}" (click)='notifHook()'>ZADNJE OPOZORILO</p>
+    <p *ngIf="!showKlic" [routerLink]="['/opozorila']" [queryParams]="{show: last}" (click)='notifHook()' onclick='this.blur()'>ZADNJE OPOZORILO</p>
   </div>
   `,
   styles: [
