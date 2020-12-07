@@ -11,14 +11,15 @@ import { ActivatedRoute } from '@angular/router';
       <div *ngFor='let opozorilo of opozorila' class='container' #container [id]='"container-" + opozorilo.id'>
         <div class="opozorilaItemHeader" (click)='focusOn(opozorilo.id);'>
           <h2 class="naslov">{{opozorilo.title | uppercase}}</h2>
-              <p>{{ opozorilo.datetime }}</p>
+          <p>{{ opozorilo.datetime }}</p>
         </div>
         <div class='details' *ngIf='show == opozorilo.id'>
           <p class="basic-txt" [innerHTML]='opozorilo.msg'></p>
           <a [href]='opozorilo.link'><img class="opozoriloICO" src='assets/img/more.svg' oncontextmenu="return false;"/></a>
-        <div>
+        </div>
       </div>
     </div>
+    <input *ngIf='ds.notifPermissStatus() === "default"' type="button" (click)="ds.getSubscribed()" value="Get notified">
   </div>
   `,
   styles: [
@@ -27,7 +28,8 @@ import { ActivatedRoute } from '@angular/router';
     '.naslov { width: 100%; }',
     '.details { display: initial}',
     '.opozoriloICO { height: 3.5em; display: block; width: 100%; }',
-    '#content { animation: 0.6s ease-out 0s 1 slideFromUp; }'
+    '#content { animation: 0.6s ease-out 0s 1 slideFromUp; }',
+    'input { position: fixed; bottom: 100px; right: 15px; }'
   ]
 })
 export class OpozorilaComponent implements OnInit, OnDestroy{
@@ -37,7 +39,7 @@ export class OpozorilaComponent implements OnInit, OnDestroy{
   show: number;
   observer: MutationObserver;
 
-  constructor(private ds: DataService, private route: ActivatedRoute) { }
+  constructor(public ds: DataService, private route: ActivatedRoute) { }
 
   ngOnInit(): void {
     this.ds.getData('opozorila').subscribe(data => this.opozorila = data);
@@ -55,14 +57,6 @@ export class OpozorilaComponent implements OnInit, OnDestroy{
   }
 
   focusOn(idx: number): void {
-    /* Logging
-    const shownEl = this.containers.filter(el => el.nativeElement.id === ('container-' + this.show))[0];
-    const elTOshow = this.containers.filter(el => el.nativeElement.id === ('container-' + idx))[0];
-    const se = shownEl.nativeElement.getBoundingClientRect();
-    const ets = elTOshow.nativeElement.getBoundingClientRect();
-    console.log('focusOn shownEl', se.y, se.height);
-    console.log('focusOn elTOshow', ets.y, ets.height);
-    */
     const shownEl = this.containers.filter(el => el.nativeElement.id === ('container-' + this.show))[0];
     this.show = idx;
     if (shownEl) {
@@ -71,6 +65,7 @@ export class OpozorilaComponent implements OnInit, OnDestroy{
       const elToShow = this.containers.filter(el => el.nativeElement.id === ('container-' + idx))[0];
       this.observer.observe( elToShow.nativeElement, {childList: true} );
     }
+    this.ds.getSubscribed();
 
   }
 

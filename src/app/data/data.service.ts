@@ -61,7 +61,8 @@ export class DataService {
 
   getSubscribed() {
     if ('serviceWorker' in navigator) {
-      Notification.requestPermission();
+      console.log('getSubscribed');
+      Notification.requestPermission().then(res => { console.log('permiss', res); }, err => { console.log('denid?', err); } );
       navigator.serviceWorker.getRegistration().then( reg => {
         reg.pushManager.getSubscription().then( sub => {
 
@@ -103,6 +104,11 @@ export class DataService {
         console.log('Service Worker registration failed: ', err);
       });
     }
+  }
+
+  notifPermissStatus() {
+    console.log(Notification.permission);
+    return Notification.permission;
   }
 
   urlBase64ToUint8Array(base64String: string) {
