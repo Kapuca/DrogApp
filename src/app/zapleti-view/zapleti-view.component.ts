@@ -23,7 +23,7 @@ import { DataService } from '../data/data.service';
 })
 export class ZapletiViewComponent implements OnInit {
 
-  zaplet: any;
+  zaplet: any = {};
   openedTab: string;
   tabGroupBorderEl: any;
 

@@ -31,7 +31,7 @@ import { DataService } from '../data/data.service';
 })
 export class DrogeViewComponent implements OnInit {
 
-  detail: any;
+  detail: any = {};
   openedTab: string;
   tabGroupBorderEl: any;
 

@@ -36,10 +36,7 @@ import { GeneralService } from '../general/general.service';
 })
 export class InfoComponent implements OnInit, OnDestroy {
 
-  info: any;
-  /*Treba prestavit v bazo*/
-  appDescTitle = 'O aplikaciji DROGAPP';
-  appDescText = 'Aplikacija informira in osvešča o manj tvegani uporabi drog. Informacije v aplikaciji so informativne narave, <i>vsi uporabniki jih uporabljajo na lastno odgovornost</i>.<br><br><b>Edina varna uporaba je neuporaba!</b>';
+  info: any = {};
   egg = 0;
   @ViewChild('txt', { static: false }) txt: ElementRef;
 

@@ -15,7 +15,7 @@ import { DataService } from '../data/data.service';
 })
 export class NasvetiViewComponent implements OnInit {
 
-  nasvet: any;
+  nasvet: any = {};
 
   constructor( private ds: DataService, private route: ActivatedRoute) { }
 
