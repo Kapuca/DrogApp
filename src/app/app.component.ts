@@ -13,17 +13,19 @@ import { Router } from '@angular/router';
   animations: [slideInAnimation]
 })
 export class AppComponent implements OnInit{
-	
-	constructor(private router: Router ) {}
 
   title = 'DrogApp';
+
+  constructor(private router: Router ) {}
 
   ngOnInit() {
     ServiceWorkerModule.register(environment.serviceWorkerScript);
   }
 
   prepareRoute(outlet: RouterOutlet) {
-	if (this.router.url.indexOf('/opozorila?show=') >= 0) { outlet.activatedRouteData.animation = 'AnotherSecondPage'; }
+    if (this.router.url.indexOf('/opozorila?show=') >= 0) {
+      outlet.activatedRouteData.animation = 'AnotherSecondPage';
+    }
     return outlet && outlet.activatedRouteData && outlet.activatedRouteData.animation;
   }
 
