@@ -23,7 +23,7 @@ export class ConnStatusComponent implements OnInit {
 
   ngOnInit(): void {
     this.updateOnlineStatus(this.ds.isOnline());
-    this.ds.onStatusChange(this.updateOnlineStatus);
+    this.ds.onStatusChange( status => this.updateOnlineStatus(status) );
   }
 
   updateOnlineStatus(isOnline): void {
