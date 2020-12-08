@@ -69,7 +69,7 @@ export class DataService {
           const tmp = () =>  {
             reg.pushManager.subscribe({
               userVisibleOnly: true,
-              // applicationServerKey: this.urlBase64ToUint8Array(this.publicKey)
+              applicationServerKey: this.urlBase64ToUint8Array(this.publicKey)
             })
             .then( newSub => {
 
