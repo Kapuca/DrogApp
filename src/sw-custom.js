@@ -1,7 +1,7 @@
 
   
 self.addEventListener('notificationclose', function(e) {  
-    console.log('Closed notification: ' + notification);
+    console.log('Closed notification: ' + e.notification);
   });
 
 self.addEventListener('notificationclick', function(e) {
@@ -51,8 +51,7 @@ self.addEventListener('push', event => {
                 ]
             };
             console.log('opt', options);
-            const promiseChain = self.registration.showNotification('DrogArt', options);
-            event.waitUntil(promiseChain);
+            event.waitUntil(self.registration.showNotification('DrogArt', options));
             console.log('done');
         } else {
             console.log('fuck');
@@ -65,9 +64,11 @@ self.addEventListener('push', event => {
         displayNotif(event.data.json());
     } else {
         console.log('This push event has no data.');
-        fetch('https://drogapp.drogart.org/backend/opozorila.php?type=json')
-        .then(res => res.json())
-        .then(data => displayNotif(data[0]));
+        event.waitUntil(
+            fetch('https://drogapp.drogart.org/backend/opozorila.php?type=json')
+            .then(res => res.json())
+            .then(data => displayNotif(data[0]))
+        );
     }    
     
 });
