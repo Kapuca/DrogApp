@@ -1,18 +1,19 @@
 
-#connectionStatus {
-	position: absolute;
+:host {
 	display: inline-block;
-	right: 0px;
     padding: 0px 2%;
     z-index: 421;
     line-height: 64px;
 	cursor: pointer;
 }
 
+svg {
+	float: left;
+}
+
 /* tooltips css logic */
 .helper-txt {
 	visibility: hidden;
-    width: 90vw;
     font-size: 13px;
     letter-spacing: 1px;
     font-family: "gotham_mediumregular";
@@ -21,9 +22,6 @@
     text-align: center;
     padding: 0px 5px;
     border-radius: 6px;
-    position: absolute;
-    z-index: 421;
-    bottom: -43px;
 	transform: translateX(-92vw);
     opacity: 0;
 	transition: opacity 1s;
@@ -31,7 +29,6 @@
 
 .helper-txt::after {
 	content: " ";
-	position: absolute;
 	bottom: 100%;
 	left: 94%;
 	border-width: 5px;
