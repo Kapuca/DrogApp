@@ -4,10 +4,12 @@ import { DataService } from '../data/data.service';
 @Component({
   selector: 'app-conn-status',
   template: `
+    <div id="connectionStatus" [ngStyle]="{ 'color': statusColor }"><!-- &#9711; -->
       <svg height="64" width="32">
         <circle cx="16" cy="32" r="10" [attr.stroke]="statusColor" stroke-width="4" fill="none" />
       </svg>
       <span class="helper-txt" [innerHTML]="statusText"></span>
+    </div>
   `,
   styleUrls: ['./conn-status.component.css'],
 
