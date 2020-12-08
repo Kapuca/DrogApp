@@ -10,11 +10,13 @@ import { DataService } from '../data/data.service';
       <p> A kitty a day keeps the drugz away</p>
       <img [src]='source' (click)='summonKitty()' />
     </div>
+    <app-conn-status *ngIf='!source' ></app-conn-status>
   </div>
   `,
   styles: [
     '.kittyBlock > p { text-align: center; content-align: center; }',
-    '.kittyBlock > img { position: fixed; object-fit: contain; top: 50%; left: 50%; transform: translate(-50%, -50%); }'
+    '.kittyBlock > img { position: fixed; object-fit: contain; top: 50%; left: 50%; transform: translate(-50%, -50%); }',
+    'app-conn-status {position: fixed; bottom: 75px; }',
   ]
 })
 export class KittyComponent implements OnInit {
@@ -25,6 +27,9 @@ export class KittyComponent implements OnInit {
 
   ngOnInit(): void {
     this.summonKitty();
+    this.ds.onStatusChange(online => {
+      if (!this.source && online) { this.summonKitty(); }
+    });
   }
 
   summonKitty(): void{

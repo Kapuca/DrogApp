@@ -16,14 +16,16 @@ import { Location } from '@angular/common';
 })
 export class ListComponent implements OnInit, OnDestroy {
 
-  droga: any;
   listing = true;
   data: any[];
 
   constructor( private ds: DataService, private loc: Location) { }
 
   ngOnInit(): void {
-    this.ds.getData(this.loc.path().split('/')[1]).subscribe(data => this.data = data);
+    this.fillData();
+    this.ds.onStatusChange(online => {
+      if (!this.data && online) { this.fillData(); }
+    });
   }
 
   ngOnDestroy(): void {
@@ -35,6 +37,10 @@ export class ListComponent implements OnInit, OnDestroy {
   }
   onDeactivate(e: Event): void {
     this.listing = true;
+  }
+
+  fillData(): void {
+    this.ds.getData(this.loc.path().split('/')[1]).subscribe(data => this.data = data);
   }
 
 }

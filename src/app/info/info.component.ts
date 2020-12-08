@@ -22,6 +22,7 @@ import { GeneralService } from '../general/general.service';
         <p class="basic-txt" [innerHTML]='info.thirdtext'></p>
       </div>
     </div>
+    <app-conn-status *ngIf="(info | json) === '{}'"></app-conn-status>
   </div>
   `,
   styles: [
@@ -31,7 +32,8 @@ import { GeneralService } from '../general/general.service';
     '#duck { text-align: center; padding: 15px;}',
     'input { text-align: center; }',
     'p { text-align: justify; }',
-    '.basic-txt { padding: 5px 20px 20px 20px; }'
+    '.basic-txt { padding: 5px 20px 20px 20px; }',
+    'app-conn-status {position: fixed; bottom: 75px; }',
   ]
 })
 export class InfoComponent implements OnInit, OnDestroy {
@@ -44,10 +46,14 @@ export class InfoComponent implements OnInit, OnDestroy {
   constructor( private ds: DataService, private gs: GeneralService) { }
 
   ngOnInit(): void {
+    this.fillData();
+  }
+
+  fillData() {
     this.ds.getData('info').subscribe(
       data => this.info = data[0],
-      error => this.info = {firsttitle: 'DB connectiion not working', firsttext: error.message, secondtitle: '', secondtext: ''}
-      );
+      // error => this.info = {firsttitle: 'DrogApp Info', firsttext: error.message, secondtitle: '', secondtext: ''}
+    );
   }
 
   ngOnDestroy(): void {

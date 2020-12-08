@@ -20,6 +20,7 @@ import { ActivatedRoute } from '@angular/router';
       </div>
     </div>
     <input *ngIf='ds.notifPermissStatus() === "default"' type="button" (click)="ds.getSubscribed()" value="Get notified">
+    <app-conn-status></app-conn-status>
   </div>
   `,
   styles: [
@@ -29,7 +30,8 @@ import { ActivatedRoute } from '@angular/router';
     '.details { display: initial}',
     '.opozoriloICO { height: 3.5em; display: block; width: 100%; }',
     '#content { animation: 0.6s ease-out 0s 1 slideFromUp; }',
-    'input { position: fixed; bottom: 100px; right: 15px; }'
+    'input { position: fixed; bottom: 100px; right: 15px; }',
+    'app-conn-status {position: fixed; bottom: 75px;}',
   ]
 })
 export class OpozorilaComponent implements OnInit, OnDestroy{
@@ -42,16 +44,9 @@ export class OpozorilaComponent implements OnInit, OnDestroy{
   constructor(public ds: DataService, private route: ActivatedRoute) { }
 
   ngOnInit(): void {
-    this.ds.getData('opozorila').subscribe(data => {
-      this.opozorila = data;
-
-      this.route.queryParams.subscribe(param => {
-        if (!isNaN(param.show)) { this.show = param.show; }
-        else if (param.show === 'last') { this.show = this.opozorila[0].id; }
-
-        if (this.show) { this.focusOn(this.show); }
-      });
-
+    this.fillData();
+    this.ds.onStatusChange(online => {
+      if (!this.opozorila && online) { this.fillData(); }
     });
 
     // construct mechanism to be triggered after old shown el closes
@@ -62,6 +57,20 @@ export class OpozorilaComponent implements OnInit, OnDestroy{
 
   ngOnDestroy(): void {
     window.scrollTo({top: 0});
+  }
+
+  fillData(focus = true){
+    this.ds.getData('opozorila').subscribe(data => {
+      this.opozorila = data;
+
+      this.route.queryParams.subscribe(param => {
+        if (!isNaN(param.show)) { this.show = param.show; }
+        else if (param.show === 'last') { this.show = this.opozorila[0].id; }
+
+        if (this.show && focus) { this.focusOn(this.show); }
+      });
+
+    });
   }
 
   focusOn(idx: number): void {

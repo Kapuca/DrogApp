@@ -11,22 +11,24 @@ import { DataService } from '../data/data.service';
         <button class="tablinksDroge" id="tabDoza" (click)="open('doza', $event)" onclick="this.blur();">{{ 'odmerek' | uppercase }}</button>
         <button class="tablinksDroge" id="tabRisk" (click)="open('risk', $event)" onclick="this.blur();">{{ 'tveganja' | uppercase }}</button>
 		    <div id="tabBorder"></div>
-      </div>
-      <div id='content'>
+    </div>
+    <div id='content'>
         <p class="basic-txt" [style.display]="display('info')" [innerHTML]='detail.info'></p>
         <p class="basic-txt" [style.display]="display('risk')"  [innerHTML]='detail.risk'></p>
         <p class="basic-txt" [style.display]="display('doza')"  [innerHTML]='detail.doza'></p>
         <p class="basic-txt" [style.display]="display('efekt')"  [innerHTML]='detail.efekt'></p>
-      </div>
-      <div id='moreInfo'>
+    </div>
+    <div id='moreInfo'>
         <a [href]="detail.link">
           <img id="vecICO" src='assets/img/more.svg' oncontextmenu="return false;"/>
         </a>
-      </div>
+    </div>
+    <app-conn-status *ngIf="(detail | json) === '{}'" ></app-conn-status>
   `,
   styles: [
     '#content { top: 140px; }',
     '#moreInfo { position: fixed; bottom: 61px; right: 15px; background: linear-gradient(to right bottom, rgb(238, 213, 134, 0.6), rgb(238, 213, 134, 1)); }',
+    'app-conn-status { position: fixed; bottom: 100px }'
   ]
 })
 export class DrogeViewComponent implements OnInit {
@@ -40,6 +42,13 @@ export class DrogeViewComponent implements OnInit {
   ngOnInit(): void {
     this.openedTab = 'info';
     this.tabGroupBorderEl = document.getElementById('tabBorder');
+    this.fillData();
+    this.ds.onStatusChange(online => {
+      if (!Object.keys(this.detail).length && online) { this.fillData(); }
+    });
+  }
+
+  fillData() {
     this.route.url.subscribe(segs =>
       this.ds.getData('droge', +segs[0].toString()).subscribe(res =>
         this.detail = res[0])

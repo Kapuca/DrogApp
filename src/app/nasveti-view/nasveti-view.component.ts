@@ -9,6 +9,7 @@ import { DataService } from '../data/data.service';
       <p class="basic-txt" [innerHTML]='nasvet.msg'>
       </p>
     </div>
+    <app-conn-status *ngIf="(nasvet | json) === '{}'"></app-conn-status>
   `,
   styles: [
   ]
@@ -20,10 +21,18 @@ export class NasvetiViewComponent implements OnInit {
   constructor( private ds: DataService, private route: ActivatedRoute) { }
 
   ngOnInit(): void {
+    this.fillData();
+    this.ds.onStatusChange(online => {
+      if (!Object.keys(this.nasvet).length && online) { this.fillData(); }
+    });
+  }
+
+  fillData(): void {
     this.route.url.subscribe(segs =>
       this.ds.getData('nasveti', +segs[0].toString()).subscribe(res =>
         this.nasvet = res[0])
     );
+
   }
 
 }
