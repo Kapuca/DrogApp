@@ -65,7 +65,7 @@ self.addEventListener('push', event => {
         displayNotif(event.data.json());
     } else {
         console.log('This push event has no data.');
-        fetch('https://drogapp.drogart.org/opozorila.php?type=json')
+        fetch('https://drogapp.drogart.org/backend/opozorila.php?type=json')
         .then(res => res.json())
         .then(data => displayNotif(data[0]));
     }    

@@ -8,7 +8,7 @@ import { catchError, map } from 'rxjs/operators';
 })
 export class DataService {
 
-  private url = 'https://drogapp.drogart.org/';
+  private url = 'https://drogapp.drogart.org/backend/';
   private endParam = '.php?type=json';
   private subscription: PushSubscription;
   private publicKey = 'BCmA9Ore3MvD5aK6Pscbr2iYgNm-O2RWE7bGKTZaClnOvcD1dIqpgzcqNraTNgyoVM3-CO7VwlOy-VcGwKS8Ly4';
