@@ -1,39 +1,37 @@
 
-#connectionStatus {
-	position: absolute;
-	display: inline-block;
-	right: 0px;
+:host {
+	display: block;
+	min-width: 50px;
+	max-width: 100%;
+	min-height: 18px;
     padding: 0px 2%;
     z-index: 421;
     line-height: 64px;
 	cursor: pointer;
 }
 
+svg {
+	float: left;
+}
+
 /* tooltips css logic */
 .helper-txt {
-	visibility: hidden;
-    width: 90vw;
+	visibility: visible;
     font-size: 13px;
     letter-spacing: 1px;
     font-family: "gotham_mediumregular";
-    background-color: #262626aa;
+    background-color: #8a82822a;
     color: #fff;
     text-align: center;
     padding: 0px 5px;
     border-radius: 6px;
-    position: absolute;
-    z-index: 421;
-    bottom: -43px;
 	transform: translateX(-92vw);
-    opacity: 0;
+    opacity: 1;
 	transition: opacity 1s;
 }
 
+/*
 .helper-txt::after {
-	content: " ";
-	position: absolute;
-	bottom: 100%;
-	left: 94%;
 	border-width: 5px;
 	border-style: solid;
 	border-color: transparent transparent #262626aa transparent;
@@ -46,7 +44,7 @@
 }
 
 *:not:active > .helper-txt {
-	/* animation: 1s ease-in slowHideAway; */
+	/* animation: 1s ease-in slowHideAway; 
 	visibility: hidden;
 	opacity: 0;
 	transition: all 2s ease-in;
