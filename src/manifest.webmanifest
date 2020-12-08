@@ -3,7 +3,7 @@
   "short_name": "DrogApp",
   "theme_color": "#262626",
   "background_color": "#262626",
-  "display": "fullscreen",
+  "display": "standalone",
   "orientation": "portrait",
   "scope": "./",
   "start_url": "./",
