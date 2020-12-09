@@ -23,12 +23,12 @@ import { DataService } from '../data/data.service';
           <img id="vecICO" src='assets/img/more.svg' oncontextmenu="return false;"/>
         </a>
     </div>
-    <app-conn-status *ngIf="(detail | json) === '{}'" ></app-conn-status>
+    <app-conn-status></app-conn-status>
   `,
   styles: [
     '#content { top: 140px; }',
     '#moreInfo { position: fixed; bottom: 61px; right: 15px; background: linear-gradient(to right bottom, rgb(238, 213, 134, 0.6), rgb(238, 213, 134, 1)); }',
-    'app-conn-status { position: fixed; bottom: 100px }'
+    'app-conn-status {position: fixed; bottom: 61px; width: 100%; height: 40px; }',
   ]
 })
 export class DrogeViewComponent implements OnInit {

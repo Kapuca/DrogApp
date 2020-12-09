@@ -1,4 +1,4 @@
-import { Component, Input, OnInit, ViewChild, ElementRef, AfterViewInit } from '@angular/core';
+import { Component, Input, OnInit, ViewChild, ElementRef, AfterViewInit, OnDestroy } from '@angular/core';
 import { DataService } from '../data/data.service';
 
 @Component({
@@ -16,7 +16,7 @@ import { DataService } from '../data/data.service';
   styleUrls: ['./conn-status.component.css'],
 
 })
-export class ConnStatusComponent implements OnInit, AfterViewInit{
+export class ConnStatusComponent implements OnInit, OnDestroy, AfterViewInit{
 
   @Input() collapseBottom = true;
   @Input() persist: boolean;
@@ -29,7 +29,12 @@ export class ConnStatusComponent implements OnInit, AfterViewInit{
   constructor(private ds: DataService) { }
 
   ngOnInit(): void {
+    this.setMeUp(this.ds.isOnline());
     this.ds.onStatusChange( status => this.updateOnlineStatus(status) );
+  }
+
+  ngOnDestroy() {
+    this.hideMe();
   }
 
   ngAfterViewInit() {
@@ -65,7 +70,7 @@ export class ConnStatusComponent implements OnInit, AfterViewInit{
   openMe(isOnline: boolean) {
     this.wrapper.nativeElement.style.display = 'block';
     this.container.nativeElement.style.backgroundColor = (isOnline ? '#4caf50' : '#e91e63') + 'a0';
-    this.statusText = 'Internetna povezava ' + (isOnline ? 'vzpostavljena' : 'prekinjena') + '.';
+    this.setMeUp(isOnline);
     this.container.nativeElement.style.height = '100%';
   }
 
@@ -75,6 +80,11 @@ export class ConnStatusComponent implements OnInit, AfterViewInit{
 
   showMe() {
     this.container.nativeElement.style.display = 'block';
+  }
+
+  setMeUp(isOnline) {
+    this.statusText = 'Internetna povezava ' + (isOnline ? 'vzpostavljena' : 'prekinjena') + '.';
+    // set icon instead of svg?
   }
 
 

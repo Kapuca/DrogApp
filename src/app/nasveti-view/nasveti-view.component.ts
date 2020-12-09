@@ -9,9 +9,10 @@ import { DataService } from '../data/data.service';
       <p class="basic-txt" [innerHTML]='nasvet.msg'>
       </p>
     </div>
-    <app-conn-status *ngIf="(nasvet | json) === '{}'"></app-conn-status>
+    <app-conn-status></app-conn-status>
   `,
   styles: [
+    'app-conn-status {position: fixed; bottom: 61px; width: 100%; height: 40px; }',
   ]
 })
 export class NasvetiViewComponent implements OnInit {

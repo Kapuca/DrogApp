@@ -7,12 +7,13 @@ import { Component, Input, OnInit } from '@angular/core';
       <div class='item' *ngFor='let item of items' [routerLink]='item.id'>
         {{ item.title | uppercase }}
       </div>
-      <app-conn-status *ngIf='!items'></app-conn-status>
     </div>
+    <app-conn-status></app-conn-status>
   `,
   styles: [
     '.item:nth-child(2n+1) { background: #f4f4f4; }',
     '.item {padding: 0px 10px 0px 10px; line-height: 2.4;}',
+    'app-conn-status {position: fixed; bottom: 61px; width: 100%; height: 40px; }',
   ]
 })
 export class ListViewComponent implements OnInit {

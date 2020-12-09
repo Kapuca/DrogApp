@@ -20,7 +20,7 @@ import { ActivatedRoute } from '@angular/router';
       </div>
     </div>
     <input *ngIf='ds.notifPermissStatus() === "default"' type="button" (click)="ds.getSubscribed()" value="Get notified">
-    <app-conn-status></app-conn-status>
+    <app-conn-status [persist]='true'></app-conn-status>
   </div>
   `,
   styles: [
@@ -31,7 +31,7 @@ import { ActivatedRoute } from '@angular/router';
     '.opozoriloICO { height: 3.5em; display: block; width: 100%; }',
     '#content { animation: 0.6s ease-out 0s 1 slideFromUp; }',
     'input { position: fixed; bottom: 100px; right: 15px; }',
-    'app-conn-status {position: fixed; bottom: 75px;}',
+    'app-conn-status {position: fixed; bottom: 61px; width: 100%; height: 40px; }',
   ]
 })
 export class OpozorilaComponent implements OnInit, OnDestroy{

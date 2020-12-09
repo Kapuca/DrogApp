@@ -22,7 +22,7 @@ import { GeneralService } from '../general/general.service';
         <p class="basic-txt" [innerHTML]='info.thirdtext'></p>
       </div>
     </div>
-    <app-conn-status *ngIf="(info | json) === '{}'"></app-conn-status>
+    <app-conn-status></app-conn-status>
   </div>
   `,
   styles: [
@@ -33,7 +33,7 @@ import { GeneralService } from '../general/general.service';
     'input { text-align: center; }',
     'p { text-align: justify; }',
     '.basic-txt { padding: 5px 20px 20px 20px; }',
-    'app-conn-status {position: fixed; bottom: 75px; }',
+    'app-conn-status {position: fixed; bottom: 61px; width: 100%; height: 40px; }',
   ]
 })
 export class InfoComponent implements OnInit, OnDestroy {

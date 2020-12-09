@@ -16,11 +16,11 @@ import { DataService } from '../data/data.service';
       <p class="basic-txt" [style.display]="display('znaki')" [innerHTML]='zaplet.znaki'></p>
       <p class="basic-txt" [style.display]="display('ukrepi')" [innerHTML]='zaplet.ukrepi'></p>
     </div>
-    <app-conn-status *ngIf="(zaplet | json) == '{}'" ></app-conn-status>
+    <app-conn-status></app-conn-status>
   `,
   styles: [
     '#content { top: 140px; }',
-    'app-conn-status { position: fixed; bottom: 100px }'
+    'app-conn-status {position: fixed; bottom: 61px; width: 100%; height: 40px; }',
   ]
 })
 export class ZapletiViewComponent implements OnInit {
