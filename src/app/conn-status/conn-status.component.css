@@ -1,5 +1,5 @@
 
-:host {
+/*:host {
 	display: block;
 	min-width: 50px;
 	max-width: 100%;
@@ -8,13 +8,56 @@
     z-index: 421;
     line-height: 64px;
 	cursor: pointer;
-}
+}*/
 
 svg {
+	color: white;
+	width:32px;
+	height:32px;
 	float: left;
+	position: relative;
+	top: 50%;
+	transform: translateY(-50%);
 }
 
-/* tooltips css logic */
+.centre {
+	margin-left: auto;
+	margin-right: auto;
+	display: block;
+	width: fit-content;
+	height: 100%;
+}
+
+.bckg {
+	display: none;
+	background-color: rgba(9, 34, 9, 0.616);
+	height: 100%;
+	width: 100%;
+	bottom: 0;
+}
+
+p {
+	position: relative;
+	top: 50%;
+	transform: translateY(-50%);
+	margin: 0%;
+}
+
+
+
+:host {
+	min-height: 32px;
+	min-width: 160px;
+	z-index: 420;
+	user-select: none;
+	text-overflow: ellipsis;
+	overflow: hidden;
+	white-space: nowrap;
+	color: white;
+
+}
+
+/* tooltips css logic 
 .helper-txt {
 	visibility: visible;
     font-size: 13px;
