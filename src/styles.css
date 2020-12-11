@@ -355,3 +355,18 @@ ul {
 		transform: translateY(0);
 	}
 }
+
+@keyframes subscribeButtonCollapse {
+   0% {
+		width: auto;
+		color: white;
+	}
+	60% {
+		width: 45px;
+		color: transparent;
+	}
+	100% {
+		color: transparent;
+		width: 34px;
+	}
+}

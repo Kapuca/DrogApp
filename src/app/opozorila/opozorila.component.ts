@@ -19,7 +19,7 @@ import { ActivatedRoute } from '@angular/router';
         </div>
       </div>
     </div>
-    <input *ngIf='ds.notifPermissStatus() === "default"' type="button" (click)="ds.getSubscribed()" value="Get notified">
+    <input id="subscribeButton" *ngIf='ds.notifPermissStatus() === "default"' type="button" (click)="ds.getSubscribed()" value="Spremljaj opozorila" />
     <app-conn-status [persist]='true'></app-conn-status>
   </div>
   `,
@@ -30,8 +30,9 @@ import { ActivatedRoute } from '@angular/router';
     '.details { display: initial}',
     '.opozoriloICO { height: 3.5em; display: block; width: 100%; }',
     '#content { animation: 0.6s ease-out 0s 1 slideFromUp; }',
-    'input { position: fixed; bottom: 100px; right: 15px; }',
+    'input { cursor: pointer; position: fixed; border: none; top: 67px; right: 4px; height: 39px; z-index: 422; background-image: url(\'assets/img/sub-bell-icon.svg\'); background-blend-mode: overlay; background-size: 28px; background-repeat: no-repeat; background-position-y: center; background-position-x: 3px; text-transform: uppercase; color: white; font-size: 12px; background-color: cadetblue; animation: subscribeButtonCollapse 0.4s 2s 1 ease-in-out; animation-fill-mode: forwards; }',
     'app-conn-status {position: fixed; bottom: 61px; width: 100%; height: 40px; }',
+	'#subscribeButton {  }'
   ]
 })
 export class OpozorilaComponent implements OnInit, OnDestroy{

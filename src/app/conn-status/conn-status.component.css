@@ -11,7 +11,7 @@
 }*/
 
 svg {
-	color: white;
+	padding: 0px 10px 0px 10px;
 	width:32px;
 	height:32px;
 	float: left;
@@ -26,6 +26,8 @@ svg {
 	display: block;
 	width: fit-content;
 	height: 100%;
+	user-select: none;
+	transform: translateX(-20px);
 }
 
 .bckg {
