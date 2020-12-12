@@ -358,15 +358,21 @@ ul {
 
 @keyframes subscribeButtonCollapse {
    0% {
-		width: auto;
+		width: 154px;
 		color: white;
+		transform: scale(1);
+		opacity: 1;
 	}
-	60% {
-		width: 45px;
-		color: transparent;
+	40% {
+		width: 154px;
+		color: #FFFFFF55;
+		transform: scale(1, 0.92);
+		opacity: 0.8;
 	}
 	100% {
 		color: transparent;
 		width: 34px;
+		transform: scale(1);
+		opacity: 0.95;
 	}
 }
