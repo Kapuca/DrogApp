@@ -47,8 +47,8 @@ self.addEventListener('push', event => {
                     type: 'opozorilo'
                 },
                 actions: [
-                    {action: 'show', title: 'Open'},
-                    {action: 'close', title: 'Close'}
+                    {action: 'show', title: 'Podrobnosti'},
+                    {action: 'close', title: 'Zapri'}
                 ]
             };
             console.log('opt', options);
