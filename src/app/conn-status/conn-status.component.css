@@ -24,6 +24,7 @@ svg {
 	height: 5px;
 	width: 100%;
 	bottom: 0;
+	transition: height 0.3s ease-out;
 }
 
 p {
@@ -32,8 +33,6 @@ p {
 	transform: translateY(-50%);
 	margin: 0%;
 }
-
-
 
 :host {
 	position: fixed; 

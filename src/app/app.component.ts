@@ -25,8 +25,6 @@ export class AppComponent implements OnInit{
 	this.loc.onUrlChange((url, state) => {
 		console.log('url', url);
 		this.onOpozorila = url.includes('opozorila');
-		console.log('onOpozorila', this.onOpozorila);
-		
 	});
   }
 

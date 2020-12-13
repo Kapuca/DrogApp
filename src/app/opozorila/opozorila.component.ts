@@ -19,7 +19,7 @@ import { ActivatedRoute } from '@angular/router';
         </div>
       </div>
     </div>
-    <input id="subscribeButton" *ngIf='ds.notifPermissStatus() === "default"' type="button" (click)="ds.getSubscribed()" value="Spremljaj opozorila" />
+    <input id="subscribeButton" type="button" (click)="ds.getSubscribed()" value="Spremljaj opozorila" />
   </div>
   `,
   styles: [
@@ -80,13 +80,11 @@ export class OpozorilaComponent implements OnInit, OnDestroy{
       const elToShow = this.containers.filter(el => el.nativeElement.id === ('container-' + idx))[0];
       this.observer.observe( elToShow.nativeElement, {childList: true} );
     }
-    this.ds.getSubscribed();
-
   }
 
   scrollView() {
-      const elTOshow = this.containers.filter(el => el.nativeElement.id === ('container-' + this.show))[0];
-      window.scrollBy({top: elTOshow.nativeElement.getBoundingClientRect().top - 109, left: 0, behavior: 'smooth'});
+    const elTOshow = this.containers.filter(el => el.nativeElement.id === ('container-' + this.show))[0];
+    window.scrollBy({top: elTOshow.nativeElement.getBoundingClientRect().top - 109, left: 0, behavior: 'smooth'});
   }
 
 }

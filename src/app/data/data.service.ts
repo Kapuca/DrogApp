@@ -65,7 +65,7 @@ export class DataService {
       Notification.requestPermission().then(res => { console.log('permiss', res); }, err => { console.log('denid?', err); } );
       navigator.serviceWorker.getRegistration().then( reg => {
         reg.pushManager.getSubscription().then( sub => {
-
+			
           const tmp = () =>  {
             reg.pushManager.subscribe({
               userVisibleOnly: true,
@@ -106,10 +106,10 @@ export class DataService {
     }
   }
 
-  notifPermissStatus() {
+/*   notifPermissStatus() {
     console.log(Notification.permission);
     return Notification.permission;
-  }
+  } */
 
   urlBase64ToUint8Array(base64String: string) {
     const padding = '='.repeat((4 - base64String.length % 4) % 4);
