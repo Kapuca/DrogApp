@@ -38,29 +38,29 @@ self.addEventListener('push', event => {
         if (Notification.permission === 'granted') {
             const options = {
                 body: data.title,
-                icon: 'assets/img/home-opozorila.svg',
+                icon: 'assets/img/notif-icon.png',
+				badge: 'assets/img/notif-badge.png',
                 vibrate: [100, 50, 100],
                 data: {
                     dateOfArrival: Date.now(),
                     url: self.registration.scope + 'opozorila?show=' + data.id,
-                    type: 'opozorilo',
+                    type: 'opozorilo'
                 },
                 actions: [
                     {action: 'show', title: 'Open'},
-                    {action: 'close', title: 'Close'},
+                    {action: 'close', title: 'Close'}
                 ]
             };
             console.log('opt', options);
             event.waitUntil(self.registration.showNotification('DrogArt', options));
-            console.log('done');
+            console.log('sent');
         } else {
-            console.log('fuck');
+            console.log('perm not granted');
             Notification.requestPermission();
         }
     }
-    if (event.data) {
+    if (event.data.length > 0) {
         console.log('This push event has data: ', event.data);
-        console.log(event);
         displayNotif(event.data.json());
     } else {
         console.log('This push event has no data.');
