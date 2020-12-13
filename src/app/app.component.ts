@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ServiceWorkerModule } from '@angular/service-worker';
 import { environment } from 'src/environments/environment';
 import { RouterOutlet } from '@angular/router';
+import { Location } from '@angular/common';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { slideInAnimation } from './animations';
 import { Router } from '@angular/router';
@@ -15,11 +16,18 @@ import { Router } from '@angular/router';
 export class AppComponent implements OnInit{
 
   title = 'DrogApp';
+  onOpozorila: boolean;
 
-  constructor(private router: Router ) {}
+  constructor(private router: Router, private loc: Location ) { }
 
   ngOnInit() {
     ServiceWorkerModule.register(environment.serviceWorkerScript);
+	this.loc.onUrlChange((url, state) => {
+		console.log('url', url);
+		this.onOpozorila = url.includes('opozorila');
+		console.log('onOpozorila', this.onOpozorila);
+		
+	});
   }
 
   prepareRoute(outlet: RouterOutlet) {

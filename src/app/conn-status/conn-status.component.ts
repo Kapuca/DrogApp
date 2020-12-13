@@ -6,7 +6,7 @@ import { DataService } from '../data/data.service';
   template: `
   <div #bckg class='bckg' [style.position]="(collapseBottom ? 'absolute' : 'static')">
     <div #centre class='centre'>
-      <svg x="0px" y="0px" viewBox="0 0 493.746 493.746" style="enable-background:new 0 0 493.746 493.746;" fill="#262626">
+      <svg x="0px" y="0px" viewBox="0 0 493.746 493.746" style="enable-background:new 0 0 493.746 493.746;" [attr.fill]='fill'>
 		<g id="XMLID_358_">
 		  <path id="XMLID_362_" d="M212.524,356.921c-18.966,18.968-18.966,49.737,0,68.706c18.976,18.965,49.74,18.965,68.715,0c18.965-18.969,18.965-49.738,0-68.706C262.264,337.952,231.5,337.952,212.524,356.921z"/>
 		  <path id="XMLID_361_" d="M246.882,241.383c-40.027,0-77.683,15.591-105.971,43.907c-11.113,11.108-11.113,29.112,0,40.213c11.104,11.108,29.1,11.108,40.213,0c17.546-17.571,40.907-27.244,65.758-27.244s48.213,9.673,65.759,27.244c5.561,5.554,12.855,8.33,20.111,8.33c7.294,0,14.55-2.776,20.102-8.33c11.113-11.101,11.113-29.104,0-40.213C324.565,256.974,286.909,241.383,246.882,241.383z"/>
@@ -24,12 +24,26 @@ import { DataService } from '../data/data.service';
 export class ConnStatusComponent implements OnInit, OnDestroy, AfterViewInit{
 
   @Input() collapseBottom = true;
-  @Input() persist: boolean;
+  @Input() 
+  set persist(value: boolean) {
+	console.log('set persist', value);  
+	this._persist = value;
+	if ( this.container ) {
+		if ( this.persist || !this.ds.isOnline() ) { 
+			this.showMe(); 
+		}else {
+			this.hideMe();
+		}
+	}
+  }
+  get persist(): boolean { return this._persist; }
+  private _persist: boolean;
   @ViewChild('bckg') container: ElementRef;
   @ViewChild('centre') wrapper: ElementRef;
   @Input() timeout = 2000;
   opened: boolean;
   statusText: string;
+  fill: string;
 
   constructor(private ds: DataService) { }
 
@@ -38,9 +52,7 @@ export class ConnStatusComponent implements OnInit, OnDestroy, AfterViewInit{
     this.ds.onStatusChange( status => this.updateOnlineStatus(status) );
   }
 
-  ngOnDestroy() {
-    this.hideMe();
-  }
+  ngOnDestroy() { this.hideMe(); }
 
   ngAfterViewInit() {
     if (this.persist || !this.ds.isOnline()) {
@@ -56,13 +68,17 @@ export class ConnStatusComponent implements OnInit, OnDestroy, AfterViewInit{
 
       setTimeout(() => {
         this.closeMe(isOnline);
-        if (!this.persist) { setTimeout(() => this.hideMe(), this.timeout / 2 ); }
+        setTimeout(() => {
+			if (!this.persist) { this.hideMe(); }
+		}, this.timeout / 2 );
       }, this.timeout);
+	  this.fill = '#262626';
 
     } else {
       this.showMe();
       this.openMe(isOnline);
       setTimeout(() => this.closeMe(isOnline), this.timeout);
+	  this.fill = '#26262666';
     }
   }
 
@@ -74,7 +90,7 @@ export class ConnStatusComponent implements OnInit, OnDestroy, AfterViewInit{
 
   openMe(isOnline: boolean) {
     this.wrapper.nativeElement.style.display = 'block';
-    this.container.nativeElement.style.backgroundColor = (isOnline ? '#4caf50' : '#e91e63') + 'a0';
+    this.container.nativeElement.style.backgroundColor = (isOnline ? '#4caf50' : '#e91e63') + 'dd';
     this.setMeUp(isOnline);
     this.container.nativeElement.style.height = '100%';
   }
@@ -88,11 +104,8 @@ export class ConnStatusComponent implements OnInit, OnDestroy, AfterViewInit{
   }
 
   setMeUp(isOnline) {
-    this.statusText = 'Internetna povezava ' + (isOnline ? 'vzpostavljena' : 'prekinjena') + '.';
-    // set icon instead of svg?
+    this.statusText = 'Internetna povezava je ' + (isOnline ? 'vzpostavljena' : 'prekinjena') + '.';
+    isOnline ? this.fill = '#262626' : this.fill = '#26262666';
   }
-
-
-
 
 }

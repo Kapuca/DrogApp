@@ -31,7 +31,6 @@ import { ActivatedRoute } from '@angular/router';
           <img id="mergency4Slika" src="assets/img/emergency_4.svg" alt="PIC:EMERGENCY4" oncontextmenu="return false;"/>
         </div>
       </div>
-      <app-conn-status></app-conn-status>
     </div>
   `,
   styles: [
@@ -44,8 +43,7 @@ import { ActivatedRoute } from '@angular/router';
     '#mergency3Slika { height: 47vh; margin-top: 1%; }',
     '#mergency1Slika, #mergency4Slika { margin: 0px 2.5%; }',
     '.izbira { font-size: 1.4rem; font-weight: 650; cursor: pointer; width: calc(50vw - 6px); height: 61.5px; top: -17px; position: relative; background-color: #00000000; border: none; }',
-    // 'p.basic-txt { padding: 20px 36px 20px 20px; }',
-    'app-conn-status {position: fixed; bottom: 61px; width: 100%; height: 40px; }',
+    // 'p.basic-txt { padding: 20px 36px 20px 20px; }'
   ]
 })
 export class EmergencyComponent implements OnInit {
