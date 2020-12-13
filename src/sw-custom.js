@@ -59,7 +59,7 @@ self.addEventListener('push', event => {
             Notification.requestPermission();
         }
     }
-    if (event.data.length > 0) {
+    if (event.data) {
         console.log('This push event has data: ', event.data);
         displayNotif(event.data.json());
     } else {
