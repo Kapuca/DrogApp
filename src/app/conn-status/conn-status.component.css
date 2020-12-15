@@ -37,7 +37,7 @@ p {
 :host {
 	position: fixed; 
 	bottom: 61px;
-	height: 40px;
+	max-height: 40px;
 	min-height: 5px;
 	min-width: 100%;
 	z-index: 420;
