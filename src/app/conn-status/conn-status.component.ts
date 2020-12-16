@@ -28,7 +28,7 @@ export class ConnStatusComponent implements OnInit, OnDestroy, AfterViewInit{
   set persist(value: boolean) {
 	console.log('set persist', value);  
 	this._persist = value;
-	if ( this.container ) {
+	if ( this.bckg ) {
 		if ( this.persist || !this.ds.isOnline() ) { 
 			this.showMe(); 
 		}else {
@@ -38,8 +38,8 @@ export class ConnStatusComponent implements OnInit, OnDestroy, AfterViewInit{
   }
   get persist(): boolean { return this._persist; }
   private _persist: boolean;
-  @ViewChild('bckg') container: ElementRef;
-  @ViewChild('centre') wrapper: ElementRef;
+  @ViewChild('bckg') bckg: ElementRef;
+  @ViewChild('centre') centre: ElementRef;
   @Input() timeout = 2000;
   opened: boolean;
   statusText: string;
@@ -83,24 +83,25 @@ export class ConnStatusComponent implements OnInit, OnDestroy, AfterViewInit{
   }
 
   closeMe(isOnline: boolean): void {
-    this.wrapper.nativeElement.style.display = 'none';
-    this.container.nativeElement.style.backgroundColor = isOnline ? '#4caf50' : '#e91e63';
-    this.container.nativeElement.style.height = '5px';
+    this.centre.nativeElement.style.display = 'none';
+    this.bckg.nativeElement.style.backgroundColor = isOnline ? '#4caf50' : '#e91e63';
+    this.bckg.nativeElement.style.height = '5px';
+    
   }
 
   openMe(isOnline: boolean) {
-    this.wrapper.nativeElement.style.display = 'block';
-    this.container.nativeElement.style.backgroundColor = (isOnline ? '#4caf50' : '#e91e63') + 'dd';
+    this.centre.nativeElement.style.display = 'block';
+    this.bckg.nativeElement.style.backgroundColor = (isOnline ? '#4caf50' : '#e91e63') + 'dd';
     this.setMeUp(isOnline);
-    this.container.nativeElement.style.height = '100%';
+    this.bckg.nativeElement.style.height = '40px';
   }
 
   hideMe() {
-    this.container.nativeElement.style.display = 'none';
+    this.bckg.nativeElement.style.display = 'none';
   }
 
   showMe() {
-    this.container.nativeElement.style.display = 'block';
+    this.bckg.nativeElement.style.display = 'block';
   }
 
   setMeUp(isOnline) {

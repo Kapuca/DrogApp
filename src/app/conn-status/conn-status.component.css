@@ -25,6 +25,7 @@ svg {
 	width: 100%;
 	bottom: 0;
 	transition: height 0.3s ease-out;
+	overflow: hidden;
 }
 
 p {
@@ -42,8 +43,7 @@ p {
 	min-width: 100%;
 	z-index: 420;
 	user-select: none;
-	text-overflow: ellipsis;
-	overflow: hidden;
+	overflow: visible;
 	white-space: nowrap;
 	color: white;
 
