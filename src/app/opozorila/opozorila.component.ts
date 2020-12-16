@@ -15,7 +15,7 @@ import { ActivatedRoute } from '@angular/router';
         </div>
         <div class='details' *ngIf='show == opozorilo.id'>
           <p class="basic-txt" [innerHTML]='opozorilo.msg'></p>
-          <a [href]='opozorilo.link'><img class="opozoriloICO" src='assets/img/more.svg' oncontextmenu="return false;"/></a>
+          <a *ngIf='opozorilo.link' [href]='opozorilo.link'><img class="opozoriloICO" src='assets/img/more.svg' oncontextmenu="return false;"/></a>
         </div>
       </div>
     </div>
@@ -29,7 +29,7 @@ import { ActivatedRoute } from '@angular/router';
     '.details { display: initial}',
     '.opozoriloICO { height: 3.5em; display: block; width: 100%; }',
     '#content { animation: 0.6s ease-out 0s 1 slideFromUp; }',
-    '#subscribeButton { opacity: 0; cursor: pointer; width: 154px; position: fixed; border: none; top: 67px; right: 4px; height: 39px; z-index: 422; background-image: url(\'assets/img/sub-bell-icon.svg\'); background-blend-mode: overlay; background-size: 28px; background-repeat: no-repeat; background-position-y: center; background-position-x: 3px; text-transform: uppercase; color: white; font-size: 12px; background-color: cadetblue; animation: subscribeButtonCollapse 1.5s 0s 1 ease-in-out; animation-fill-mode: forwards; }'
+    '#subscribeButton { opacity: 0; cursor: pointer; width: 154px; position: fixed; border: none; top: 67px; right: 4px; height: 39px; z-index: 422; background-image: url("assets/img/sub-bell-icon.svg"); background-blend-mode: overlay; background-size: 28px; background-repeat: no-repeat; background-position-y: center; background-position-x: 3px; text-transform: uppercase; color: white; font-size: 12px; background-color: cadetblue; animation: subscribeButtonCollapse 1.5s 0s 1 ease-in-out; animation-fill-mode: forwards; }'
   ]
 })
 export class OpozorilaComponent implements OnInit, OnDestroy{
