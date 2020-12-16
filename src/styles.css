@@ -193,6 +193,7 @@ p.basic-txt {
 #vecICO {
 	width: 1.6rem;
 	padding: 0.5rem;
+	transform: rotateZ(90deg);
 }
 
 h2.naslov {
@@ -242,7 +243,8 @@ ul {
 #ne { color: #dd6c56; }
 
 #moreInfo {
-	animation: 0.3s ease-in-out 0s 1 slideFromDown;
+	animation: 0.3s ease-in-out 0.2s 1 slideFromRight;
+	animation-fill-mode: forwards;
 }
 
 /*  ANIMATIONS */
@@ -363,13 +365,19 @@ ul {
 		transform: scale(1);
 		opacity: 0;
 	}
-   50% {
+   35% {
 		width: 154px;
 		color: white;
 		transform: scale(1);
 		opacity: 1;
 	}
-	60% {
+	70% {
+		width: 154px;
+		color: white;
+		transform: scale(1);
+		opacity: 1;
+	}
+	85% {
 		width: 154px;
 		color: #FFFFFF55;
 		transform: scale(1, 0.92);
