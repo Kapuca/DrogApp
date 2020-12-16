@@ -36,7 +36,6 @@ export class FooterComponent implements OnInit {
     if (this.onOpozorila) {
       window.scrollTo({behavior: 'smooth', top: 0});
     }
-    this.ds.getSubscribed();
   }
 
 }
