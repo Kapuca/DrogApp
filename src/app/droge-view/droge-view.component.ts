@@ -26,7 +26,7 @@ import { DataService } from '../data/data.service';
   `,
   styles: [
     '#content { top: 140px; }',
-    '#moreInfo { opacity: 0; position: fixed; bottom: 100px; right: 0px; background: linear-gradient(to right bottom, rgb(238, 213, 134, 0.6), rgb(238, 213, 134, 1)); }'
+    '#moreInfo { opacity: 0; position: fixed; bottom: 100px; right: 0px; background: linear-gradient(to right bottom, rgb(238, 213, 134, 0.5), rgb(238, 213, 134, 0.9)); }'
   ]
 })
 export class DrogeViewComponent implements OnInit {
