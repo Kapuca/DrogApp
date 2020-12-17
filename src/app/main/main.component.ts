@@ -15,8 +15,8 @@ import { slideInAnimation } from '../animations';
   styles: [
     '#main { background-color: #262626; position: fixed; top: 64px; display: grid; grid-template-columns: 50vw 50vw; grid-template-rows: repeat(6, 33.33%); grid-gap: 0px; overflow-y: auto; overflow-x: hidden; user-select: none; }',
     '.tile { text-align: center; padding: 5px 12px; content-align: center; overflow: hidden }',
-    'img { object-fit: scale-down; max-width: 100%; height: 27%; display: block; margin: auto; position: relative; top: 30%; }',
-    'p { color: #fff; text-transform: uppercase; font-weight: 600; letter-spacing: 0.15rem; font-size: small; position: relative; top: 25%; }'
+    'img { object-fit: scale-down; max-width: 100%; height: 45%; display: block; margin: auto; position: relative; top: 22.5%; }',
+    'p { color: #fff; text-transform: uppercase; font-weight: 600; letter-spacing: 0.15rem; font-size: small; position: relative; top: 35%; }'
   ],
   animations: [
     slideInAnimation
