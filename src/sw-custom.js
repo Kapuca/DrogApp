@@ -40,7 +40,7 @@ self.addEventListener('push', event => {
                 body: data.title,
                 icon: 'assets/img/notif-icon.png',
 				badge: 'assets/img/notif-badge.png',
-                vibrate: [100, 50, 100],
+                vibrate: [500, 500],
                 data: {
                     dateOfArrival: Date.now(),
                     url: self.registration.scope + 'opozorila?show=' + data.id,
@@ -59,7 +59,7 @@ self.addEventListener('push', event => {
             Notification.requestPermission();
         }
     }
-    if (event.data) {
+    if (event.data.length > 0) {
         console.log('This push event has data: ', event.data);
         displayNotif(event.data.json());
     } else {

@@ -23,8 +23,8 @@ export const slideInAnimation =
           animate('300ms ease-in-out', style({ left: '0%' }))
         ])
       ]),
-      // query(':enter', animateChild()),
-      // query(':leave', animateChild()),
+      //query(':enter', animateChild()),
+      //query(':leave', animateChild()),
     ]),
     transition('SecondPage => FirstPage, SecondPageOpozorila => FirstPage, AnotherSecondPage => *', [
       style({ position: 'relative' }),
@@ -47,8 +47,8 @@ export const slideInAnimation =
           animate('300ms ease-in-out', style({ left: '0%' }))
         ])
       ]),
-      // query(':enter', animateChild()),
-      // query(':leave', animateChild()),
+      //query(':enter', animateChild()),
+      //query(':leave', animateChild()),
     ]),
     transition('NOC => AnotherSecondPage, FirstPage => AnotherSecondPage, SecondPage => AnotherSecondPage', [
       style({ position: 'relative' }),
@@ -71,8 +71,8 @@ export const slideInAnimation =
           animate('300ms ease-in-out', style({ left: '0%' }))
         ])
       ]),
-      // query(':enter', animateChild()),
-      // query(':leave', animateChild()),
+      //query(':enter', animateChild()),
+      //query(':leave', animateChild()),
     ]),
     transition('* => FirstPage', [
       style({ position: 'relative' }),
@@ -92,7 +92,7 @@ export const slideInAnimation =
           animate('300ms ease-in-out', style({ left: '0%' }))
         ])
       ]),
-      // query(':enter', animateChild()),
+      //query(':enter', animateChild()),
     ]),
     transition('* => SecondPage', [
       style({ position: 'relative' }),
@@ -112,6 +112,6 @@ export const slideInAnimation =
           animate('300ms ease-in-out', style({ left: '0%' }))
         ])
       ]),
-      // query(':enter', animateChild()),
+      //query(':enter', animateChild()),
     ])
   ]);
