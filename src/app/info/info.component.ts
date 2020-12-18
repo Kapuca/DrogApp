@@ -9,7 +9,7 @@ import { GeneralService } from '../general/general.service';
     <app-nav-header></app-nav-header>
     <div id='content'>
       <div class='section'>
-        <h2 *ngIf='egg < 7' (click)='hatch()'>{{info.firsttitle | uppercase}}</h2>
+        <h2 *ngIf='egg < 15' (click)='hatch()'>{{info.firsttitle | uppercase}}</h2>
         <div id='duck' *ngIf='egg >= 7'> <input #txt /><button (click)='quack()'>Quack</button> </div>
         <p class="basic-txt" [innerHTML]='info.firsttext'></p>
       </div>
