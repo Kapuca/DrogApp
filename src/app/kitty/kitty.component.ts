@@ -15,7 +15,7 @@ import { DataService } from '../data/data.service';
   `,
   styles: [
     '.kittyBlock > p { text-align: center; content-align: center; }',
-    '.kittyBlock > img { position: fixed; object-fit: contain; top: 50%; left: 50%; transform: translate(-50%, -50%); }',
+    '.kittyBlock > img {display: block; margin: auto;}',
     'app-conn-status {position: fixed; bottom: 61px; width: 100%; height: 40px; }',
   ]
 })
