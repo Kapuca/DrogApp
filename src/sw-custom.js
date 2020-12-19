@@ -40,7 +40,6 @@ self.addEventListener('push', event => {
                 body: data.title,
                 icon: 'assets/img/notif-icon.png',
 				badge: 'assets/img/notif-badge.png',
-				image: 'assets/img/notif-fix.png',
                 vibrate: [500, 500],
                 data: {
                     dateOfArrival: Date.now(),
