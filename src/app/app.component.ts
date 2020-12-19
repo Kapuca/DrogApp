@@ -3,7 +3,6 @@ import { ServiceWorkerModule } from '@angular/service-worker';
 import { environment } from 'src/environments/environment';
 import { RouterOutlet } from '@angular/router';
 import { Location } from '@angular/common';
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { slideInAnimation } from './animations';
 import { Router } from '@angular/router';
 
@@ -21,11 +20,11 @@ export class AppComponent implements OnInit{
   constructor(private router: Router, private loc: Location ) { }
 
   ngOnInit() {
+    this.loc.onUrlChange((url, state) => {
+      console.log('url', url);
+      this.onOpozorila = url.includes('opozorila');
+    });
     ServiceWorkerModule.register(environment.serviceWorkerScript);
-	this.loc.onUrlChange((url, state) => {
-		console.log('url', url);
-		this.onOpozorila = url.includes('opozorila');
-	});
   }
 
   prepareRoute(outlet: RouterOutlet) {

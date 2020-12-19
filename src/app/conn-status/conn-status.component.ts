@@ -24,20 +24,20 @@ import { DataService } from '../data/data.service';
 export class ConnStatusComponent implements OnInit, OnDestroy, AfterViewInit{
 
   @Input() collapseBottom = true;
-  @Input() 
+  @Input()
   set persist(value: boolean) {
-	console.log('set persist', value);  
-	this._persist = value;
-	if ( this.bckg ) {
-		if ( this.persist || !this.ds.isOnline() ) { 
-			this.showMe(); 
-		}else {
-			this.hideMe();
-		}
-	}
+    console.log('set persist', value);
+    this.persistance = value;
+    if ( this.bckg ) {
+      if ( this.persist || !this.ds.isOnline() ) {
+        this.showMe();
+      }else {
+        this.hideMe();
+      }
+    }
   }
-  get persist(): boolean { return this._persist; }
-  private _persist: boolean;
+  get persist(): boolean { return this.persistance; }
+  private persistance: boolean;
   @ViewChild('bckg') bckg: ElementRef;
   @ViewChild('centre') centre: ElementRef;
   @Input() timeout = 2000;
@@ -69,16 +69,16 @@ export class ConnStatusComponent implements OnInit, OnDestroy, AfterViewInit{
       setTimeout(() => {
         this.closeMe(isOnline);
         setTimeout(() => {
-			if (!this.persist) { this.hideMe(); }
-		}, this.timeout / 2 );
+          if (!this.persist) { this.hideMe(); }
+        }, this.timeout / 2 );
       }, this.timeout);
-	  this.fill = '#262626';
+      this.fill = '#262626';
 
     } else {
       this.showMe();
       this.openMe(isOnline);
       setTimeout(() => this.closeMe(isOnline), this.timeout);
-	  this.fill = '#26262666';
+      this.fill = '#26262666';
     }
   }
 
@@ -86,7 +86,7 @@ export class ConnStatusComponent implements OnInit, OnDestroy, AfterViewInit{
     this.centre.nativeElement.style.display = 'none';
     this.bckg.nativeElement.style.backgroundColor = isOnline ? '#4caf50' : '#e91e63';
     this.bckg.nativeElement.style.height = '5px';
-    
+
   }
 
   openMe(isOnline: boolean) {

@@ -65,7 +65,6 @@ export class DataService {
       Notification.requestPermission().then(res => { console.log('permiss', res); }, err => { console.log('denid?', err); } );
       navigator.serviceWorker.getRegistration().then( reg => {
         reg.pushManager.getSubscription().then( sub => {
-			
           const tmp = () =>  {
             reg.pushManager.subscribe({
               userVisibleOnly: true,
