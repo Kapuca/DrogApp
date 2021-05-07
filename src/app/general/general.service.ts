@@ -18,20 +18,25 @@ export class GeneralService {
 
   constructor() { }
 
-  getTitles(){
+  getTitles(): string[]{
+    const tmp = localStorage.getItem('tiles');
+    if(tmp) return JSON.parse(tmp);
+    localStorage.setItem('tiles', JSON.stringify(this.tiles));
     return this.tiles;
   }
 
   getColor(tile: string){
-    const idx = (this.tiles.indexOf(tile) % 6);
+    const idx = (this.getTitles().indexOf(tile) % 6);
     return this.colors[idx < 0 ? 0 : idx];
   }
 
   addTile(tile: string): void {
     if (!(tile.startsWith('#') && tile.endsWith('#')) ) { return; }
+    let tls = this.getTitles();
     this.reserved.forEach( (val, idx) => {
-      if (tile.includes(val) && !this.tiles.includes(val)) {
-        this.tiles.push(val);
+      if (tile.includes(val) && !tls.includes(val)) {
+        tls.push(val);
+        localStorage.setItem('tiles', JSON.stringify(tls));
       }
     });
   }
