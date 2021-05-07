@@ -3,21 +3,22 @@
   "short_name": "DrogApp",
   "theme_color": "#262626",
   "background_color": "#262626",
-  "display": "fullscreen",
+  "display": "standalone",
   "orientation": "portrait",
   "scope": "./",
   "start_url": "./",
   "icons": [
     {
-      "src": "assets/icons/icon-512x512.png",
-      "sizes": "512x512",
-      "type": "image/png"
+      "src": "assets/icons/icon.svg",
+      "sizes": "150x150",
+      "type": "image/svg+xml",
+	  "purpose": "any"
     },
     {
-      "src": "assets/icons/icon-maskable.png",
-      "sizes": "682x682",
-      "type": "image/png",
-		"purpose": "maskable"
+      "src": "assets/icons/icon-maskable.svg",
+      "sizes": "150x150",
+      "type": "image/svg+xml",
+	  "purpose": "maskable"
     }
   ],
   "shortcuts": [
@@ -25,7 +26,7 @@
       "name": "Droge",
       "short_name": "Droge",
       "description": "Seznam drog",
-      "url": "/droge",
+      "url": "./droge",
       "icons": [{ "src": "assets/img/home-droge.svg", "sizes": "512x512" }]
     }
   ]
